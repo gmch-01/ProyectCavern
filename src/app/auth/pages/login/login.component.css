@@ -1,0 +1,26 @@
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-color: #0C51A8;
+}
+
+.login {
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+
+}
+
+.ancho {
+    width: 80%;
+}
+
+.tittle {
+    color: rgb(17, 250, 250);
+}
+
+.button {
+    height: 50px;
+}
