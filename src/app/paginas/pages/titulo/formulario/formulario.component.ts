@@ -20,8 +20,12 @@ export class FormularioComponent {
   }
 
 }
+
 export interface DialogData {
-  animal: string;
+  animal: string ;
   name: string;
+  nombre: string; 
+  id: number;
+  receta: string; 
 
 }
