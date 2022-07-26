@@ -10,13 +10,20 @@
 }
 
 .myButton {
-    padding: 1rem;
-    margin: 1 rem;
-    width: 30%;
+    padding: 20px;
+    margin: 20px;
+    width: 20%;
 }
 
 li {
     text-decoration: underline;
     padding: 0.3 rem 0;
     list-style: none;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 }

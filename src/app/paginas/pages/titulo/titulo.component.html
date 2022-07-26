@@ -1,30 +1,38 @@
 <div class="header-app">
 </div>
-<div class="buttons-list">
+<div class="body">
     <button mat-raised-button class="myButton">
-        papa /2$
+        Agregar
     </button>
+    <button mat-raised-button class="myButton">
+        Editar
+    </button>
+    <button mat-raised-button class="myButton" (click)="openDialog()">
+        Formulario
+    </button>
+    <br>
+
+
+    <!-- 
     <form>
-        <table cellspacing="10">
-            <tr>
-                <td>
-                    <mat-form-field>
-                        <input matInput #orderNumber maxlength=" 3" placeholder="Order Number" autocomplete="off">
-                    </mat-form-field>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <mat-form-field>
-                        <input matInput #orderNumber maxlength="13" placeholder="Customer Number" autocomplete="off">
-                    </mat-form-field>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button mat-raised-button class="btn_send"> Send</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <input matInput #orderNumber maxlength=" 3" placeholder="Order Number" autocomplete="off">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <input matInput #orderNumber maxlength="13" placeholder="Customer Number" autocomplete="off">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button mat-raised-button class="btn_send"> Send</button>
+            </td>
+        </tr>
+    </form>-->
 </div>

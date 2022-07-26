@@ -13,6 +13,7 @@ import { AlmacenComponent } from './pages/almacen/almacen.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TituloComponent } from './pages/titulo/titulo.component';
+import { FormularioComponent } from './pages/titulo/formulario/formulario.component';
 
 
 
@@ -27,13 +28,15 @@ import { TituloComponent } from './pages/titulo/titulo.component';
     AlmacenComponent,
     VentasComponent,
     DashboardComponent,
-    TituloComponent
+    TituloComponent,
+    FormularioComponent,
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     PaginasRoutingModule,
     MaterialModule
-  ]
+  ],
+
 })
 export class PaginasModule { }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,9 +21,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { FormularioComponent } from '../paginas/pages/titulo/formulario/formulario.component';
+
+
 
 @NgModule({
   declarations: [],
+  entryComponents: [FormularioComponent],
   imports: [
     CommonModule,
   ],
@@ -45,7 +52,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     MatGridListModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class MaterialModule { }
