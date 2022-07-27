@@ -18,7 +18,10 @@ export class FormularioComponent {
   onCancel(): void {
     this.dialogRef.close();
   }
-
+  
+  agregar (){
+    console.log("sis e puede")
+  }
 }
 
 export interface DialogData {

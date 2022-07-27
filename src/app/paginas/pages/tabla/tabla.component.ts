@@ -3,25 +3,26 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { TituloComponent } from '../titulo/titulo.component';
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  nombre: string;
+  posicion: number;
+  receta: string; 
+  descripcion: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+  { posicion: 1, nombre: 'Hydrogen', receta: '1.0079', descripcion: 'H' },
+  { posicion: 2, nombre: 'Helium', receta: '4.0026', descripcion: 'He' },
+  { posicion: 3, nombre: 'Lithium', receta: '6.941', descripcion: 'Li' },
+  { posicion: 4, nombre: 'Beryllium', receta: '9.0122', descripcion: 'Be' },
+  { posicion: 5, nombre: 'Boron', receta: '10.811', descripcion: 'B' },
+  { posicion: 6, nombre: 'Carbon', receta: '12.0107', descripcion: 'C' },
+  { posicion: 7, nombre: 'Nitrogen', receta: '14.0067', descripcion: 'N' },
+  { posicion: 8, nombre: 'Oxygen', receta: '15.9994', descripcion: 'O' },
+  { posicion: 9, nombre: 'Fluorine', receta: '18.9984', descripcion: 'F' },
+  { posicion: 10, nombre: 'Neon', receta: '20.1797', descripcion: 'Ne' },
 ];
 
 /**
@@ -37,7 +38,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class TablaComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['posicion', 'nombre', 'receta', 'descripcion'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   constructor(private _liveAnnouncer: LiveAnnouncer) { }
