@@ -22,7 +22,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { FormularioComponent } from '../paginas/pages/titulo/formulario/formulario.component';
 
@@ -56,7 +57,8 @@ import { FormularioComponent } from '../paginas/pages/titulo/formulario/formular
     MatSnackBarModule,
     MatDialogModule,
     FormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HighchartsChartModule
   ]
 })
 export class MaterialModule { }
