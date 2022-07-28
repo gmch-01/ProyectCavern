@@ -14,8 +14,10 @@ import { VentasComponent } from './pages/ventas/ventas.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TituloComponent } from './pages/titulo/titulo.component';
 import { FormularioComponent } from './pages/titulo/formulario/formulario.component';
-import { NgChartsModule } from 'ng2-charts';
+
 import { BarrasComponent } from './pages/dashboard/graficas/barras/barras.component';
+import { DonaComponent } from './pages/dashboard/graficas/dona/dona.component';
+import { LineasComponent } from './pages/dashboard/graficas/lineas/lineas.component';
 
 
 
@@ -33,13 +35,15 @@ import { BarrasComponent } from './pages/dashboard/graficas/barras/barras.compon
     TituloComponent,
     FormularioComponent,
     BarrasComponent,
+    DonaComponent,
+    LineasComponent,
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     PaginasRoutingModule,
     MaterialModule,
-    NgChartsModule
+    
   ],
 
 })

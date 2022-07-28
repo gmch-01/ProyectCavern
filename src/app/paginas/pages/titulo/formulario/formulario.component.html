@@ -1,25 +1,23 @@
 <h1 mat-dialog-title>Formulario</h1>
 <form (submit)="agregar()">
 <div mat-dialog-content>
-    
     <p>Ingrese los datos</p>
     <mat-form-field class="input" appearance="fill" >
-        <mat-label >Id</mat-label>
+        <mat-label>Id</mat-label>
         <input matInput [(ngModel)]="data.id">
     </mat-form-field>
     <mat-form-field class="input" appearance="fill">
-        <mat-label >Nombre</mat-label>
+        <mat-label>Nombre</mat-label>
         <input matInput [(ngModel)]="data.nombre">
     </mat-form-field>
     <mat-form-field class="input" appearance="fill">
-        <mat-label >Receta</mat-label>
+        <mat-label>Receta</mat-label>
         <input matInput [(ngModel)]="data.receta">
     </mat-form-field>
     <mat-form-field class="input" appearance="fill">
-        <mat-label >Descripción</mat-label>
+        <mat-label>Descripción</mat-label>
         <input matInput [(ngModel)]="data.descripcion">
-    </mat-form-field>
-    
+    </mat-form-field> 
 </div>
 
 <div mat-dialog-actions>

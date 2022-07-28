@@ -23,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HighchartsChartModule } from 'highcharts-angular';
+import { NgChartsModule } from 'ng2-charts';
 
 import { FormularioComponent } from '../paginas/pages/titulo/formulario/formulario.component';
 
@@ -58,7 +58,7 @@ import { FormularioComponent } from '../paginas/pages/titulo/formulario/formular
     MatDialogModule,
     FormsModule,
     MatPaginatorModule,
-    HighchartsChartModule
+    NgChartsModule
   ]
 })
 export class MaterialModule { }
