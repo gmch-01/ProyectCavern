@@ -5,6 +5,8 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TituloComponent } from '../titulo/titulo.component';
 
+
+
 export interface PeriodicElement {
   nombre: string;
   posicion: number;
@@ -35,11 +37,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 
-
 export class TablaComponent implements OnInit {
 
   displayedColumns: string[] = ['posicion', 'nombre', 'receta', 'descripcion'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  //dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  columnas: string[] = ['codigo', 'descripcion', 'precio'];
+
+  datos: Articulo[] = [];
+  dataSource:any;
+  paginator: any;
 
   constructor(private _liveAnnouncer: LiveAnnouncer) { }
   appName: string = 'Tabla';
@@ -62,7 +69,17 @@ export class TablaComponent implements OnInit {
     }
   }
 
+  
+
   ngOnInit(): void {
+    for (let x = 1; x <= 100; x++)
+      this.datos.push(new Articulo(x, `artículo ${x}`, Math.trunc(Math.random() * 1000)));
+    this.dataSource = new MatTableDataSource<Articulo>(this.datos);
+    this.dataSource.paginator = this.paginator;
   }
 
 }
+
+export class Articulo {
+  constructor(public codigo: number, public descripcion: string, public precio: number) {
+  }}
