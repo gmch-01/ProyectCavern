@@ -3,30 +3,18 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { TituloComponent } from '../titulo/titulo.component';
+
+import { MatPaginator } from '@angular/material/paginator';
+import { FormularioComponent } from '../titulo/formulario/formulario.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
-export interface PeriodicElement {
-  nombre: string;
-  posicion: number;
-  receta: string; 
-  descripcion: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { posicion: 1, nombre: 'Hydrogen', receta: '1.0079', descripcion: 'H' },
-  { posicion: 2, nombre: 'Helium', receta: '4.0026', descripcion: 'He' },
-  { posicion: 3, nombre: 'Lithium', receta: '6.941', descripcion: 'Li' },
-  { posicion: 4, nombre: 'Beryllium', receta: '9.0122', descripcion: 'Be' },
-  { posicion: 5, nombre: 'Boron', receta: '10.811', descripcion: 'B' },
-  { posicion: 6, nombre: 'Carbon', receta: '12.0107', descripcion: 'C' },
-  { posicion: 7, nombre: 'Nitrogen', receta: '14.0067', descripcion: 'N' },
-  { posicion: 8, nombre: 'Oxygen', receta: '15.9994', descripcion: 'O' },
-  { posicion: 9, nombre: 'Fluorine', receta: '18.9984', descripcion: 'F' },
-  { posicion: 10, nombre: 'Neon', receta: '20.1797', descripcion: 'Ne' },
-];
-
+let codigo: string;
+let name: string;
+let nombre: string;
+let id: number;
 /**
  * @title Table with sorting
  */
@@ -39,16 +27,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class TablaComponent implements OnInit {
 
-  displayedColumns: string[] = ['posicion', 'nombre', 'receta', 'descripcion'];
+  displayedColumns: string[] = ['posicion', 'nombre', 'receta', 'descripcion', 'accion'];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  columnas: string[] = ['codigo', 'descripcion', 'precio'];
-
   datos: Articulo[] = [];
-  dataSource:any;
-  paginator: any;
+  dataSource: any;
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) { }
+  codigo = '';
+  name = '';
+  nombre = '';
+  id = '';
+  receta = '';
+
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+
+  constructor(private _liveAnnouncer: LiveAnnouncer, public dialog: MatDialog) { }
   appName: string = 'Tabla';
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -56,12 +49,7 @@ export class TablaComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  /** Announce the change in sort state for assistive technology. */
   announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
@@ -69,17 +57,31 @@ export class TablaComponent implements OnInit {
     }
   }
 
-  
+
 
   ngOnInit(): void {
     for (let x = 1; x <= 100; x++)
-      this.datos.push(new Articulo(x, `artículo ${x}`, Math.trunc(Math.random() * 1000)));
+      this.datos.push(new Articulo(x, `artículo ${x}`, `receta ${x}`, Math.trunc(Math.random() * 1000)));
+
     this.dataSource = new MatTableDataSource<Articulo>(this.datos);
     this.dataSource.paginator = this.paginator;
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(FormularioComponent, {
+      width: '400px',
+      data: { name: this.codigo, animal: this.codigo },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.codigo = result;
+    });
   }
 
 }
 
 export class Articulo {
-  constructor(public codigo: number, public descripcion: string, public precio: number) {
-  }}
+  constructor(public posicion: number, public nombre: string, public receta: string, public precio: number) {
+  }
+}

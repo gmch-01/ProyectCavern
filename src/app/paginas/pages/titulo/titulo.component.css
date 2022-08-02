@@ -27,3 +27,14 @@ li {
     height: 100%;
     align-items: center;
 }
+
+.bodyx {
+
+    width: 100%;
+    padding: 0px;
+}
+
+.anchox {
+    width: 100%;
+    padding-top: 15px;
+}

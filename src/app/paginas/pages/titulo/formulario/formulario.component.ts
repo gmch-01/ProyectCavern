@@ -16,17 +16,15 @@ export class FormularioComponent {
   onCancel(): void {
     this.dialogRef.close();
   }
-  
-  agregar (){
-    console.log("sis e puede")
+
+  agregar() {
+    console.log("si se puede")
   }
 }
 
 export interface DialogData {
-  animal: string ;
-  name: string;
-  nombre: string; 
-  id: number;
-  receta: string; 
-
+  codigo: number;
+  nombre: string;
+  receta: string;
+  descripcion: string;
 }
