@@ -39,7 +39,10 @@ export class BarrasComponent implements OnInit {
     labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
     datasets: [
       { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
+      { data: [78, 18, 70, 45, 15, 44, 65], label: 'Series C' },
+      { data: [58, 28, 50, 12, 48, 57, 66], label: 'Series D' },
+      { data: [48, 38, 60, 56, 23, 25, 43], label: 'Series E' },
     ]
   };
   constructor() { }

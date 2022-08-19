@@ -24,6 +24,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgChartsModule } from 'ng2-charts';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { FormularioComponent } from '../paginas/pages/titulo/formulario/formulario.component';
 
@@ -58,7 +59,8 @@ import { FormularioComponent } from '../paginas/pages/titulo/formulario/formular
     MatDialogModule,
     FormsModule,
     MatPaginatorModule,
-    NgChartsModule
+    NgChartsModule,
+    MatExpansionModule
   ]
 })
 export class MaterialModule { }
