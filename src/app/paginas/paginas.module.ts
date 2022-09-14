@@ -19,6 +19,7 @@ import { BarrasComponent } from './pages/dashboard/graficas/barras/barras.compon
 import { DonaComponent } from './pages/dashboard/graficas/dona/dona.component';
 import { LineasComponent } from './pages/dashboard/graficas/lineas/lineas.component';
 import { InsumosComponent } from './pages/insumos/insumos.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 
 
@@ -39,6 +40,7 @@ import { InsumosComponent } from './pages/insumos/insumos.component';
     DonaComponent,
     LineasComponent,
     InsumosComponent,
+    ProductosComponent,
   ],
   imports: [
     CommonModule,

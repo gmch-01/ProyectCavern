@@ -18,7 +18,7 @@
             <mat-card class="dashboard-card">
                 <mat-card-header>
                     <mat-card-title>
-                        Grafico en Lineas
+                        Grafico en Barras
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="dashboard-card-content">
@@ -27,7 +27,33 @@
             </mat-card>
         </mat-grid-tile>
 
+        <mat-grid-tile colspan="2" rowspan="3">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        Grafico en Dona
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    <app-dona></app-dona>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
 
+        <mat-grid-tile colspan="2" rowspan="3">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        Grafico en Lineas
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    <app-lineas></app-lineas>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+<!-- 
         <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
             <mat-card class="dashboard-card">
                 <mat-card-header>
@@ -45,6 +71,6 @@
                 <mat-card-content class="dashboard-card-content">
                 </mat-card-content>
             </mat-card>
-        </mat-grid-tile>
+        </mat-grid-tile> -->
     </mat-grid-list>
 </div>
