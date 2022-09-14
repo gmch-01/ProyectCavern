@@ -10,6 +10,7 @@ import { AlmacenComponent } from './pages/almacen/almacen.component';
 import { ProduccionComponent } from './pages/produccion/produccion.component';
 import { VentasComponent } from './pages/ventas/ventas.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { InsumosComponent } from './pages/insumos/insumos.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'listado', component: ListadoComponent },
       { path: 'agregar', component: AgregarComponent },
+      { path: 'insumos', component: InsumosComponent },
       { path: 'editar/:id', component: AgregarComponent },
       { path: 'buscar', component: BuscarComponent },
       { path: ':id', component: TablaComponent },

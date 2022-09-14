@@ -18,6 +18,7 @@ import { FormularioComponent } from './pages/titulo/formulario/formulario.compon
 import { BarrasComponent } from './pages/dashboard/graficas/barras/barras.component';
 import { DonaComponent } from './pages/dashboard/graficas/dona/dona.component';
 import { LineasComponent } from './pages/dashboard/graficas/lineas/lineas.component';
+import { InsumosComponent } from './pages/insumos/insumos.component';
 
 
 
@@ -37,13 +38,14 @@ import { LineasComponent } from './pages/dashboard/graficas/lineas/lineas.compon
     BarrasComponent,
     DonaComponent,
     LineasComponent,
+    InsumosComponent,
   ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     PaginasRoutingModule,
     MaterialModule,
-    
+
   ],
 
 })

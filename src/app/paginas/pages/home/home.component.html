@@ -10,13 +10,16 @@
             </button>
         </mat-toolbar>
 
+
         <mat-nav-list>
+
+
             <a routerLink="./dashboard" mat-list-item (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>analytics</mat-icon>
                 <span> Dashboard</span>
             </a>
-    
 
+            <!-- 
             <a routerLink="./almacen" mat-list-item (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>warehouse</mat-icon>
                 <span> Almacen de Insumos</span>
@@ -31,6 +34,55 @@
                 <mat-icon mat-list-icon>sell</mat-icon>
                 <span> Almacen de Prod. Finales</span>
             </a>
+-->
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header style="background: #0C51A8;">
+                        <mat-icon mat-list-icon>warehouse</mat-icon>
+                        <mat-panel-title>
+                            Almacen de Insumos
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a routerLink="./almacen" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>warehouse</mat-icon>
+                        <span> Kardex de Insumos</span>
+                    </a>
+                    <a routerLink="./insumos" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>warehouse</mat-icon>
+                        <span> Insumos</span>
+                    </a>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header style="background: #0C51A8;">
+                        <mat-icon mat-list-icon>engineering</mat-icon>
+                        <mat-panel-title>
+                            Produccion Diaria
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a routerLink="./produccion" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>engineering</mat-icon>
+                        <span> Hoja de Producción</span>
+                    </a>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header style="background: #0C51A8;">
+                        <mat-icon mat-list-icon>sell</mat-icon>
+                        <mat-panel-title>
+                            Almacen Productos
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a routerLink="./ventas" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>sell</mat-icon>
+                        <span> Resgitro de Almacen</span>
+                    </a>
+                </mat-expansion-panel>
+            </mat-accordion>
 
 
         </mat-nav-list>

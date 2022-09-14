@@ -15,22 +15,7 @@ export class BarrasComponent implements OnInit {
 
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: {
-      x: {},
-      y: {
-        min: 10
-      }
-    },
-    plugins: {
-      legend: {
-        display: true,
-      },
-      datalabels: {
-        anchor: 'end',
-        align: 'end'
-      }
-    }
+
   };
   public barChartType: ChartType = 'bar';
 
