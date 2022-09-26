@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "maxisoft-e7b67": {
+      "hosting": {
+        "ProyectCavern": [
+          "maxisoft-e7b67"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "maxisoft-e7b67"
+  }
+}

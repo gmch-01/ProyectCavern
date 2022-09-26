@@ -96,6 +96,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ProyectCavern:build:production",
+            "firebaseProject": "maxisoft-e7b67",
+            "firebaseHostingSite": "maxisoft-e7b67"
+          }
         }
       }
     }

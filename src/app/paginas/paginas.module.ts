@@ -15,11 +15,15 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TituloComponent } from './pages/titulo/titulo.component';
 import { FormularioComponent } from './pages/titulo/formulario/formulario.component';
 
+
+
 import { BarrasComponent } from './pages/dashboard/graficas/barras/barras.component';
 import { DonaComponent } from './pages/dashboard/graficas/dona/dona.component';
 import { LineasComponent } from './pages/dashboard/graficas/lineas/lineas.component';
 import { InsumosComponent } from './pages/insumos/insumos.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { ListarComponent } from './pages/insumos/listar/listar.component';
+import { FormularioInsumosComponent } from './pages/insumos/formulario-insumos/formulario-insumos.component';
 
 
 
@@ -41,6 +45,8 @@ import { ProductosComponent } from './pages/productos/productos.component';
     LineasComponent,
     InsumosComponent,
     ProductosComponent,
+    ListarComponent,
+    FormularioInsumosComponent
   ],
   imports: [
     CommonModule,

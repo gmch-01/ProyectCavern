@@ -13,7 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgChartsModule } from 'ng2-charts';
-
+import {AngularFireModule} from '@angular/fire/compat'
+import { environment } from '../environments/environment';
+import { AppService } from './app.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +33,10 @@ import { NgChartsModule } from 'ng2-charts';
     MatIconModule,
     MatButtonModule,
     LayoutModule,
-    NgChartsModule
+    NgChartsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
