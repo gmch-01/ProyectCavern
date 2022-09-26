@@ -24,6 +24,7 @@ export class ListarComponent implements OnInit {
   datos: Insumo[] = [];
   dataSource: any;
   
+  
   ds = new MatTableDataSource<Insumo>(this.datos);
 
   @ViewChild(MatTable) tabla1!: MatTable<Insumo>;
@@ -51,10 +52,20 @@ export class ListarComponent implements OnInit {
       data: new Insumo (0,'', '', '')
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
       if (result != undefined )
       this.agregar(result);
     });
+  }
+
+  editarDialog():void {
+    let dialogRef = this.dialog.open(FormularioInsumosComponent, {
+      width: '400px',
+      data: {codigo: this.datos[0].codigo, nombre: this.datos[1].nombre}
+      
+    })
+
   }
 
   agregar (result: Insumo) {
