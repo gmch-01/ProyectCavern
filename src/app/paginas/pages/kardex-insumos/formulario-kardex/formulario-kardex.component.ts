@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Insumo } from '../../insumos/insumo';
 @Component({
   selector: 'app-formulario-kardex',
   templateUrl: './formulario-kardex.component.html',
   styleUrls: ['./formulario-kardex.component.css']
 })
-export class FormularioKardexComponent implements OnInit {
+export class FormularioKardexComponent {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<FormularioKardexComponent>, @Inject(MAT_DIALOG_DATA) public data: Insumo) { console.log(data) }
 
-  ngOnInit(): void {
+  onCancel(): void {
+    this.dialogRef.close();
   }
 
+  agregar() {
+    console.log("si se puede")
+  }
 }

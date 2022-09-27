@@ -18,13 +18,13 @@ import { AgregarComponent } from '../../agregar/agregar.component';
   styleUrls: ['./listar.component.css']
 })
 export class ListarComponent implements OnInit {
-  
+
   columnas: string[] = ['posicion', 'nombre', 'receta', 'descripcion', 'accion'];
-  
+
   datos: Insumo[] = [];
   dataSource: any;
-  
-  
+
+
   ds = new MatTableDataSource<Insumo>(this.datos);
 
   @ViewChild(MatTable) tabla1!: MatTable<Insumo>;
@@ -49,30 +49,30 @@ export class ListarComponent implements OnInit {
   openDialog(): void {
     let dialogRef = this.dialog.open(FormularioInsumosComponent, {
       width: '400px',
-      data: new Insumo (0,'', '', '')
+      data: new Insumo(0, '', '', '')
     });
 
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result != undefined )
-      this.agregar(result);
+      if (result != undefined)
+        this.agregar(result);
     });
   }
 
-  editarDialog():void {
+  editarDialog(): void {
     let dialogRef = this.dialog.open(FormularioInsumosComponent, {
       width: '400px',
-      data: {codigo: this.datos[0].codigo, nombre: this.datos[1].nombre}
-      
+      data: this.datos
+
     })
 
   }
 
-  agregar (result: Insumo) {
-    this.datos.push(new Insumo (result.codigo, result.nombre, result.receta, result.descripcion));
+  agregar(result: Insumo) {
+    this.datos.push(new Insumo(result.codigo, result.nombre, result.receta, result.descripcion));
     this.tabla1.renderRows()
   }
-  
+
 
   ngOnInit(): void {
   }

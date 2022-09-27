@@ -1,0 +1,51 @@
+.input {
+    width: 100%;
+}
+
+.mybutton {
+
+    margin: 5px;
+    background-color: #0C51A8;
+}
+
+.header-app {
+    text-align: center;
+    justify-content: center;
+}
+
+.buttons-lists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.myButton {
+    padding: 15px;
+    margin: 15px;
+    width: 15%;
+}
+
+li {
+    text-decoration: underline;
+    padding: 0.3 rem 0;
+    list-style: none;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.bodyx {
+
+    width: 100%;
+    padding: 0px;
+}
+
+.anchox {
+    width: 100%;
+    padding-top: 15px;
+}
