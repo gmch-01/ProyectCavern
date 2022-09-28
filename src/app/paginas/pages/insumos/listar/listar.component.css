@@ -1,26 +1,21 @@
-table {
-    width: 100%;
+.grid-container {
+    margin: 20px;
 }
 
-th.mat-sort-header-sorted {
-    color: black;
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
 }
 
-    
-.body {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    align-items: center;
+.more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
 
-.bodyx {
-
-    width: 100%;
-    padding: 0px;
-}
-
-.anchox {
-    width: 100%;
-    padding-top: 15px;
+.dashboard-card-content {
+    text-align: center;
 }

@@ -1,68 +1,120 @@
-<div class="body">
-    <div class="bodyx">
-        <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
-            <mat-label>Buscar</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="usuario" style="color:white ;">
-        </mat-form-field>
-    </div>
-    <button mat-raised-button class="myButton" (click)="openDialog()">
-        Agregar
-        <mat-icon mat-list-icon>add</mat-icon>
-    </button>
-    <br>
-</div>
-<div class="mat-elevation-z8">
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="25" [pageSize]="10" showFirstLastButtons>
-    </mat-paginator>
-    <br>
-    <table mat-table [dataSource]="ds" matSort (matSortChange)="announceSortChange($event)"
-        class="mat-elevation-z8" #tabla1>
+<!--
+<div class="grid-container">
+    <h1 class="mat-h1">Dashboard</h1>
+    <mat-grid-list cols="4" rowHeight="450px">
+        <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{card.title}}
+                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <button mat-menu-item>Expandir</button>
+                            <button mat-menu-item>Remover</button>
+                        </mat-menu>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    <div>Card Content Here</div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div> -->
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="posicion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-                No.
-            </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.codigo}} </td>
-        </ng-container>
+<div class="grid-container">
+    <mat-grid-list cols="4" rowHeight="450px">
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef>
-                Nombre
-            </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.nombre}} </td>
-        </ng-container>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Pan Molde</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="receta">
-            <th mat-header-cell *matHeaderCellDef>
-                Receta
-            </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.receta}} </td>
-        </ng-container>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Pan Sarnita</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale 2
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="descripcion">
-            <th mat-header-cell *matHeaderCellDef>
-                Descripción
-            </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.descripcion}} </td>
-        </ng-container>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Titulo de Carta 2</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale 2
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
 
-        <ng-container matColumnDef="accion">
-            <th mat-header-cell *matHeaderCellDef>
-                Acción
-            </th>
-            <td mat-cell *matCellDef="let j = index">
-                <button mat-raised-button class="myButton" (click)="editarDialog()">
-                    Editar
-                    <mat-icon mat-list-icon>edit</mat-icon>
-                </button>
-            </td>
-        </ng-container>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Titulo de Carta 2</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale 2
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
 
-        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-    </table>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Titulo de Carta 2</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale 2
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Titulo de Carta 2</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale 2
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Titulo de Carta 2</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale 2
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>Titulo de Carta 2</mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    Haber el texto que sale 2
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+
+    </mat-grid-list>
 </div>
