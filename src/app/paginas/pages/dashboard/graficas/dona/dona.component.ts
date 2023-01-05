@@ -10,7 +10,7 @@ import { ChartData, ChartEvent, ChartType } from 'chart.js';
 export class DonaComponent implements OnInit {
 
     // Doughnut
-    public doughnutChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
+    public doughnutChartLabels: string[] = [ 'Producto 1', 'Producto 2', 'Producto 3' ];
     public doughnutChartData: ChartData<'doughnut'> = {
       labels: this.doughnutChartLabels,
       datasets: [

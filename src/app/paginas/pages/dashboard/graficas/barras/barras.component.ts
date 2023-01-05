@@ -21,11 +21,11 @@ export class BarrasComponent implements OnInit {
 
 
   public barChartData: ChartData<'bar'> = {
-    labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
+    labels: ['Insumo 1', 'Insumo 2', 'Insumo 3', 'Insumo4', 'Insumo'],
     datasets: [
-      { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-      { data: [78, 18, 70, 45, 15, 44, 65], label: 'Series C' },
+      { data: [65, 59, 80, 81, 56], label: 'Cantidad Insumo 1' },
+      { data: [28, 48, 40, 19, 86], label: 'Cantidad Insumo 2' },
+      { data: [78, 18, 70, 45, 15], label: 'Cantidad Insumo 3' },
     ]
   };
   constructor() { }

@@ -20,7 +20,7 @@ export class LineasComponent implements OnInit {
     datasets: [
       {
         data: [ 65, 59, 80, 81, 56, 55, 40 ],
-        label: 'Series A',
+        label: 'Turno Mañana',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -31,7 +31,7 @@ export class LineasComponent implements OnInit {
       },
       {
         data: [ 28, 48, 40, 19, 86, 27, 90 ],
-        label: 'Series B',
+        label: 'Turno Tarde',
         backgroundColor: 'rgba(77,83,96,0.2)',
         borderColor: 'rgba(77,83,96,1)',
         pointBackgroundColor: 'rgba(77,83,96,1)',
@@ -42,7 +42,7 @@ export class LineasComponent implements OnInit {
       },
       {
         data: [ 180, 480, 770, 90, 1000, 270, 400 ],
-        label: 'Series C',
+        label: 'Turno Noche',
         yAxisID: 'y-axis-1',
         backgroundColor: 'rgba(255,0,0,0.3)',
         borderColor: 'red',
@@ -53,7 +53,7 @@ export class LineasComponent implements OnInit {
         fill: 'origin',
       }
     ],
-    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ]
+    labels: [ 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado' ]
   };
 
   public lineChartOptions: ChartConfiguration['options'] = {

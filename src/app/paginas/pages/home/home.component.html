@@ -19,7 +19,7 @@
 
             <a routerLink="./dashboard" mat-list-item (click)="sidenav.toggle()">
 
-                <span> Dashboard</span>
+                <span> Tablero de Control</span>
                 <span class="spacer"></span>
                 <mat-icon mat-list-icon>analytics</mat-icon>
 
@@ -41,12 +41,28 @@
                 <span> Almacen de Prod. Finales</span>
             </a>
 -->
+
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-icon mat-list-icon></mat-icon>
+            <mat-panel-title>
+                Planificación
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a routerLink="./tabla" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>user</mat-icon>
+            <span> Hoja de Producción</span>
+        </a>
+    </mat-expansion-panel>
+</mat-accordion> 
+
             <mat-accordion>
                 <mat-expansion-panel hideToggle>
                     <mat-expansion-panel-header>
                         <mat-icon mat-list-icon>warehouse</mat-icon>
                         <mat-panel-title>
-                            Almacen de Insumos
+                            Administración de Insumos
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <a routerLink="./kardex-insumos" mat-list-item (click)="sidenav.toggle()">
@@ -65,7 +81,7 @@
                     <mat-expansion-panel-header>
                         <mat-icon mat-list-icon>engineering</mat-icon>
                         <mat-panel-title>
-                            Produccion Diaria
+                           Elaboración y Producción
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <a routerLink="./produccion" mat-list-item (click)="sidenav.toggle()">
@@ -80,7 +96,7 @@
                     <mat-expansion-panel-header>
                         <mat-icon mat-list-icon>sell</mat-icon>
                         <mat-panel-title>
-                            Almacen Productos
+                            Administración de Productos
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <a routerLink="./ventas" mat-list-item (click)="sidenav.toggle()">
@@ -90,6 +106,20 @@
                 </mat-expansion-panel>
             </mat-accordion>
 
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-icon mat-list-icon>user</mat-icon>
+                        <mat-panel-title>
+                            Gestión de Usuarios
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a routerLink="./tabla" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>user</mat-icon>
+                        <span> Listado de Usuarios</span>
+                    </a>
+                </mat-expansion-panel>
+            </mat-accordion>
 
         </mat-nav-list>
     </mat-sidenav>
