@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Añadir Usuario</h1>
+
+<div mat-dialog-content>
+    <p>Ingrese los datos</p>
+
+    <form [formGroup]="formNewUser">
+
+  
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>CI</mat-label>
+        <input matInput [(ngModel)]="data.codigo" autocomplete="off"  formControlName="ci">
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="data.nombre" autocomplete="off"  formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input matInput [(ngModel)]="data.apellido" autocomplete="off"  formControlName="apellido">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Direccion</mat-label>
+        <input matInput [(ngModel)]="data.direccion" autocomplete="off"  formControlName="direccion">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Número de Celular</mat-label>
+        <input matInput [(ngModel)]="data.numcel" autocomplete="off"  formControlName="numcel">
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput [(ngModel)]="data.nombreuser" autocomplete="off"  formControlName="nombreuser">
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="data.password" autocomplete="off"  formControlName="password">
+    </mat-form-field>
+
+</form>
+    
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cerrar</button>
+    <span class="spacer"></span>
+    <button mat-button [mat-dialog-close]="data.animal" class="mybutton">Guardar</button>
+</div>

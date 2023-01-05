@@ -12,6 +12,7 @@ import { VentasComponent } from './pages/ventas/ventas.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { InsumosComponent } from './pages/insumos/insumos.component';
 import { KardexInsumosComponent } from './pages/kardex-insumos/kardex-insumos.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
       { path: 'kardex-insumos', component: KardexInsumosComponent },
       { path: 'editar/:id', component: AgregarComponent },
       { path: 'buscar', component: BuscarComponent },
-      { path: ':id', component: TablaComponent },
+     /*  { path: ':id', component: TablaComponent }, */
+      { path: 'usuarios', component: UsuariosComponent },
       { path: '**', redirectTo: 'listado' }
     ]
   }
