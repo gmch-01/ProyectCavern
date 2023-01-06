@@ -7,10 +7,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormularioComponent } from '../../titulo/formulario/formulario.component';
 import { FormularioUsuariosComponent } from '../formulario-usuarios/formulario-usuarios.component';
 
-let codigo: string;
-let name: string;
-let nombre: string;
-let id: number;
+import { UsuariosComponent } from '../usuarios.component'
+import { Usuario } from '../../../../models/Usuario';
+import { UsuariosService } from '../../../../services/usuarios.service';
+import { } from '../../../../models/Usuario'
 /**
  * @title Table with sorting
  */
@@ -25,28 +25,31 @@ export class TablaUsuariosComponent implements OnInit {
     'nombre',
     'apellido',
     'direccion',
-    'numerocel',
+    'numero_cell',
     'nombreuser',
     'accion',
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  datos: Articulo[] = [];
+  datos: Usuario[] = [];
   dataSource: any;
 
-  codigo = '';
-  name = '';
-  nombre = '';
-  id = '';
-  apellido = '';
-
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginatSor!: MatPaginator;
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
-    public dialog: MatDialog
-  ) {}
-  
+    public dialog: MatDialog,
+    private usuarioService: UsuariosService
+  ) {
+    this.usuarioService.getUsuarios().subscribe(x => {
+      this.datos = this.datos;
+      console.log(this.datos)
+    })
+  }
+  ngOnInit() {
+
+  }
+
   appName: string = 'Tabla';
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -62,42 +65,15 @@ export class TablaUsuariosComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    for (let x = 1; x <= 100; x++)
-      this.datos.push(
-        new Articulo(
-          x,
-          `usuario ${x}`,
-          `apellido ${x}`,
-        
-          Math.trunc(Math.random() * 1000)
-        
-        )
-      );
-
-    this.dataSource = new MatTableDataSource<Articulo>(this.datos);
-    this.dataSource.paginator = this.paginator;
-  }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(FormularioUsuariosComponent, {
       width: '400px',
-      data: { name: this.codigo, animal: this.codigo },
+      data: {},
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
-      this.codigo = result;
     });
   }
-}
-
-export class Articulo {
-  constructor(
-    public posicion: number,
-    public nombre: string,
-    public apellido: string,
-    public direccion: number,
- 
-  ) {}
 }

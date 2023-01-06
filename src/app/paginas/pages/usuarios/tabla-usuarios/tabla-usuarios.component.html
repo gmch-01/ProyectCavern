@@ -1,113 +1,70 @@
 <!-- <app-titulo></app-titulo> -->
 
 <div class="body">
-    <div class="bodyx">
-        <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
-            <mat-label>Buscar</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="usuario" style="color:white ;">
-        </mat-form-field>
-    </div>
-    <button mat-raised-button class="myButtonAdd" (click)="openDialog()">
-        Agregar
-        <mat-icon mat-list-icon>add</mat-icon>
-    </button>
-    <br>
-
-    <!-- 
-    <form>
-        <tr>
-            <td>
-                <mat-form-field>
-                    <input matInput #orderNumber maxlength=" 3" placeholder="Order Number" autocomplete="off">
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <mat-form-field>
-                    <input matInput #orderNumber maxlength="13" placeholder="Customer Number" autocomplete="off">
-                </mat-form-field>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button mat-raised-button class="btn_send"> Send</button>
-            </td>
-        </tr>
-    </form>-->
+  <div class="bodyx">
+    <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
+      <mat-label>Buscar</mat-label>
+      <input type="text" matInput autocomplete="off" formControlName="usuario" style="color:white ;">
+    </mat-form-field>
+  </div>
+  <button mat-raised-button class="myButtonAdd" (click)="openDialog()">
+    Agregar
+    <mat-icon mat-list-icon>add</mat-icon>
+  </button>
+  <br>
 </div>
 
 
 
 <div class="mat-elevation-z8">
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    [length]="25"
-    [pageSize]="10"
-    showFirstLastButtons
-  >
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="25" [pageSize]="10" showFirstLastButtons>
   </mat-paginator>
   <br />
-  
-  <table
-    mat-table
-    [dataSource]="dataSource"
-    matSort
-    (matSortChange)="announceSortChange($event)"
-    class="mat-elevation-z8"
-    #tabla1
-  >
+
+  <table mat-table [dataSource]="datos" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8"
+    #tabla1>
     <!-- Position Column -->
     <ng-container matColumnDef="posicion">
-      <th
-        mat-header-cell
-        *matHeaderCellDef
-        mat-sort-header
-        sortActionDescription="Sort by number"
-      >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
         CI
       </th>
-      <td mat-cell *matCellDef="let articulo">{{ articulo.posicion }}</td>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.ci_persona }}</td>
     </ng-container>
+
 
     <!-- Name Column -->
     <ng-container matColumnDef="nombre">
       <th mat-header-cell *matHeaderCellDef>Nombre</th>
-      <td mat-cell *matCellDef="let articulo">{{ articulo.nombre }}</td>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.nombre }}</td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="apellido">
       <th mat-header-cell *matHeaderCellDef>Apellido</th>
-      <td mat-cell *matCellDef="let articulo">{{ articulo.apellido }}</td>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.apellido }}</td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="direccion">
       <th mat-header-cell *matHeaderCellDef>Dirección</th>
-      <td mat-cell *matCellDef="let articulo">{{ articulo.direccion }}</td>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.direccion }}</td>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="numerocel">
-        <th mat-header-cell *matHeaderCellDef>Número de Celular</th>
-        <td mat-cell *matCellDef="let articulo">{{ articulo.numerocel }}</td>
-      </ng-container>
+    <ng-container matColumnDef="numero_cell">
+      <th mat-header-cell *matHeaderCellDef>Número de Celular</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.numerocel }}</td>
+    </ng-container>
 
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="nombreuser">
-        <th mat-header-cell *matHeaderCellDef>Nombre de Usuario</th>
-        <td mat-cell *matCellDef="let articulo">{{ articulo.nombreuser }}</td>
-      </ng-container>
-
-    <!--   <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef>Nombre de Usuario</th>
-        <td mat-cell *matCellDef="let articulo">{{ articulo.descripcion }}</td>
-      </ng-container> -->
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="nombreuser">
+      <th mat-header-cell *matHeaderCellDef>Nombre de Usuario</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.nombreuser }}</td>
+    </ng-container>
 
     <ng-container matColumnDef="accion">
       <th mat-header-cell *matHeaderCellDef>Acción</th>
-      <td mat-cell *matCellDef="let articulo">
+      <td mat-cell *matCellDef="let usuario">
         <button mat-raised-button class="myButton" (click)="openDialog()">
           Editar
           <mat-icon mat-list-icon>edit</mat-icon>
