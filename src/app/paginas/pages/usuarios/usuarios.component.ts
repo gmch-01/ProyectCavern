@@ -8,18 +8,23 @@ import { UsuariosService } from '../../../services/usuarios.service'
 })
 export class UsuariosComponent implements OnInit {
 
-  usuario: any = [];
+  usuario: any;
   constructor(private usuarioService: UsuariosService) { }
 
   ngOnInit() {
+    console.log("entro");
+    this.getUsers();
+  }
+
+  getUsers() {
     this.usuarioService.getUsuarios().subscribe(
       res => {
         this.usuario = res;
-        console.log(res);
+        localStorage.setItem("listaUser", JSON.stringify(this.usuario));
+        console.log(this.usuario);
       },
 
       err => console.error(err)
     )
   }
-
 }
