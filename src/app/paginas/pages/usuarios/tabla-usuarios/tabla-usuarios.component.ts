@@ -10,7 +10,7 @@ import { FormularioUsuariosComponent } from '../formulario-usuarios/formulario-u
 import { UsuariosComponent } from '../usuarios.component'
 import { Usuario } from '../../../../models/Usuario';
 import { UsuariosService } from '../../../../services/usuarios.service';
-import { } from '../../../../models/Usuario'
+
 /**
  * @title Table with sorting
  */
@@ -31,7 +31,8 @@ export class TablaUsuariosComponent implements OnInit {
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  datos: Usuario[] = [];
+  /* datos: UsuariosComponent [] = []; */
+  datos: any;
   dataSource: any;
 
   @ViewChild(MatPaginator, { static: true }) paginatSor!: MatPaginator;
@@ -47,7 +48,8 @@ export class TablaUsuariosComponent implements OnInit {
     })
   }
   ngOnInit() {
-
+    this.datos = JSON.parse(localStorage.getItem("listaUser")!)
+    console.log("llego ", this.datos);
   }
 
   appName: string = 'Tabla';
