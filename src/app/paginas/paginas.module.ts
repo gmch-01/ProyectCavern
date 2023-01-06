@@ -30,6 +30,8 @@ import { ListarKardexInsumosComponent } from './pages/kardex-insumos/listar-kard
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { TablaUsuariosComponent } from './pages/usuarios/tabla-usuarios/tabla-usuarios.component';
 import { FormularioUsuariosComponent } from './pages/usuarios/formulario-usuarios/formulario-usuarios.component';
+import { TablaAlmacenComponent } from './pages/ventas/tabla-almacen/tabla-almacen.component';
+import { FormularioAlmacenComponent } from './pages/ventas/formulario-almacen/formulario-almacen.component';
 
 
 
@@ -58,7 +60,9 @@ import { FormularioUsuariosComponent } from './pages/usuarios/formulario-usuario
     ListarKardexInsumosComponent,
     UsuariosComponent,
     TablaUsuariosComponent,
-    FormularioUsuariosComponent
+    FormularioUsuariosComponent,
+    TablaAlmacenComponent,
+    FormularioAlmacenComponent
   ],
   imports: [
     CommonModule,
