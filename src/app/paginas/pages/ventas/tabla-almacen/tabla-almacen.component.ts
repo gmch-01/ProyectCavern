@@ -22,13 +22,11 @@ let id: number;
 export class TablaAlmacenComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'posicion',
-    'nombre',
-    'apellido',
-    'direccion',
-    'numerocel',
-    'nombreuser',
-    'accion',
+    'id_det_productos',
+    'fecha_registro',
+    'cantidad',
+    'producto',
+    'encargado'
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
 
@@ -64,7 +62,7 @@ export class TablaAlmacenComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    for (let x = 1; x <= 100; x++)
+   /*  for (let x = 1; x <= 100; x++)
       this.datos.push(
         new Articulo(
           x,
@@ -74,7 +72,7 @@ export class TablaAlmacenComponent implements OnInit {
           Math.trunc(Math.random() * 1000)
         
         )
-      );
+      ); */
 
     this.dataSource = new MatTableDataSource<Articulo>(this.datos);
     this.dataSource.paginator = this.paginator;
@@ -95,10 +93,11 @@ export class TablaAlmacenComponent implements OnInit {
 
 export class Articulo {
   constructor(
-    public posicion: number,
-    public nombre: string,
-    public apellido: string,
-    public direccion: number,
+    public id_det_productos: number,
+    public feha_registro: string,
+    public cantidad: number,
+    public producto: string,
+    public encargado:string,
  
   ) {}
 }
