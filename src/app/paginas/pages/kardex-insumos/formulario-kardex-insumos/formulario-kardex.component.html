@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Añadir Producción</h1>
+
+<div mat-dialog-content>
+    <p>Ingrese los datos</p>
+
+    <form [formGroup]="formNewUser">
+
+  
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>ID Insumo</mat-label>
+        <input matInput [(ngModel)]="data.id_det_insumo" autocomplete="off"  formControlName="id_det_insumo">
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Fecha Entrada</mat-label>
+        <input matInput [(ngModel)]="data.fecha_entrada" autocomplete="off"  formControlName="fecha_entrada">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Proveedor</mat-label>
+        <input matInput [(ngModel)]="data.proveedor" autocomplete="off"  formControlName="proveedor">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Cantidad</mat-label>
+        <input matInput [(ngModel)]="data.cantidad" autocomplete="off"  formControlName="cantidad">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Insumo</mat-label>
+        <input matInput [(ngModel)]="data.insumo" autocomplete="off"  formControlName="insumo">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Peso</mat-label>
+        <input matInput [(ngModel)]="data.peso" autocomplete="off"  formControlName="peso">
+    </mat-form-field>
+    
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput [(ngModel)]="data.usuario" autocomplete="off"  formControlName="usuario">
+    </mat-form-field>
+ 
+</form>
+    
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cerrar</button>
+    <span class="spacer"></span>
+    <button mat-button [mat-dialog-close]="data.animal" class="mybutton">Guardar</button>
+</div>

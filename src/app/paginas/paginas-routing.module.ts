@@ -13,6 +13,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { InsumosComponent } from './pages/insumos/insumos.component';
 import { KardexInsumosComponent } from './pages/kardex-insumos/kardex-insumos.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { HojaProduccionComponent } from './pages/hoja-produccion/hoja-produccion.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
     children: [
       { path: 'almacen', component: AlmacenComponent },
       { path: 'produccion', component: ProduccionComponent },
+      { path: 'hoja-produccion', component: HojaProduccionComponent },
       { path: 'ventas', component: VentasComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'listado', component: ListadoComponent },

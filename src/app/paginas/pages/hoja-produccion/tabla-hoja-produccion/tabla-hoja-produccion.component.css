@@ -1,11 +1,9 @@
-.input {
+table {
     width: 100%;
 }
 
-.mybutton {
-
-    margin: 5px;
-    background-color: #0C51A8;
+th.mat-sort-header-sorted {
+    color: black;
 }
 
 .header-app {
@@ -20,17 +18,17 @@
     justify-content: center;
 }
 
-.myButton {
+.myButtonAdd {
     padding: 15px;
     margin: 15px;
     width: 15%;
 }
 
-li {
+/* li {
     text-decoration: underline;
     padding: 0.3 rem 0;
     list-style: none;
-}
+} */
 
 .body {
     display: flex;

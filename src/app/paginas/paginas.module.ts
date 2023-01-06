@@ -25,13 +25,18 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { ListarComponent } from './pages/insumos/listar/listar.component';
 import { FormularioInsumosComponent } from './pages/insumos/formulario-insumos/formulario-insumos.component';
 import { KardexInsumosComponent } from './pages/kardex-insumos/kardex-insumos.component';
-import { FormularioKardexComponent } from './pages/kardex-insumos/formulario-kardex/formulario-kardex.component';
-import { ListarKardexInsumosComponent } from './pages/kardex-insumos/listar-kardex-insumos/listar-kardex-insumos.component';
+import { FormularioKardexComponent } from './pages/kardex-insumos/formulario-kardex-insumos/formulario-kardex.component';
+import { ListarKardexInsumosComponent } from './pages/kardex-insumos/tabla-kardex-insumos/listar-kardex-insumos.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { TablaUsuariosComponent } from './pages/usuarios/tabla-usuarios/tabla-usuarios.component';
 import { FormularioUsuariosComponent } from './pages/usuarios/formulario-usuarios/formulario-usuarios.component';
 import { TablaAlmacenComponent } from './pages/ventas/tabla-almacen/tabla-almacen.component';
 import { FormularioAlmacenComponent } from './pages/ventas/formulario-almacen/formulario-almacen.component';
+import { HojaProduccionComponent } from './pages/hoja-produccion/hoja-produccion.component';
+import { TablaProduccionComponent } from './pages/produccion/tabla-produccion/tabla-produccion.component';
+import { FormularioProduccionComponent } from './pages/produccion/formulario-produccion/formulario-produccion.component';
+import { TablaHojaProduccionComponent } from './pages/hoja-produccion/tabla-hoja-produccion/tabla-hoja-produccion.component';
+import { FormularioHojaProduccionComponent } from './pages/hoja-produccion/formulario-hoja-produccion/formulario-hoja-produccion.component';
 
 
 
@@ -62,7 +67,12 @@ import { FormularioAlmacenComponent } from './pages/ventas/formulario-almacen/fo
     TablaUsuariosComponent,
     FormularioUsuariosComponent,
     TablaAlmacenComponent,
-    FormularioAlmacenComponent
+    FormularioAlmacenComponent,
+    HojaProduccionComponent,
+    TablaProduccionComponent,
+    FormularioProduccionComponent,
+    TablaHojaProduccionComponent,
+    FormularioHojaProduccionComponent
   ],
   imports: [
     CommonModule,

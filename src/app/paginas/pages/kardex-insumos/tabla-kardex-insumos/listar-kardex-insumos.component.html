@@ -23,37 +23,60 @@
         #tabla1>
 
         <!-- Position Column -->
-        <ng-container matColumnDef="posicion">
+        <ng-container matColumnDef="id_det_insumo">
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-                No.
+                ID Insumo
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.codigo}} </td>
+            <td mat-cell *matCellDef="let insumo"> {{insumo.id_det_insumo}} </td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="nombre">
+        <ng-container matColumnDef="fecha_entrada">
             <th mat-header-cell *matHeaderCellDef>
-                Nombre
+                Fecha de Entrada
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.nombre}} </td>
+            <td mat-cell *matCellDef="let insumo"> {{insumo.fecha_entrada}} </td>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="receta">
+        <ng-container matColumnDef="proveedor">
             <th mat-header-cell *matHeaderCellDef>
-                Receta
+                Proveedor
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.receta}} </td>
+            <td mat-cell *matCellDef="let insumo"> {{insumo.proveedor}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
-        <ng-container matColumnDef="descripcion">
+        <ng-container matColumnDef="cantidad">
             <th mat-header-cell *matHeaderCellDef>
-                Descripción
+                Cantidad
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.descripcion}} </td>
+            <td mat-cell *matCellDef="let insumo"> {{insumo.cantidad}} </td>
         </ng-container>
 
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="insumo">
+            <th mat-header-cell *matHeaderCellDef>
+                Insumo
+            </th>
+            <td mat-cell *matCellDef="let insumo"> {{insumo.insumo}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="peso">
+            <th mat-header-cell *matHeaderCellDef>
+                Peso
+            </th>
+            <td mat-cell *matCellDef="let insumo"> {{insumo.peso}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="usuario">
+            <th mat-header-cell *matHeaderCellDef>
+                Usuario
+            </th>
+            <td mat-cell *matCellDef="let insumo"> {{insumo.usuario}} </td>
+        </ng-container>
         <ng-container matColumnDef="accion">
             <th mat-header-cell *matHeaderCellDef>
                 Acción

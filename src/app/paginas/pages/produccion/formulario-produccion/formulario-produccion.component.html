@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Añadir Producción</h1>
+
+<div mat-dialog-content>
+    <p>Ingrese los datos</p>
+
+    <form [formGroup]="formNewUser">
+
+  
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>ID Producción</mat-label>
+        <input matInput [(ngModel)]="data.id_produccion" autocomplete="off"  formControlName="id_produccion">
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>ID Hoja de Producción</mat-label>
+        <input matInput [(ngModel)]="data.id_hoja_prod" autocomplete="off"  formControlName="id_hoja_prod">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Fecha de producción</mat-label>
+        <input matInput [(ngModel)]="data.fecha_prod" autocomplete="off"  formControlName="fecha_prod">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Encargado</mat-label>
+        <input matInput [(ngModel)]="data.encargado" autocomplete="off"  formControlName="encargado">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <input matInput [(ngModel)]="data.descripcion" autocomplete="off"  formControlName="descripcion">
+    </mat-form-field>
+ 
+</form>
+    
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cerrar</button>
+    <span class="spacer"></span>
+    <button mat-button [mat-dialog-close]="data.animal" class="mybutton">Guardar</button>
+</div>
