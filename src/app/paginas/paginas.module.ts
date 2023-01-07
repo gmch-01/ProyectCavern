@@ -37,6 +37,7 @@ import { TablaProduccionComponent } from './pages/produccion/tabla-produccion/ta
 import { FormularioProduccionComponent } from './pages/produccion/formulario-produccion/formulario-produccion.component';
 import { TablaHojaProduccionComponent } from './pages/hoja-produccion/tabla-hoja-produccion/tabla-hoja-produccion.component';
 import { FormularioHojaProduccionComponent } from './pages/hoja-produccion/formulario-hoja-produccion/formulario-hoja-produccion.component';
+import { ListarprodComponent } from './pages/productos/listarprod/listarprod.component';
 
 
 
@@ -72,7 +73,8 @@ import { FormularioHojaProduccionComponent } from './pages/hoja-produccion/formu
     TablaProduccionComponent,
     FormularioProduccionComponent,
     TablaHojaProduccionComponent,
-    FormularioHojaProduccionComponent
+    FormularioHojaProduccionComponent,
+    ListarprodComponent
   ],
   imports: [
     CommonModule,

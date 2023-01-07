@@ -81,7 +81,7 @@
                     <mat-expansion-panel-header>
                         <mat-icon mat-list-icon>engineering</mat-icon>
                         <mat-panel-title>
-                           Elaboración y Producción
+                        Elaboración y Producción
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <a routerLink="./produccion" mat-list-item (click)="sidenav.toggle()">
@@ -101,7 +101,11 @@
                     </mat-expansion-panel-header>
                     <a routerLink="./ventas" mat-list-item (click)="sidenav.toggle()">
                         <mat-icon mat-list-icon>sell</mat-icon>
-                        <span> Resgitro de Almacen</span>
+                        <span> Kardex de Productos</span>
+                    </a>
+                    <a routerLink="./productos" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>sell</mat-icon>
+                        <span> Productos</span>
                     </a>
                 </mat-expansion-panel>
             </mat-accordion>
