@@ -176,10 +176,23 @@
             <th mat-header-cell *matHeaderCellDef>
                 Acción
             </th>
-            <td mat-cell *matCellDef="let j = index">
-                <button mat-raised-button class="myButton" (click)="editarDialog()">
+            <td mat-cell *matCellDef="let insumo">
+                <button mat-raised-button class="myButton" (click)="editarDialog(insumo.id_insumo)">
+                    <a [routerLink]="['/insumo/id', insumo.id_insumo]"></a>
                     Editar
                     <mat-icon mat-list-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>
+                Acción
+            </th>
+            <td mat-cell *matCellDef="let insumo">
+                <button mat-raised-button class="myButton" (click)="eliminarDialog(insumo.id_insumo)">
+                    Eliminar
+                    <mat-icon mat-list-icon>delete</mat-icon>
                 </button>
             </td>
         </ng-container>

@@ -14,7 +14,7 @@ import { InsumosComponent } from './pages/insumos/insumos.component';
 import { KardexInsumosComponent } from './pages/kardex-insumos/kardex-insumos.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { HojaProduccionComponent } from './pages/hoja-produccion/hoja-produccion.component';
-import { ProductosComponent } from './pages/productos/productos.component'; 
+import { ProductosComponent } from './pages/productos/productos.component';
 
 const routes: Routes = [
   {
@@ -31,7 +31,7 @@ const routes: Routes = [
       { path: 'kardex-insumos', component: KardexInsumosComponent },
       { path: 'editar/:id', component: AgregarComponent },
       { path: 'buscar', component: BuscarComponent },
-     /*  { path: ':id', component: TablaComponent }, */
+      /*  { path: ':id', component: TablaComponent }, */
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'productos', component: ProductosComponent },
       { path: '**', redirectTo: 'listado' }
@@ -45,7 +45,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    //RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
   ],
   exports: [
     RouterModule

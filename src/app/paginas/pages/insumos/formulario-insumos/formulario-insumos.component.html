@@ -4,20 +4,17 @@
     <p>Ingrese los datos</p>
     <mat-form-field class="input" appearance="fill">
         <mat-label>Código</mat-label>
-        <input matInput [(ngModel)]="data.codigo" autocomplete="off">
+        <input matInput [(ngModel)]="data.id_insumo" autocomplete="off">
     </mat-form-field>
     <mat-form-field class="input" appearance="fill">
         <mat-label>Nombre</mat-label>
         <input matInput [(ngModel)]="data.nombre" autocomplete="off">
     </mat-form-field>
     <mat-form-field class="input" appearance="fill">
-        <mat-label>Receta</mat-label>
-        <input matInput [(ngModel)]="data.receta" autocomplete="off">
+        <mat-label>Unidad</mat-label>
+        <input matInput [(ngModel)]="data.unidad" autocomplete="off">
     </mat-form-field>
-    <mat-form-field class="input" appearance="fill">
-        <mat-label>Descripción</mat-label>
-        <input matInput [(ngModel)]="data.descripcion" autocomplete="off">
-    </mat-form-field>
+
 </div>
 
 <div mat-dialog-actions>

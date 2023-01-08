@@ -38,6 +38,7 @@ import { FormularioProduccionComponent } from './pages/produccion/formulario-pro
 import { TablaHojaProduccionComponent } from './pages/hoja-produccion/tabla-hoja-produccion/tabla-hoja-produccion.component';
 import { FormularioHojaProduccionComponent } from './pages/hoja-produccion/formulario-hoja-produccion/formulario-hoja-produccion.component';
 import { ListarprodComponent } from './pages/productos/listarprod/listarprod.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -80,8 +81,7 @@ import { ListarprodComponent } from './pages/productos/listarprod/listarprod.com
     CommonModule,
     FlexLayoutModule,
     PaginasRoutingModule,
-    MaterialModule,
-
+    MaterialModule
   ],
 
 })
