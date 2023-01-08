@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -37,7 +38,8 @@ export class ListarComponent {
   }
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private insumoService: InsumosService, private _liveAnnouncer: LiveAnnouncer,
+  constructor(private insumoService: InsumosService,
+    private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,) {
     this.insumoService.getInsumo().subscribe(x => {
       this.datos = this.datos;

@@ -11,6 +11,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { FormularioKardexComponent } from '../formulario-kardex-insumos/formulario-kardex.component';
 
 import { AlmacenInsService } from '../../../../services/almacenins.service';
+import { AlmacenIns } from '../../../../models/AlmacenIns';
 
 @Component({
   selector: 'app-listar-kardex-insumos',
@@ -27,12 +28,23 @@ export class ListarKardexInsumosComponent implements OnInit {
     'peso',
     'usuario',
     'accion',
+    'eliminar'
   ];
 
   datos: any;
   dataSource: any;
 
-  @ViewChild(MatTable) tabla1!: MatTable<Insumo>;
+  almacenIns: AlmacenIns = {
+    id_det_insumo: 0,
+    fecha_entrada: new Date(),
+    proveedor: '',
+    cantidad: 0,
+    id_insumo: 0,
+    peso: 0,
+    usuario: '',
+  }
+
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
@@ -44,8 +56,6 @@ export class ListarKardexInsumosComponent implements OnInit {
       console.log(this.datos)
     })
   }
-  appName: string = 'Tabla';
-  @ViewChild(MatSort) sort!: MatSort;
 
   /*openDialog(): void {
     let dialogRef = this.dialog.open(FormularioKardexComponent, {
@@ -68,7 +78,10 @@ export class ListarKardexInsumosComponent implements OnInit {
     );
     this.tabla1.renderRows();
   }*/
-
+  ngOnInit(): void {
+    this.datos = JSON.parse(localStorage.getItem("listaAlmacenIns")!)
+    console.log("llego ", this.datos);
+  }
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
@@ -84,10 +97,7 @@ export class ListarKardexInsumosComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.datos = JSON.parse(localStorage.getItem("listaAlmacenIns")!)
-    console.log("llego ", this.datos);
-  }
+
   openDialog(): void {
     let dialogRef = this.dialog.open(FormularioKardexComponent, {
       width: '400px',
@@ -95,8 +105,32 @@ export class ListarKardexInsumosComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('Dialogo cerrado')
+      console.log('Dialogo cerrado');
+      this.almacenIns = result;
+      console.log(this.almacenIns);
+      this.saveAlmacenIns();
     });
+  }
+  eliminarAlmacenins(id: string): void {
+    this.almacenInsService.deleteAlmacenIns(id).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+  }
+
+  saveAlmacenIns() {
+    this.almacenInsService.saveAlmacenIns(this.almacenIns).
+      subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+      )
+
+
+    console.log(this.almacenIns)
   }
 
 

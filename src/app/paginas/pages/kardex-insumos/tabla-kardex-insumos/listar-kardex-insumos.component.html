@@ -27,7 +27,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
                 ID Insumo
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.id_det_insumo}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.id_det_insumo}} </td>
         </ng-container>
 
         <!-- Name Column -->
@@ -35,7 +35,7 @@
             <th mat-header-cell *matHeaderCellDef>
                 Fecha de Entrada
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.fecha_entrada}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.fecha_entrada}} </td>
         </ng-container>
 
         <!-- Weight Column -->
@@ -43,7 +43,7 @@
             <th mat-header-cell *matHeaderCellDef>
                 Proveedor
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.proveedor}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.proveedor}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -51,7 +51,7 @@
             <th mat-header-cell *matHeaderCellDef>
                 Cantidad
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.cantidad}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.cantidad}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -59,7 +59,7 @@
             <th mat-header-cell *matHeaderCellDef>
                 Insumo
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.insumo}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.insumo}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -67,7 +67,7 @@
             <th mat-header-cell *matHeaderCellDef>
                 Peso
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.peso}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.peso}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
@@ -75,7 +75,7 @@
             <th mat-header-cell *matHeaderCellDef>
                 Usuario
             </th>
-            <td mat-cell *matCellDef="let insumo"> {{insumo.usuario}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.usuario}} </td>
         </ng-container>
         <ng-container matColumnDef="accion">
             <th mat-header-cell *matHeaderCellDef>
@@ -89,7 +89,19 @@
             </td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>
+                Eliminar
+            </th>
+            <td mat-cell *matCellDef="let almacenIns">
+                <button mat-raised-button class=" myButton" (click)="eliminarAlmacenins(almacenIns.id_det_insumo)">
+                    Eliminar
+                    <mat-icon mat-list-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef=" columnas"></tr>
         <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
     </table>
 </div>

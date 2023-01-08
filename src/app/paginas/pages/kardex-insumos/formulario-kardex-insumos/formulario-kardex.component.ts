@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, HostBinding } from '@angular/core';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Insumo } from '../../insumos/insumo';
+import { AlmacenIns } from '../../../../models/AlmacenIns';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AlmacenInsService } from '../../../../services/almacenins.service';
 @Component({
   selector: 'app-formulario-kardex',
   templateUrl: './formulario-kardex.component.html',
@@ -10,20 +11,16 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FormularioKardexComponent {
 
-  formNewUser!: FormGroup ;
- 
+  @HostBinding('class') classes = 'row';
+
 
   constructor(
     private _fb: FormBuilder,
     public dialogRef: MatDialogRef<FormularioKardexComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-  ngOnInit(): void {
-    this.formNew();
-
-    throw new Error('Method not implemented.');
-  }
-
+    @Inject(MAT_DIALOG_DATA)
+    public data: AlmacenIns,
+    private almaceninsService: AlmacenInsService
+  ) { console.log(data) }
   onCancel(): void {
     this.dialogRef.close();
   }
@@ -32,25 +29,6 @@ export class FormularioKardexComponent {
     console.log('si se puede');
   }
 
-  formNew() {
-    this.formNewUser = this._fb.group({
-      id_det_insumo: [''],
-      fecha_entrada: [''],
-      proveedor: [''],
-      cantidad:[''],
-      insumo:[''],
-      peso: [''],
-      usuario: [''],
-    });
-  }
 }
 
-export interface DialogData {
-  id_det_insumo: number;
-  fecha_entrada: string;
-  proveedor: string;
-  cantidad:string,
-  insumo:string,
-  peso: string;
-  usuario: string;
-}
+

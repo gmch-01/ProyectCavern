@@ -7,6 +7,7 @@ import { AlmacenInsService } from '../../../services/almacenins.service';
   styleUrls: ['./kardex-insumos.component.css']
 })
 export class KardexInsumosComponent implements OnInit {
+
   almacenins: any;
   constructor(private AlmacenInsService: AlmacenInsService) { }
 
