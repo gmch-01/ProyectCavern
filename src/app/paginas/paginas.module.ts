@@ -74,7 +74,7 @@ import { ListarprodComponent } from './pages/productos/listarprod/listarprod.com
     FormularioProduccionComponent,
     TablaHojaProduccionComponent,
     FormularioHojaProduccionComponent,
-    ListarprodComponent
+    ListarprodComponent,
   ],
   imports: [
     CommonModule,

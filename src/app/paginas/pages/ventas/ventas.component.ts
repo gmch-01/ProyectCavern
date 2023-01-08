@@ -12,7 +12,7 @@ export class VentasComponent implements OnInit {
   constructor(private AlmacenFinService: AlmacenFinService) { }
 
   ngOnInit(): void {
-    console.log("entro");
+
     this.getAlmacen();
   }
 
@@ -20,7 +20,7 @@ export class VentasComponent implements OnInit {
     this.AlmacenFinService.getAlmacenfin().subscribe(
       res => {
         this.almacenfin = res;
-        localStorage.setItem("listaAlmacen", JSON.stringify(this.almacenfin));
+        localStorage.setItem("listaAlmacenFin", JSON.stringify(this.almacenfin));
         console.log(this.almacenfin);
       },
 

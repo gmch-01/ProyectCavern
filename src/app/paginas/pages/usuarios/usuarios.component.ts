@@ -12,7 +12,6 @@ export class UsuariosComponent implements OnInit {
   constructor(private usuarioService: UsuariosService) { }
 
   ngOnInit() {
-    console.log("entro");
     this.getUsers();
   }
 

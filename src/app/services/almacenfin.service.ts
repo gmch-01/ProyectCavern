@@ -23,8 +23,8 @@ export class AlmacenFinService {
         return this.http.delete(`${this.API_URI}/almacenfin/${id} `)
     }
 
-    updateAlmacenfin(id: string, updatedUsuario: AlmacenFin) {
-        return this.http.put(`${this.API_URI}/almacenfin/${id}`, updatedUsuario)
+    updateAlmacenfin(id: string, updatedAlmacen: AlmacenFin) {
+        return this.http.put(`${this.API_URI}/almacenfin/${id}`, updatedAlmacen)
     }
 
     saveAlmacenfin(AlmacenFin: AlmacenFin): Observable<AlmacenFin> {

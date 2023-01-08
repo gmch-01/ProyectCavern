@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { Component, OnInit } from '@angular/core';
 
 import { FormularioComponent } from '../titulo/formulario/formulario.component';
+import { InsumosService } from 'src/app/services/insumos.service';
 @Component({
   selector: 'app-insumos',
   templateUrl: './insumos.component.html',
@@ -12,11 +13,28 @@ import { FormularioComponent } from '../titulo/formulario/formulario.component';
 })
 export class InsumosComponent implements OnInit {
 
-  constructor() { }
+  insumo: any
+  constructor(private InsumoService: InsumosService) { }
 
-
-  
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log("entro");
+    this.getInsumos();
   }
+
+  getInsumos() {
+    this.InsumoService.getInsumo().subscribe(
+      res => {
+        this.insumo = res;
+        localStorage.setItem("listaInsumo", JSON.stringify(this.insumo));
+        console.log(this.insumo);
+      },
+
+      err => console.error(err)
+    )
+  }
+
+
+
+
 
 }

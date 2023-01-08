@@ -10,6 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { FormularioKardexComponent } from '../formulario-kardex-insumos/formulario-kardex.component';
 
+import { AlmacenInsService } from '../../../../services/almacenins.service';
+
 @Component({
   selector: 'app-listar-kardex-insumos',
   templateUrl: './listar-kardex-insumos.component.html',
@@ -27,21 +29,25 @@ export class ListarKardexInsumosComponent implements OnInit {
     'accion',
   ];
 
-  datos: Insumo[] = [];
+  datos: any;
   dataSource: any;
-
-  ds = new MatTableDataSource<Insumo>(this.datos);
 
   @ViewChild(MatTable) tabla1!: MatTable<Insumo>;
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private almacenInsService: AlmacenInsService
+  ) {
+    this.almacenInsService.getAlmacenIns().subscribe(x => {
+      this.datos = this.datos;
+      console.log(this.datos)
+    })
+  }
   appName: string = 'Tabla';
   @ViewChild(MatSort) sort!: MatSort;
 
-  openDialog(): void {
+  /*openDialog(): void {
     let dialogRef = this.dialog.open(FormularioKardexComponent, {
       width: '400px',
       data: new Insumo(0, '', '', ''),
@@ -61,7 +67,7 @@ export class ListarKardexInsumosComponent implements OnInit {
       )
     );
     this.tabla1.renderRows();
-  }
+  }*/
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
@@ -78,5 +84,20 @@ export class ListarKardexInsumosComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.datos = JSON.parse(localStorage.getItem("listaAlmacenIns")!)
+    console.log("llego ", this.datos);
+  }
+  openDialog(): void {
+    let dialogRef = this.dialog.open(FormularioKardexComponent, {
+      width: '400px',
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Dialogo cerrado')
+    });
+  }
+
+
 }

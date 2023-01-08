@@ -1,0 +1,71 @@
+.grid-container {
+    margin: 20px;
+}
+
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.more-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.dashboard-card-content {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.header-app {
+    text-align: center;
+    justify-content: center;
+}
+
+.buttons-lists {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.myButton {
+    padding: 15px;
+    margin: 15px;
+    width: 15%;
+}
+
+li {
+    text-decoration: underline;
+    padding: 0.3 rem 0;
+    list-style: none;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.bodyx {
+
+    width: 100%;
+    padding: 0px;
+}
+
+.anchox {
+    width: 100%;
+    padding-top: 15px;
+}

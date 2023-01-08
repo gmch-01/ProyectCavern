@@ -63,7 +63,7 @@ export class TablaAlmacenComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.datos = JSON.parse(localStorage.getItem("listaAlmacen")!)
+    this.datos = JSON.parse(localStorage.getItem("listaAlmacenFin")!)
     console.log("llego ", this.datos);
   }
 
