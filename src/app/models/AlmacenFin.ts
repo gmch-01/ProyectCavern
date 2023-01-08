@@ -1,6 +1,7 @@
 export interface AlmacenFin {
-    id_inv_producto?: number;
-    tipo_prod?: number;
-    fecha_vencimiento?: Date;
-    cantidad_actual?: number;
+    id_det_producto?: number;
+    fecha_registro?: Date;
+    cantidad?: number;
+    id_producto?: number;
+    encargado?: string;
 }

@@ -2,34 +2,32 @@
 
 <div mat-dialog-content>
     <p>Ingrese los datos</p>
-
-    <form [formGroup]="formNewAlmacen">
-
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Codigo</mat-label>
+        <input matInput [(ngModel)]="data.id_det_producto" autocomplete="off">
+    </mat-form-field>
     <mat-form-field class="input" appearance="fill">
         <mat-label>Fecha de registro</mat-label>
-        <input matInput [(ngModel)]="data.fecha_registro" autocomplete="off"  formControlName="fecha_registro">
+        <input matInput [(ngModel)]="data.fecha_registro" autocomplete="off">
     </mat-form-field>
     <mat-form-field class="input" appearance="fill">
         <mat-label>Cantidad</mat-label>
-        <input matInput [(ngModel)]="data.cantidad" autocomplete="off"  formControlName="cantidad">
+        <input matInput [(ngModel)]="data.cantidad" autocomplete="off">
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
         <mat-label>Producto</mat-label>
-        <input matInput [(ngModel)]="data.producto" autocomplete="off"  formControlName="producto">
+        <input matInput [(ngModel)]="data.id_producto" autocomplete="off">
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
         <mat-label>Encargado</mat-label>
-        <input matInput [(ngModel)]="data.encargado" autocomplete="off"  formControlName="encargado">
+        <input matInput [(ngModel)]="data.encargado" autocomplete="off">
     </mat-form-field>
-
-</form>
-    
 </div>
 
 <div mat-dialog-actions>
     <button mat-button (click)="onCancel()">Cerrar</button>
     <span class="spacer"></span>
-    <button mat-button [mat-dialog-close]="data.animal" class="mybutton">Guardar</button>
+    <button mat-button [mat-dialog-close]="data" class="mybutton">Guardar</button>
 </div>

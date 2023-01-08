@@ -1,6 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, HostBinding } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Usuario } from '../../../../models/Usuario';
+import { UsuariosService } from '../../../../services/usuarios.service';
 
 @Component({
   selector: 'app-formulario-usuarios',
@@ -8,18 +10,16 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./formulario-usuarios.component.css'],
 })
 export class FormularioUsuariosComponent implements OnInit {
-  formNewUser!: FormGroup ;
- 
+  @HostBinding('class') classes = 'row';
 
   constructor(
     private _fb: FormBuilder,
     public dialogRef: MatDialogRef<FormularioUsuariosComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public data: Usuario,
+    private UsuariosService: UsuariosService
+  ) { console.log(data) }
   ngOnInit(): void {
-    this.formNew();
 
-    throw new Error('Method not implemented.');
   }
 
   onCancel(): void {
@@ -30,27 +30,6 @@ export class FormularioUsuariosComponent implements OnInit {
     console.log('si se puede');
   }
 
-  formNew() {
-    this.formNewUser = this._fb.group({
-      ci: [''],
-      nombre: [''],
-      apellido: [''],
-      direccion: [''],
-      numcel: [''],
-      nombreuser: [''],
-      password: [''],
-    });
-  }
+
 }
 
-export interface DialogData {
-  ci: number;
-  nombre: string;
-  apellido: string;
-  direccion: string;
-  numcel: number;
-  nombreuser: string;
-  password: string;
-  genero: string;
-  fechareg: string;
-}

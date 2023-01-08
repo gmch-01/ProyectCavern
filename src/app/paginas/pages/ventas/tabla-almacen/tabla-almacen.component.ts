@@ -20,24 +20,28 @@ import { VentasComponent } from '../ventas.component'
 })
 export class TablaAlmacenComponent implements OnInit {
 
-  displayedColumns: string[] = [
+  columnas: string[] = [
     'id_det_productos',
-    'fecha_vencimiento',
+    'fecha_registro',
     'cantidad',
     'producto',
-    'accion'
+    'encargado',
+    'accion',
+    'eliminar'
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   datos: any;
   dataSource: any;
 
-
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+  almacenFin: AlmacenFin = {
+    id_det_producto: 0,
+    fecha_registro: new Date(),
+    cantidad: 0,
+    id_producto: 0,
+    encargado: ''
   }
+  @ViewChild(MatSort) sort!: MatSort;
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
@@ -59,8 +63,7 @@ export class TablaAlmacenComponent implements OnInit {
 
   }
 
-  appName: string = 'Tabla';
-  @ViewChild(MatSort) sort!: MatSort;
+
 
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaAlmacenFin")!)
@@ -75,8 +78,25 @@ export class TablaAlmacenComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log('Dialogo cerrado');
+      this.almacenFin = result
+      console.log(this.almacenFin);
+      if (result)
+        this.saveAlmacenFin();
     });
   }
+  saveAlmacenFin() {
+    this.almacenFinService.saveAlmacenfin(this.almacenFin).
+      subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+      )
+
+
+    console.log(this.almacenFin)
+  }
+
 }
 

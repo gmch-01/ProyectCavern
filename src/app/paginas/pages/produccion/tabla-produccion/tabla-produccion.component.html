@@ -1,72 +1,72 @@
 <!-- <app-titulo></app-titulo> -->
 
 <div class="body">
-    <div class="bodyx">
-      <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
-        <mat-label>Buscar</mat-label>
-        <input type="text" matInput autocomplete="off" formControlName="usuario" style="color:white ;">
-      </mat-form-field>
-    </div>
-    <button mat-raised-button class="myButtonAdd" (click)="openDialog()">
-      Agregar
-      <mat-icon mat-list-icon>add</mat-icon>
-    </button>
-    <br>
+  <div class="bodyx">
+    <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
+      <mat-label>Buscar</mat-label>
+      <input type="text" matInput autocomplete="off" style="color:white ;">
+    </mat-form-field>
   </div>
-  
-  
-  
-  <div class="mat-elevation-z8">
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="25" [pageSize]="10" showFirstLastButtons>
-    </mat-paginator>
-    <br />
-  
-    <table mat-table [dataSource]="datos" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8"
-      #tabla1>
-      <!-- Position Column -->
-      <ng-container matColumnDef="id_produccion">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-          ID Produccion
-        </th>
-        <td mat-cell *matCellDef="let usuario">{{ usuario.id_produccion }}</td>
-      </ng-container>
-  
-  
-      <!-- Name Column -->
-      <ng-container matColumnDef="id_hoja_prod">
-        <th mat-header-cell *matHeaderCellDef>ID Hoja Produccion</th>
-        <td mat-cell *matCellDef="let usuario">{{ usuario.id_hoja_prod }}</td>
-      </ng-container>
-  
-      <!-- Weight Column -->
-      <ng-container matColumnDef="fecha_prod">
-        <th mat-header-cell *matHeaderCellDef>Fecha de Produccion</th>
-        <td mat-cell *matCellDef="let usuario">{{ usuario.fecha_prod }}</td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="encargado">
-        <th mat-header-cell *matHeaderCellDef>Encargado</th>
-        <td mat-cell *matCellDef="let usuario">{{ usuario.encargado }}</td>
-      </ng-container>
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef>Descripción</th>
-        <td mat-cell *matCellDef="let usuario">{{ usuario.descripcion }}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="accion">
-        <th mat-header-cell *matHeaderCellDef>Acción</th>
-        <td mat-cell *matCellDef="let usuario">
-          <button mat-raised-button class="myButton" (click)="openDialog()">
-            Editar
-            <mat-icon mat-list-icon>edit</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-  </div>
+  <button mat-raised-button class="myButtonAdd" (click)="openDialog()">
+    Agregar
+    <mat-icon mat-list-icon>add</mat-icon>
+  </button>
+  <br>
+</div>
+
+
+
+<div class="mat-elevation-z8">
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="25" [pageSize]="10" showFirstLastButtons>
+  </mat-paginator>
+  <br />
+
+  <table mat-table [dataSource]="datos" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8"
+    #tabla1>
+    <!-- Position Column -->
+    <ng-container matColumnDef="id_produccion">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+        ID Produccion
+      </th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.id_produccion }}</td>
+    </ng-container>
+
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="id_hoja_prod">
+      <th mat-header-cell *matHeaderCellDef>ID Hoja Produccion</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.id_hoja_prod }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="fecha_prod">
+      <th mat-header-cell *matHeaderCellDef>Fecha de Produccion</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.fecha_prod }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="encargado">
+      <th mat-header-cell *matHeaderCellDef>Encargado</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.encargado }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef>Descripción</th>
+      <td mat-cell *matCellDef="let usuario">{{ usuario.descripcion }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion">
+      <th mat-header-cell *matHeaderCellDef>Acción</th>
+      <td mat-cell *matCellDef="let usuario">
+        <button mat-raised-button class="myButton" (click)="openDialog()">
+          Editar
+          <mat-icon mat-list-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

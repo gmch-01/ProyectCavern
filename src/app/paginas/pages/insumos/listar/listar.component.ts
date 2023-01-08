@@ -72,7 +72,8 @@ export class ListarComponent {
       console.log('Dialogo cerrado');
       this.insumoform = result
       console.log(this.insumoform);
-      this.saveInsumo();
+      if (result)
+        this.saveInsumo();
     });
   }
   editarDialog(id: string): void {

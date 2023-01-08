@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AlmacenFin } from 'src/app/models/AlmacenFin';
+import { AlmacenFinService } from '../../../../services/almacenfin.service';
 
 @Component({
   selector: 'app-formulario-almacen',
@@ -9,17 +11,16 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class FormularioAlmacenComponent implements OnInit {
 
-  formNewAlmacen!: FormGroup ;
- 
+  formNewAlmacen!: FormGroup;
+
 
   constructor(
     private _fb: FormBuilder,
     public dialogRef: MatDialogRef<FormularioAlmacenComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public data: AlmacenFin,
+    private AlmacenFinService: AlmacenFinService
+  ) { }
   ngOnInit(): void {
-    this.formNew();
-
     throw new Error('Method not implemented.');
   }
 
@@ -31,25 +32,5 @@ export class FormularioAlmacenComponent implements OnInit {
     console.log('si se puede');
   }
 
-  formNew() {
-    this.formNewAlmacen = this._fb.group({
-      fecha_registro: [''],
-      cantidad: [''],
-      producto: [''],
-      encargado: [''],
-    });
-  }
-}
-
-export interface DialogData {
-  ci: number;
-  nombre: string;
-  apellido: string;
-  direccion: string;
-  numcel: number;
-  nombreuser: string;
-  password: string;
-  genero: string;
-  fechareg: string;
 }
 

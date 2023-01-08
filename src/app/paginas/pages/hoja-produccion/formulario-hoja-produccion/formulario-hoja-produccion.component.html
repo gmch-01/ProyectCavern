@@ -3,35 +3,31 @@
 <div mat-dialog-content>
     <p>Ingrese los datos</p>
 
-    <form [formGroup]="formNewUser">
 
-  
     <mat-form-field class="input" appearance="fill">
         <mat-label>ID Hoja de Producción</mat-label>
-        <input matInput [(ngModel)]="data.id_hoja_prod" autocomplete="off"  formControlName="id_hoja_prod">
+        <input matInput [(ngModel)]="data.id_hoja_prod" autocomplete="off">
     </mat-form-field>
     <mat-form-field class="input" appearance="fill">
         <mat-label>ID Receta</mat-label>
-        <input matInput [(ngModel)]="data.id_receta" autocomplete="off"  formControlName="id_receta">
+        <input matInput [(ngModel)]="data.id_receta" autocomplete="off">
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
         <mat-label>Cantidad</mat-label>
-        <input matInput [(ngModel)]="data.cantidad" autocomplete="off"  formControlName="cantidad">
+        <input matInput [(ngModel)]="data.cantidad" autocomplete="off">
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
         <mat-label>Fecha Hoja</mat-label>
-        <input matInput [(ngModel)]="data.fecha_hoja" autocomplete="off"  formControlName="fecha_hoja">
+        <input matInput [(ngModel)]="data.fecha_hoja" autocomplete="off">
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
         <mat-label>Encargado</mat-label>
-        <input matInput [(ngModel)]="data.encargado" autocomplete="off"  formControlName="encargado">
+        <input matInput [(ngModel)]="data.encargado" autocomplete="off">
     </mat-form-field>
- 
-</form>
-    
+
 </div>
 
 <div mat-dialog-actions>

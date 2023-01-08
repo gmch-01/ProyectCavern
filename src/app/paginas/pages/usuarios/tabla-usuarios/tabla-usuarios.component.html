@@ -4,7 +4,7 @@
   <div class="bodyx">
     <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
       <mat-label>Buscar</mat-label>
-      <input type="text" matInput autocomplete="off" formControlName="usuario" style="color:white ;">
+      <input type="text" matInput autocomplete="off" style="color:white ;">
     </mat-form-field>
   </div>
   <button mat-raised-button class="myButtonAdd" (click)="openDialog()">
@@ -68,6 +68,18 @@
         <button mat-raised-button class="myButton" (click)="openDialog()">
           Editar
           <mat-icon mat-list-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="eliminar">
+      <th mat-header-cell *matHeaderCellDef>
+        Acción
+      </th>
+      <td mat-cell *matCellDef="let usuario">
+        <button mat-raised-button class="myButton" (click)="eliminarDialog(usuario.ci_persona)">
+          Eliminar
+          <mat-icon mat-list-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

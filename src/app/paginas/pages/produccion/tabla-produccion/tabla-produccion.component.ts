@@ -32,10 +32,10 @@ export class TablaProduccionComponent implements OnInit {
     public dialog: MatDialog,
     /* private usuarioService: UsuariosService */
   ) {
-   /*  this.usuarioService.getUsuarios().subscribe(x => {
-      this.datos = this.datos;
-      console.log(this.datos)
-    }) */
+    /*  this.usuarioService.getUsuarios().subscribe(x => {
+       this.datos = this.datos;
+       console.log(this.datos)
+     }) */
   }
   ngOnInit() {
 
@@ -44,9 +44,7 @@ export class TablaProduccionComponent implements OnInit {
   appName: string = 'Tabla';
   @ViewChild(MatSort) sort!: MatSort;
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
+
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {

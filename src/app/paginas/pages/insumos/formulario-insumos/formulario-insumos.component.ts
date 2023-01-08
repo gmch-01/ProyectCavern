@@ -18,7 +18,9 @@ export class FormularioInsumosComponent {
 
 
 
-  constructor(public dialogRef: MatDialogRef<FormularioInsumosComponent>, @Inject(MAT_DIALOG_DATA) public data: Insumo, private insumosService: InsumosService) { console.log(data) }
+  constructor(public dialogRef: MatDialogRef<FormularioInsumosComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Insumo,
+    private insumosService: InsumosService) { console.log(data) }
 
   onCancel(): void {
     this.dialogRef.close();

@@ -20,7 +20,7 @@ export class UsuariosService {
   }
 
   deleteUsuario(id: String) {
-    return this.http.delete(`${this.API_URI}/usuario/${id} `)
+    return this.http.delete(`${this.API_URI}/usuarios/${id} `)
   }
 
   updateUsuario(id: string, updatedUsuario: Usuario) {
@@ -28,7 +28,7 @@ export class UsuariosService {
   }
 
   saveUsuario(Usuario: Usuario): Observable<Usuario> {
-    return this.http.post(`${this.API_URI}/usuario`, Usuario)
+    return this.http.post(`${this.API_URI}/usuarios`, Usuario)
 
   }
 }

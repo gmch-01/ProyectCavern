@@ -28,15 +28,26 @@ export class TablaUsuariosComponent implements OnInit {
     'numero_cell',
     'nombreuser',
     'accion',
+    'eliminar'
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   /* datos: UsuariosComponent [] = []; */
   datos: any;
   dataSource: any;
-
-  @ViewChild(MatPaginator, { static: true }) paginatSor!: MatPaginator;
-
+  usuarioform: Usuario = {
+    ci_persona: 0,
+    nombre: '',
+    apellido: '',
+    tipo_usuario: 0,
+    direccion: '',
+    numero_cell: 0,
+    genero: '',
+    usuario: '',
+    password: '',
+    fecha_registro: new Date()
+  }
+  @ViewChild(MatSort) sort!: MatSort;
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,
@@ -50,13 +61,6 @@ export class TablaUsuariosComponent implements OnInit {
   ngOnInit() {
     this.datos = JSON.parse(localStorage.getItem("listaUser")!)
     console.log("llego ", this.datos);
-  }
-
-  appName: string = 'Tabla';
-  @ViewChild(MatSort) sort!: MatSort;
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
   }
 
   announceSortChange(sortState: Sort) {
@@ -76,6 +80,30 @@ export class TablaUsuariosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
+      this.usuarioform = result;
+      console.log(this.usuarioform);
+      this.saveUsuario();
     });
   }
+
+  saveUsuario() {
+    this.usuarioService.saveUsuario(this.usuarioform).
+      subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+      )
+    console.log(this.usuarioform)
+  }
+
+  eliminarDialog(id: string): void {
+    this.usuarioService.deleteUsuario(id).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+  }
+
 }

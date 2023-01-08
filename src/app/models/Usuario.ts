@@ -1,5 +1,5 @@
 export interface Usuario {
-    ci_usuario?: number;
+    ci_persona?: number;
     nombre?: string;
     apellido?: string;
     tipo_usuario?: number;
@@ -7,7 +7,7 @@ export interface Usuario {
     numero_cell?: number;
     genero?: string;
     usuario?: string;
-    contraseña?: string;
+    password?: string;
     fecha_registro?: Date;
 }
 
