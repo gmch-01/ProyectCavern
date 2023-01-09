@@ -42,20 +42,20 @@
             </a>
 -->
 
-<mat-accordion>
-    <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-            <mat-icon mat-list-icon></mat-icon>
-            <mat-panel-title>
-                Planificación
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <a routerLink="./hoja-produccion" mat-list-item (click)="sidenav.toggle()">
-            <mat-icon mat-list-icon>user</mat-icon>
-            <span> Hoja de Producción</span>
-        </a>
-    </mat-expansion-panel>
-</mat-accordion> 
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-icon mat-list-icon></mat-icon>
+                        <mat-panel-title>
+                            Planificación
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <a routerLink="./hoja-produccion" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>user</mat-icon>
+                        <span> Hoja de Producción</span>
+                    </a>
+                </mat-expansion-panel>
+            </mat-accordion>
 
             <mat-accordion>
                 <mat-expansion-panel hideToggle>
@@ -81,12 +81,16 @@
                     <mat-expansion-panel-header>
                         <mat-icon mat-list-icon>engineering</mat-icon>
                         <mat-panel-title>
-                        Elaboración y Producción
+                            Elaboración y Producción
                         </mat-panel-title>
                     </mat-expansion-panel-header>
                     <a routerLink="./produccion" mat-list-item (click)="sidenav.toggle()">
                         <mat-icon mat-list-icon>engineering</mat-icon>
                         <span>Producción</span>
+                    </a>
+                    <a routerLink="./recetas" mat-list-item (click)="sidenav.toggle()">
+                        <mat-icon mat-list-icon>engineering</mat-icon>
+                        <span>Recetas</span>
                     </a>
                 </mat-expansion-panel>
             </mat-accordion>

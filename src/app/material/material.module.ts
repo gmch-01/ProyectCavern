@@ -26,7 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgChartsModule } from 'ng2-charts';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-
+import { MatSelectModule } from '@angular/material/select';
 
 import { FormularioComponent } from '../paginas/pages/titulo/formulario/formulario.component';
 
@@ -63,7 +63,8 @@ import { FormularioComponent } from '../paginas/pages/titulo/formulario/formular
     MatPaginatorModule,
     NgChartsModule,
     MatExpansionModule,
-    CdkAccordionModule
+    CdkAccordionModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule { }

@@ -40,6 +40,9 @@ import { FormularioHojaProduccionComponent } from './pages/hoja-produccion/formu
 import { ListarprodComponent } from './pages/productos/listarprod/listarprod.component';
 import { RouterModule } from '@angular/router';
 import { FormularioprodComponent } from './pages/productos/formularioprod/formularioprod.component';
+import { RecetasComponent } from './pages/recetas/recetas.component';
+import { TablaRecetasComponent } from './pages/recetas/tabla-recetas/tabla-recetas.component';
+import { FormularioRecetasComponent } from './pages/recetas/formulario-recetas/formulario-recetas.component';
 
 
 
@@ -78,7 +81,10 @@ import { FormularioprodComponent } from './pages/productos/formularioprod/formul
     FormularioHojaProduccionComponent,
     ListarprodComponent,
     FormularioprodComponent,
-    ListarprodComponent
+    ListarprodComponent,
+    RecetasComponent,
+    TablaRecetasComponent,
+    FormularioRecetasComponent
   ],
   imports: [
     CommonModule,

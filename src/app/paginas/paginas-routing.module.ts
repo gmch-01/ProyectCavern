@@ -15,6 +15,7 @@ import { KardexInsumosComponent } from './pages/kardex-insumos/kardex-insumos.co
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { HojaProduccionComponent } from './pages/hoja-produccion/hoja-produccion.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { RecetasComponent } from './pages/recetas/recetas.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,7 @@ const routes: Routes = [
       { path: 'kardex-insumos', component: KardexInsumosComponent },
       { path: 'editar/:id', component: AgregarComponent },
       { path: 'buscar', component: BuscarComponent },
+      { path: 'recetas', component: RecetasComponent },
       /*  { path: ':id', component: TablaComponent }, */
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'productos', component: ProductosComponent },

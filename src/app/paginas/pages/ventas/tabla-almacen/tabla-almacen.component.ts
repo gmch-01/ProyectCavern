@@ -97,6 +97,14 @@ export class TablaAlmacenComponent implements OnInit {
 
     console.log(this.almacenFin)
   }
+  eliminarDialog(id: string): void {
+    this.almacenFinService.deleteAlmacenfin(id).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+  }
 
 }
 
