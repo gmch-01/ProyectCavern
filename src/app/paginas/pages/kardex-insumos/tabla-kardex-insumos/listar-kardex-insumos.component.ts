@@ -108,7 +108,8 @@ export class ListarKardexInsumosComponent implements OnInit {
       console.log('Dialogo cerrado');
       this.almacenIns = result;
       console.log(this.almacenIns);
-      this.saveAlmacenIns();
+      if(result){
+      this.saveAlmacenIns();}
     });
   }
   eliminarAlmacenins(id: string): void {

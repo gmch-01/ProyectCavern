@@ -70,7 +70,8 @@ export class TablaRecetasComponent implements OnInit {
       console.log('The dialog was closed');
       this.recetaform = result;
       console.log(this.recetaform);
-      this.saveReceta();
+      if(result){
+      this.saveReceta();}
     });
   }
   saveReceta() {

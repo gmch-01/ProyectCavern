@@ -82,7 +82,8 @@ export class TablaUsuariosComponent implements OnInit {
       console.log('The dialog was closed');
       this.usuarioform = result;
       console.log(this.usuarioform);
-      this.saveUsuario();
+      if(result){
+      this.saveUsuario();}
     });
   }
 

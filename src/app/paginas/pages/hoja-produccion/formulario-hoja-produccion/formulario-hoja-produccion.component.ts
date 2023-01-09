@@ -1,26 +1,27 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
+import { HojaProduccion } from '../../../../models/HojaProduccion';
 @Component({
   selector: 'app-formulario-hoja-produccion',
   templateUrl: './formulario-hoja-produccion.component.html',
   styleUrls: ['./formulario-hoja-produccion.component.css']
 })
 export class FormularioHojaProduccionComponent implements OnInit {
-
-  formNewUser!: FormGroup ;
+  selected = this.data.id_receta
+  datacompleto: HojaProduccion
  
 
   constructor(
     private _fb: FormBuilder,
     public dialogRef: MatDialogRef<FormularioHojaProduccionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {
+    console.log(data)
+    this.datacompleto = { id_hoja_produccion: this.data.id_hoja_produccion, id_receta: this.selected, cantidad: this.data.cantidad, fecha_hoja: this.data.fecha_hoja, encargado: this.data.encargado }
+  }
   ngOnInit(): void {
-    this.formNew();
 
-    throw new Error('Method not implemented.');
   }
 
   onCancel(): void {
@@ -31,21 +32,4 @@ export class FormularioHojaProduccionComponent implements OnInit {
     console.log('si se puede');
   }
 
-  formNew() {
-    this.formNewUser = this._fb.group({
-      id_produccion: [''],
-      id_hoja_prod: [''],
-      fecha_prod: [''],
-      encargado: [''],
-      descripcion: [''],
-    });
-  }
-}
-
-export interface DialogData {
-  id_produccion: number;
-  id_hoja_prod: string;
-  fecha_prod: string;
-  encargado: string;
-  descripcion: number;
 }
