@@ -39,6 +39,7 @@ import { TablaHojaProduccionComponent } from './pages/hoja-produccion/tabla-hoja
 import { FormularioHojaProduccionComponent } from './pages/hoja-produccion/formulario-hoja-produccion/formulario-hoja-produccion.component';
 import { ListarprodComponent } from './pages/productos/listarprod/listarprod.component';
 import { RouterModule } from '@angular/router';
+import { FormularioprodComponent } from './pages/productos/formularioprod/formularioprod.component';
 
 
 
@@ -76,6 +77,8 @@ import { RouterModule } from '@angular/router';
     TablaHojaProduccionComponent,
     FormularioHojaProduccionComponent,
     ListarprodComponent,
+    FormularioprodComponent,
+    ListarprodComponent
   ],
   imports: [
     CommonModule,

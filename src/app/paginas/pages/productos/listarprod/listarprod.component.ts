@@ -8,6 +8,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 
 import { ProductosService } from '../../../../services/productos.service';
 import { FormularioprodComponent } from '../formularioprod/formularioprod.component'
+import { Producto } from '../../../../models/Producto';
 
 @Component({
   selector: 'app-listarprod',
@@ -25,6 +26,11 @@ export class ListarprodComponent implements OnInit {
 
   datos: any
   appName: string = 'Tabla';
+  productoform: Producto = {
+    id_producto: 0,
+    nombre: '',
+    descripcion: ''
+  }
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private productoService: ProductosService, private _liveAnnouncer: LiveAnnouncer,
@@ -55,7 +61,12 @@ export class ListarprodComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('Dialogo cerrado')
+      console.log('Dialogo cerrado'); 
+      this.productoform = result
+      console.log(this.productoform);
+      if(result){
+        this.saveProducto();
+      }
     });
   }
   editarDialog(): void {
@@ -65,4 +76,18 @@ export class ListarprodComponent implements OnInit {
     });
   }
 
-}
+  saveProducto() {
+    this.productoService.saveProducto(this.productoform).
+      subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+      )
+
+
+    console.log(this.productoform)
+  }
+  }
+
+
