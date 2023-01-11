@@ -6,7 +6,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { FormularioHojaProduccionComponent } from '../formulario-hoja-produccion/formulario-hoja-produccion.component';
 import { Usuario } from 'src/app/models/Usuario';
 import { HojaProduccion } from '../../../../models/HojaProduccion';
-import {HojaProduccionService} from 'src/app/services/hojaproduccion.service'
+import { HojaProduccionService } from 'src/app/services/hojaproduccion.service'
 
 @Component({
   selector: 'app-tabla-hoja-produccion',
@@ -15,7 +15,7 @@ import {HojaProduccionService} from 'src/app/services/hojaproduccion.service'
 })
 export class TablaHojaProduccionComponent implements OnInit {
 
-columnas: string[] = [
+  columnas: string[] = [
     'id_hoja_produccion',
     'id_receta',
     'cantidad',
@@ -32,16 +32,16 @@ columnas: string[] = [
   hojaprodform: HojaProduccion = {
     id_hoja_produccion: 0,
     id_receta: 0,
-    cantidad:0,
-    fecha_hoja: new Date(),
-    encargado:''
+    cantidad: 0,
+    fecha_hoja: new Date('yyyy-MM-dd'),
+    encargado: ''
   }
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,
-    private hojaprodService: HojaProduccionService 
+    private hojaprodService: HojaProduccionService
   ) {
     this.hojaprodService.getHojaProduccion().subscribe(x => {
       this.datos = this.datos;
@@ -71,8 +71,9 @@ columnas: string[] = [
       console.log('The dialog was closed');
       this.hojaprodform = result;
       console.log(this.hojaprodform);
-      if(result){
-      this.saveHojaProduccion();}
+      if (result) {
+        this.saveHojaProduccion();
+      }
     });
   }
   saveHojaProduccion() {
