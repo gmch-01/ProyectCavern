@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { AlmacenFin } from '../models/AlmacenFin';
 import { Observable } from 'rxjs';
 
+//ESTE ES EL KARDEX DE PRODUCTOS 
 @Injectable({
     providedIn: 'root'
 })

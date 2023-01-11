@@ -27,6 +27,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatSelectModule } from '@angular/material/select';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { FormularioComponent } from '../paginas/pages/titulo/formulario/formulario.component';
 
@@ -64,7 +65,8 @@ import { FormularioComponent } from '../paginas/pages/titulo/formulario/formular
     NgChartsModule,
     MatExpansionModule,
     CdkAccordionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

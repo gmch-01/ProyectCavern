@@ -21,11 +21,10 @@ export class BarrasComponent implements OnInit {
 
 
   public barChartData: ChartData<'bar'> = {
-    labels: ['Insumo 1', 'Insumo 2', 'Insumo 3', 'Insumo4', 'Insumo'],
+    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
     datasets: [
-      { data: [65, 59, 80, 81, 56], label: 'Cantidad Insumo 1' },
-      { data: [28, 48, 40, 19, 86], label: 'Cantidad Insumo 2' },
-      { data: [78, 18, 70, 45, 15], label: 'Cantidad Insumo 3' },
+      { data: [65, 59, 80, 81, 56], label: 'Pan Molde Producido' },
+      { data: [28, 16, 59, 75, 19], label: 'Sarnitas Producidas' },
     ]
   };
   constructor() { }
@@ -51,22 +50,14 @@ export class BarrasComponent implements OnInit {
       Math.round(Math.random() * 100),
       Math.round(Math.random() * 100),];
 
-    this.barChartData.datasets[1].data = [
+      this.barChartData.datasets[1].data = [
         Math.round(Math.random() * 100),
         Math.round(Math.random() * 100),
         Math.round(Math.random() * 100),
         Math.round(Math.random() * 100),
         Math.round(Math.random() * 100),
         Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100)];
-    this.barChartData.datasets[2].data = [
-          Math.round(Math.random() * 100),
-          Math.round(Math.random() * 100),
-          Math.round(Math.random() * 100),
-          Math.round(Math.random() * 100),
-          Math.round(Math.random() * 100),
-          Math.round(Math.random() * 100),
-          Math.round(Math.random() * 100)];
+        Math.round(Math.random() * 100),];
 
     this.chart?.update();
   }

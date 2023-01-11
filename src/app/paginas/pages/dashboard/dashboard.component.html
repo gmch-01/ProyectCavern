@@ -5,7 +5,33 @@
             <mat-card class="dashboard-card">
                 <mat-card-header>
                     <mat-card-title>
-                        Grafico de Insumos
+                        Inventario de Insumos
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">.
+                    <app-tabla-insumos></app-tabla-insumos>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="2">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        Inventario de Productos
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">.
+                    <app-tabla-productos></app-tabla-productos>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="3">
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        Grafico de Producido por mes
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="dashboard-card-content">
@@ -18,37 +44,16 @@
             <mat-card class="dashboard-card">
                 <mat-card-header>
                     <mat-card-title>
-                        Grafico de Productos
+                        Producción Activa
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="dashboard-card-content">
-                    <app-barras></app-barras>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="3">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Grafico de Productos en Almacen
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <app-dona></app-dona>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="3">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Grafico de Producción
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <app-lineas></app-lineas>
+                    <h1>ID hoja de produccion:{{this.hojaprod[1].id_hoja_produccion}}</h1>
+                    <h2> Receta: {{this.hojaprod[1].receta}} </h2>
+                    <h2>Cantidad:{{this.hojaprod[1].cantidad}}</h2>
+                    <h2>Progreso 40%</h2>
+                    
+                    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>

@@ -38,6 +38,7 @@ export class ListarComponent {
   }
   @ViewChild(MatSort) sort!: MatSort;
 
+
   constructor(private insumoService: InsumosService,
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,) {

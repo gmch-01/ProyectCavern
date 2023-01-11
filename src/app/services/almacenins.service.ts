@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { AlmacenIns } from '../models/AlmacenIns';
 import { Observable } from 'rxjs';
 
+// ESTE ES EL KARDEX DE INSUMOS
 @Injectable({
     providedIn: 'root'
 })

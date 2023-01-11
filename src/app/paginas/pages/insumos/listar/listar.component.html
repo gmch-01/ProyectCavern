@@ -1,28 +1,4 @@
-<!--
-<div class="grid-container">
-    <h1 class="mat-h1">Dashboard</h1>
-    <mat-grid-list cols="4" rowHeight="450px">
-        <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-            <mat-card mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        {{card.title}}
-                        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                            <mat-icon>more_vert</mat-icon>
-                        </button>
-                        <mat-menu #menu="matMenu" xPosition="before">
-                            <button mat-menu-item>Expandir</button>
-                            <button mat-menu-item>Remover</button>
-                        </mat-menu>
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <div>Card Content Here</div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
-</div> -->
+
 <!-- LISTA EN CARTAS, T SALE PERO NO MUESTRA NOMBRES-->
 <!--
 <div class="grid-container">
@@ -31,7 +7,7 @@
         <mat-grid-tile *ngFor="let id_det_insumo of datos " colspan="1" rowspan="1">
             <mat-card mat-card class="dashboard-card">
                 <mat-card-header>
-                    <mat-card-title>{{this.datos.nombre}}</mat-card-title>
+                    <mat-card-title>{{datos.nombre}}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="dashboard-card-content">
                 </mat-card-content>

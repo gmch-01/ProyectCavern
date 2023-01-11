@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
+import { InventarioInsService } from '../../../services/inventarioins.service';
+import { InventarioProdService } from '../../../services/inventarioprod.service';
+import { InventarioIns } from 'src/app/models/InventarioIns';
+import { HojaProduccionService } from '../../../services/hojaproduccion.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,35 +13,56 @@ import { map } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 },
-          { title: 'Card 5', cols: 1, rows: 1 },
-          { title: 'Card 6', cols: 1, rows: 1 }
-        ];
-      }
+  inventarioIns: any;
+  inventarioProd: any;
+  hojaprod: any
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 },
-        { title: 'Card 5', cols: 1, rows: 1 },
-        { title: 'Card 6', cols: 1, rows: 1 }
-      ];
-    })
-  );
+  constructor(private InventarioInsService: InventarioInsService, 
+              private InventarioProdService: InventarioProdService,
+              private HojaProduccionService: HojaProduccionService  ) { }
 
 
 
   ngOnInit(): void {
+    this.getInventarioIns();
+    this.getInventarioProd();
+    this.getHojaProd();
 
+  }
+
+  getInventarioIns (){
+    this.InventarioInsService.getInventarioIns().subscribe(
+      res => {
+        this.inventarioIns = res;
+        localStorage.setItem("listaInvInsumo", JSON.stringify(this.inventarioIns));
+        console.log(this.inventarioIns);
+      },
+
+      err => console.error(err)
+    )
+  }
+  getInventarioProd (){
+    this.InventarioProdService.getInventarioProd().subscribe(
+      res => {
+        this.inventarioProd = res;
+        localStorage.setItem("listaInvProducto", JSON.stringify(this.inventarioProd));
+        console.log(this.inventarioProd);
+      },
+
+      err => console.error(err)
+    )
+  }
+
+  getHojaProd (){
+    this.HojaProduccionService.getHojaProduccion().subscribe(
+      res => {
+        this.hojaprod = res;
+
+        console.log(this.hojaprod, "los datos de la hoja");
+      },
+
+      err => console.error(err)
+    )
   }
 }
 

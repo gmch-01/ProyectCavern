@@ -11,7 +11,10 @@ import { FormularioComponent } from '../titulo/formulario/formulario.component';
 export class ProduccionComponent implements OnInit {
 
   producto: any
-  constructor(private ProductosService: ProductosService) { }
+  constructor(private ProductosService: ProductosService) { 
+
+    
+  }
 
   ngOnInit(): void {}
     getProductos() {
