@@ -4,10 +4,10 @@
 <div class="grid-container">
     <mat-grid-list cols="4" rowHeight="450px">
 
-        <mat-grid-tile *ngFor="let id_det_insumo of datos " colspan="1" rowspan="1">
+        <mat-grid-tile *ngFor="let element of datos; index as i " colspan="1" rowspan="1">
             <mat-card mat-card class="dashboard-card">
                 <mat-card-header>
-                    <mat-card-title>{{datos.nombre}}</mat-card-title>
+                    <mat-card-title>{{datos[i].nombre}}</mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="dashboard-card-content">
                 </mat-card-content>

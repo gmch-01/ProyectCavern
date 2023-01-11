@@ -3,5 +3,6 @@ export interface HojaProduccion {
     id_receta?: number;
     cantidad?:number;
     fecha_hoja?: Date;
-    encargado?: string
+    encargado?: string;
+    progreso?: number
 }

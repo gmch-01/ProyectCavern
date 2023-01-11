@@ -1,5 +1,74 @@
 <div class="bodyp">
     <h1 class="mat-h1">PRODUCCIÓN</h1>
 
-<app-tabla-produccion></app-tabla-produccion>
+
+
+<ul>
+
+    <li *ngFor ="let element of produccion; index as i ">
+
+
+<mat-accordion>
+    <mat-expansion-panel  hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{this.produccion[i].id_hoja_produccion}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{this.produccion[i].receta}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+               Recibido de  Almacen de Insumos
+              </mat-panel-title>
+        </mat-expansion-panel-header>
+        <h1>{{this.produccion[i].receta}}</h1>
+        
+        <a > Peso Recibido:</a>     
+
+        <!-- ACA SE EMPIEZA CO NEL RELLENO-->
+        <mat-form-field class="input" appearance="fill">
+            <mat-label></mat-label>
+            <input matInput [(ngModel)]="produccion.progreso" autocomplete="off">
+           
+        </mat-form-field>
+        <button mat-raised-button class="myButton" (click)= "actualizarProducto(this.produccion.progreso); nextStep()">
+            Aceptar
+            <mat-icon mat-list-icon>check</mat-icon>
+        </button>
+          <!--HASTA ACA-->
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+               Producto Embolsado
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <h1>{{this.produccion[i].receta}}</h1>
+
+        <a > Cantidad Producto Embolsado:</a>
+       
+        <mat-form-field class="input" appearance="fill">
+            <mat-label>Total Embolsado</mat-label>
+            <input matInput [(ngModel)]="produccion.progreso" autocomplete="off">
+        </mat-form-field>
+
+        <button mat-raised-button class="myButton" (click)= "actualizarProducto(produccion.progreso); nextStep()">
+            Aceptar
+            <mat-icon mat-list-icon>check</mat-icon>
+        </button>
+    </mat-expansion-panel>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</li>
+
+
+</ul>
+
 </div>

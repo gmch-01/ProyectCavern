@@ -29,6 +29,7 @@ export class HojaProduccionComponent implements OnInit {
 
       err => console.error(err)
     )
+    
   }
 
   getControl() {
