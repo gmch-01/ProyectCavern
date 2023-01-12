@@ -33,7 +33,6 @@ export class TablaHojaProduccionComponent implements OnInit {
   hojaprodform: HojaProduccion = {
     id_hoja_produccion: 0,
     id_receta: 0,
-    cantidad: 0,
     encargado: ''
   }
   @ViewChild(MatSort) sort!: MatSort;
@@ -71,12 +70,9 @@ export class TablaHojaProduccionComponent implements OnInit {
       console.log('The dialog was closed');
       this.hojaprodform = result;
       console.log(this.hojaprodform);
-
-   //   if(this.hojaprodform.cantidad > 6){
       if (result) {
         this.saveHojaProduccion();
       }
-      //}
     });
   }
 
