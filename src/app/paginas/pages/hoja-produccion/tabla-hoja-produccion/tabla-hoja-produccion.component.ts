@@ -6,7 +6,8 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { FormularioHojaProduccionComponent } from '../formulario-hoja-produccion/formulario-hoja-produccion.component';
 import { Usuario } from 'src/app/models/Usuario';
 import { HojaProduccion } from '../../../../models/HojaProduccion';
-import { HojaProduccionService } from 'src/app/services/hojaproduccion.service'
+import { HojaProduccionService } from 'src/app/services/hojaproduccion.service';
+import { FormularioeditComponent } from '../formularioedit/formularioedit.component';
 
 @Component({
   selector: 'app-tabla-hoja-produccion',
@@ -33,7 +34,6 @@ export class TablaHojaProduccionComponent implements OnInit {
     id_hoja_produccion: 0,
     id_receta: 0,
     cantidad: 0,
-    fecha_hoja: new Date('yyyy-MM-dd'),
     encargado: ''
   }
   @ViewChild(MatSort) sort!: MatSort;
@@ -76,6 +76,37 @@ export class TablaHojaProduccionComponent implements OnInit {
       }
     });
   }
+
+  openEdit(id: number, edit: HojaProduccion, receta: string){
+    let recetaInt
+    if (receta == "Pan molde"){
+      receta="50001"
+      recetaInt=parseInt(receta)
+    }
+    if(receta == "Sarnita"){
+      receta= "50008"
+      recetaInt=parseInt(receta)
+    }
+
+    if(receta == "Hamburguesa"){
+      receta = "50014"
+      recetaInt=parseInt(receta)
+    }
+    let dialogRef = this.dialog.open(FormularioeditComponent, {
+      width: '400px',
+      data: {id_hoja_produccion: id, id_receta: recetaInt,  cantidad: edit.cantidad, fecha_hoja: edit.fecha_hoja, encargado:edit.encargado, progreso: edit.progreso, peso_recibido: edit.peso_recibido, embolsado: edit.embolsado },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.hojaprodform = result;
+      console.log(this.hojaprodform);
+      if (result) {
+        this.saveHojaProduccion();
+      }
+    });
+  }
+
   saveHojaProduccion() {
     this.hojaprodService.saveHojaProduccion(this.hojaprodform).
       subscribe(

@@ -27,6 +27,8 @@ export class TablaRecetasComponent implements OnInit {
   ];
 
   datos: any;
+  productos: any;
+
   dataSource: any;
   recetaform: Receta = {
     id_receta: 0,
@@ -50,6 +52,9 @@ export class TablaRecetasComponent implements OnInit {
   ngOnInit() {
     this.datos = JSON.parse(localStorage.getItem("listaReceta")!)
     console.log("llego ", this.datos);
+    this.productos = JSON.parse(localStorage.getItem("listaProductoR")!)
+    console.log("llego ", this.datos);
+
   }
 
   announceSortChange(sortState: Sort) {
@@ -92,6 +97,9 @@ export class TablaRecetasComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+  listar(producto: string) {
   }
 
 

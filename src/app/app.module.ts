@@ -23,7 +23,7 @@ import { UsuariosService } from './services/usuarios.service';
   declarations: [
     AppComponent,
     ErrorPageComponent,
-    MatdashboComponent
+    MatdashboComponent,
   ],
   imports: [
     BrowserModule,

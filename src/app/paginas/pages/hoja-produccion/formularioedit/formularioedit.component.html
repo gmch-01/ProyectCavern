@@ -8,23 +8,19 @@
         <mat-label>ID Hoja de Producción</mat-label>
         <input matInput [(ngModel)]="datacompleto.id_hoja_produccion" autocomplete="off">
     </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Productos</mat-label>
-        <mat-select [(value)]="datacompleto.id_receta">
 
-
-            <mat-option value="50001">Pan Molde</mat-option>
-            <mat-option value="50008">Sarnita</mat-option>
-            <mat-option value="50014">Hamburguesa</mat-option>
-
-        </mat-select>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Receta</mat-label>
+        <input matInput [(ngModel)]="datacompleto.id_receta" autocomplete="off">
     </mat-form-field>
+
 
     <mat-form-field class="input" appearance="fill">
         <mat-label >Cantidad</mat-label>
         
         <input matInput [(ngModel)]="datacompleto.cantidad" autocomplete="off">
     </mat-form-field>
+    
     <mat-form-field class="input" appearance="fill">
         <mat-label>Fecha Hoja</mat-label>
         <input matInput [(ngModel)]="datacompleto.fecha_hoja" autocomplete="off">

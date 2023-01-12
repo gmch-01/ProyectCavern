@@ -33,11 +33,11 @@
             <!-- ACA SE EMPIEZA CON EL RELLENO-->
             <mat-form-field class="input" appearance="fill">
               <mat-label>Peso en Kilos</mat-label>
-              <input matInput [(ngModel)]="produccion[i].peso_recibido" autocomplete="off">
+              <input matInput [(ngModel)]="peso" autocomplete="off">
 
             </mat-form-field>
             <button mat-raised-button class="myButton"
-              (click)="actualizarProducto(50, this.produccion[i].id_hoja_produccion, this.produccion[i], this.produccion[i].receta); nextStep()">
+              (click)=" nextStep()">
               Aceptar
               <mat-icon mat-list-icon>check</mat-icon>
             </button>
@@ -55,11 +55,11 @@
 
             <mat-form-field class="input" appearance="fill">
               <mat-label>Total Embolsado</mat-label>
-              <input matInput [(ngModel)]="produccion[i].embolsado" autocomplete="off">
+              <input matInput [(ngModel)]="embolsado" autocomplete="off">
             </mat-form-field>
 
             <button mat-raised-button class="myButton"
-              (click)="actualizarProducto(90, this.produccion[i].id_hoja_produccion, this.produccion[i], this.produccion[i].receta); nextStep()">
+              (click)="nextStep()">
               Aceptar
               <mat-icon mat-list-icon>check</mat-icon>
             </button>

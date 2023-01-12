@@ -13,6 +13,8 @@ export class ProduccionComponent implements OnInit {
 
   panelOpenState = false;
   produccion: any;
+  peso = 0;
+  embolsado = 0;
 
 
   constructor(private HojaProduccionService: HojaProduccionService) {
@@ -36,32 +38,32 @@ export class ProduccionComponent implements OnInit {
     )
     this.produccion = JSON.parse(localStorage.getItem("listaProduccion")!)
     console.log("llego LOS DATOS", this.produccion);
-    this.produccion = Object.values(this.produccion)
+    this.produccion = Object.values(this.produccion);
   }
 
-  actualizarProducto(progreso: number, id: number, produccion: HojaProduccion, idreceta: number) {
+  actualizarProducto(progreso: number, id: number, produccion: HojaProduccion, idreceta: string) {
 
-    /*
+
     var idrecetaN
     var idrecetaX
     if (idreceta == "Pan molde") {
-      idrecetaN = "20001";
+      idrecetaN = "50001";
       idrecetaX = Number(idrecetaN);
     }
     if (idreceta == "Sarnita") {
-      idrecetaN = "20002";
+      idrecetaN = "50008";
       idrecetaX = Number(idrecetaN);
     }
     if (idreceta == "Hamburguesa") {
-      idrecetaN = "20003";
+      idrecetaN = "50014";
       idrecetaX = Number(idrecetaN);
     }
-*/
+
     const updateProd: HojaProduccion =
-      { id_hoja_produccion: id, id_receta: idreceta, cantidad: produccion.cantidad, encargado: produccion.encargado, progreso: progreso, peso_recibido: produccion.peso_recibido, embolsado: produccion.embolsado }
+      { id_hoja_produccion: id, id_receta: idrecetaX, cantidad: produccion.cantidad, fecha_hoja: produccion.fecha_hoja, encargado: produccion.encargado, progreso: progreso, peso_recibido: produccion.peso_recibido, embolsado: produccion.embolsado }
     const ids = id.toString()
     console.log(updateProd, "NUEVOS DATOS")
-
+ 
     this.HojaProduccionService.updateHojaProduccion(ids, updateProd).subscribe(
       res => {
         this.produccion = res;

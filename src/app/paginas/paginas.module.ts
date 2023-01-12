@@ -45,6 +45,7 @@ import { TablaRecetasComponent } from './pages/recetas/tabla-recetas/tabla-recet
 import { FormularioRecetasComponent } from './pages/recetas/formulario-recetas/formulario-recetas.component';
 import { TablaInsumosComponent } from './pages/dashboard/tabla-insumos/tabla-insumos.component';
 import { TablaProductosComponent } from './pages/dashboard/tabla-productos/tabla-productos.component';
+import { FormularioeditComponent } from './pages/hoja-produccion/formularioedit/formularioedit.component';
 
 
 
@@ -88,7 +89,8 @@ import { TablaProductosComponent } from './pages/dashboard/tabla-productos/tabla
     TablaRecetasComponent,
     FormularioRecetasComponent,
     TablaInsumosComponent,
-    TablaProductosComponent
+    TablaProductosComponent,
+    FormularioeditComponent
   ],
   imports: [
     CommonModule,

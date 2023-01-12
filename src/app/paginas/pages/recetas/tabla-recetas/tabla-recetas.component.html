@@ -79,4 +79,27 @@
         <tr mat-header-row *matHeaderRowDef="columnas"></tr>
         <tr mat-row *matRowDef="let row; columns: columnas"></tr>
     </table>
+
+<!--
+    
+  <ul>
+    <li *ngFor="let element of productos; index as i ">
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{this.productos[i].nombre}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <li *ngIf = "this.productos[i].nombre == this.datos.productos">
+            {{this.datos.insumos}}
+        </li>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </li>
+
+     AQUI EMPIEZNA LOS COMPLETADOS 
+
+  </ul>-->
 </div>
