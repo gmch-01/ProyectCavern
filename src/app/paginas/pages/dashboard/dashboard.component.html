@@ -47,25 +47,21 @@
                         Producción Activa
                     </mat-card-title>
                 </mat-card-header>
+
+            <li *ngFor="let element of hojaprod; index as i ">
                 <mat-card-content class="dashboard-card-content">
-                    <h1>ID hoja de produccion:</h1>
-                    <h2> Receta:  </h2>
-                    <h2>Cantidad:</h2>
-                    <h2>Progreso: En Producción </h2>
-                    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                    <h1>ID hoja de produccion: {{hojaprod[i].id_hoja_produccion}}</h1>
+                    <h2> Receta: {{hojaprod[i].receta}}  </h2>
+                    <h2>Cantidad: {{hojaprod[i].cantidad}}</h2>
+                    <h2 *ngIf=" ">Progreso:  </h2>
+                    <mat-progress-bar mode="determinate" [value]="this.hojaprod[i].progreso"></mat-progress-bar>
                     <br>
                     <hr>
 
                     <br>
                 </mat-card-content>
-                <mat-card-content class="dashboard-card-content">
-                    <h1>ID hoja de produccion:</h1>
-                    <h2> Receta:  </h2>
-                    <h2>Cantidad:</h2>
-                    <h2>Progreso: En Embolsado </h2>
-                    <mat-progress-bar mode="determinate" value="70"></mat-progress-bar>
-                </mat-card-content>
 
+            </li>
 
             </mat-card>
         </mat-grid-tile>

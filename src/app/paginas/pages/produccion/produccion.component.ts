@@ -12,7 +12,7 @@ import { HojaProduccion } from '../../../models/HojaProduccion';
 export class ProduccionComponent implements OnInit {
 
   panelOpenState = false;
-  produccion: any;
+ public produccion: any 
   peso = 0;
   embolsado = 0;
 

@@ -46,6 +46,10 @@ import { FormularioRecetasComponent } from './pages/recetas/formulario-recetas/f
 import { TablaInsumosComponent } from './pages/dashboard/tabla-insumos/tabla-insumos.component';
 import { TablaProductosComponent } from './pages/dashboard/tabla-productos/tabla-productos.component';
 import { FormularioeditComponent } from './pages/hoja-produccion/formularioedit/formularioedit.component';
+import { InventarioInsComponent } from './pages/inventario-ins/inventario-ins.component';
+import { TablaInvComponent } from './pages/inventario-ins/tabla-inv/tabla-inv.component';
+import { InventarioProdComponent } from './pages/inventario-prod/inventario-prod.component';
+import { TablaProdComponent } from './pages/inventario-prod/tabla-prod/tabla-prod.component';
 
 
 
@@ -90,7 +94,11 @@ import { FormularioeditComponent } from './pages/hoja-produccion/formularioedit/
     FormularioRecetasComponent,
     TablaInsumosComponent,
     TablaProductosComponent,
-    FormularioeditComponent
+    FormularioeditComponent,
+    InventarioInsComponent,
+    TablaInvComponent,
+    InventarioProdComponent,
+    TablaProdComponent
   ],
   imports: [
     CommonModule,

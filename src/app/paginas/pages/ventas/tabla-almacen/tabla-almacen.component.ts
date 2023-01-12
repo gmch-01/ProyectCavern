@@ -36,7 +36,7 @@ export class TablaAlmacenComponent implements OnInit {
 
   almacenFin: AlmacenFin = {
     id_det_producto: 0,
-    fecha_registro: new Date(),
+    fecha_registro: '',
     cantidad: 0,
     id_producto: 0,
     encargado: ''

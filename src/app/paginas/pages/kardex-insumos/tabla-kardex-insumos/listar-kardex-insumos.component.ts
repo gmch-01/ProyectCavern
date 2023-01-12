@@ -36,7 +36,7 @@ export class ListarKardexInsumosComponent implements OnInit {
 
   almacenIns: AlmacenIns = {
     id_det_insumo: 0,
-    fecha_entrada: new Date(),
+    fecha_entrada: '',
     proveedor: '',
     cantidad: 0,
     id_insumo: 0,
@@ -57,27 +57,7 @@ export class ListarKardexInsumosComponent implements OnInit {
     })
   }
 
-  /*openDialog(): void {
-    let dialogRef = this.dialog.open(FormularioKardexComponent, {
-      width: '400px',
-      data: new Insumo(0, '', '', ''),
-    });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result != undefined) this.agregar(result);
-    });
-  }
-  agregar(result: Insumo) {
-    this.datos.push(
-      new Insumo(
-        result.codigo,
-        result.nombre,
-        result.receta,
-        result.descripcion
-      )
-    );
-    this.tabla1.renderRows();
-  }*/
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaAlmacenIns")!)
     console.log("llego ", this.datos);

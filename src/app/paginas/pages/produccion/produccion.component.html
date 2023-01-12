@@ -1,7 +1,7 @@
 <div class="bodyp">
   <h1 class="mat-h1">PRODUCCIÓN</h1>
 
-
+<h2> Listado de Produccion</h2>
 
   <ul>
 
@@ -12,10 +12,10 @@
         <mat-expansion-panel hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{this.produccion[i].id_hoja_produccion}}
+            ID hoja:  {{this.produccion[i].id_hoja_produccion}}
             </mat-panel-title>
             <mat-panel-description>
-              {{this.produccion[i].receta}}
+            Receta: {{this.produccion[i].receta}}
 
             </mat-panel-description>
           </mat-expansion-panel-header>
@@ -33,7 +33,7 @@
             <!-- ACA SE EMPIEZA CON EL RELLENO-->
             <mat-form-field class="input" appearance="fill">
               <mat-label>Peso en Kilos</mat-label>
-              <input matInput [(ngModel)]="peso" autocomplete="off">
+              <input matInput [(ngModel)]="this.produccion[i].peso_recibido" autocomplete="off">
 
             </mat-form-field>
             <button mat-raised-button class="myButton"
@@ -55,7 +55,7 @@
 
             <mat-form-field class="input" appearance="fill">
               <mat-label>Total Embolsado</mat-label>
-              <input matInput [(ngModel)]="embolsado" autocomplete="off">
+              <input matInput [(ngModel)]="this.produccion[i].embolsado" autocomplete="off">
             </mat-form-field>
 
             <button mat-raised-button class="myButton"

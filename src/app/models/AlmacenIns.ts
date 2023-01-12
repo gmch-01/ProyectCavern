@@ -1,6 +1,6 @@
 export interface AlmacenIns {
     id_det_insumo?: number;
-    fecha_entrada?: Date;
+    fecha_entrada?: string;
     proveedor?: string;
     cantidad?: number;
     id_insumo?: number;

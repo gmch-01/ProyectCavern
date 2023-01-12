@@ -1,0 +1,39 @@
+<!-- <app-titulo></app-titulo> -->
+
+<div class="body">
+    <div class="bodyx">
+      <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
+        <mat-label>Buscar</mat-label>
+        <input type="text" matInput autocomplete="off" style="color:white ;">
+      </mat-form-field>
+    </div>
+
+    <br>
+  </div>
+  
+  
+  
+  <div class="mat-elevation-z8">
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="25" [pageSize]="10" showFirstLastButtons>
+    </mat-paginator>
+    <br />
+  
+    <table mat-table [dataSource]="datos" class="mat-elevation-z8">
+  
+        <!-- Position Column -->
+        <ng-container matColumnDef="insumo">
+          <th mat-header-cell *matHeaderCellDef> Insumo</th>
+          <td mat-cell *matCellDef="let insumo"> {{insumo.insumoInv}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="cantidad">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let insumo"> {{insumo.cantidad_actual}} </td>
+        </ng-container>
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  </div>

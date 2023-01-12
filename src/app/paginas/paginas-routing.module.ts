@@ -16,6 +16,7 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { HojaProduccionComponent } from './pages/hoja-produccion/hoja-produccion.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { RecetasComponent } from './pages/recetas/recetas.component';
+import { InventarioInsComponent } from './pages/inventario-ins/inventario-ins.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
       /*  { path: ':id', component: TablaComponent }, */
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'productos', component: ProductosComponent },
+      {path: 'inventarioins', component: InventarioInsComponent},
       { path: '**', redirectTo: 'listado' }
     ]
   }
