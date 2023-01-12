@@ -1,6 +1,5 @@
 export interface InventarioIns {
-    id_inv_ins?: number ;
     tipo_insumo?: number; 
-    fecha_venc?: Date;
+    fecha_venc?: string;
     cantidad_actual?: number;
 }

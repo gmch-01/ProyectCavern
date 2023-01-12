@@ -71,9 +71,12 @@ export class TablaHojaProduccionComponent implements OnInit {
       console.log('The dialog was closed');
       this.hojaprodform = result;
       console.log(this.hojaprodform);
+
+   //   if(this.hojaprodform.cantidad > 6){
       if (result) {
         this.saveHojaProduccion();
       }
+      //}
     });
   }
 

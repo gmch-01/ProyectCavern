@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlmacenInsService } from '../../../services/almacenins.service';
+import { InventarioInsService } from '../../../services/inventarioins.service';
 
 @Component({
   selector: 'app-kardex-insumos',
@@ -9,7 +10,9 @@ import { AlmacenInsService } from '../../../services/almacenins.service';
 export class KardexInsumosComponent implements OnInit {
 
   almacenins: any;
-  constructor(private AlmacenInsService: AlmacenInsService) { }
+  InventarioIns: any;
+  constructor(private AlmacenInsService: AlmacenInsService,
+    private InventarioInsService: InventarioInsService) { }
 
   ngOnInit(): void {
     console.log("entro");
@@ -26,6 +29,19 @@ export class KardexInsumosComponent implements OnInit {
 
       err => console.error(err)
     )
+  }
+
+  getInventarioIns(){
+    this.InventarioInsService.getInventarioIns().subscribe(
+      res => {
+        this.InventarioIns = res;
+        localStorage.setItem("listaInvInsumo", JSON.stringify(this.InventarioIns));
+        console.log(this.InventarioIns);
+      },
+
+      err => console.error(err)
+    )
+
   }
 
 }

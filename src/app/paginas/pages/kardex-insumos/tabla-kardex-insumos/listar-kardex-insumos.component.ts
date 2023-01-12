@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Insumo } from '../../insumos/insumo';
+import { InventarioInsService } from '../../../../services/inventarioins.service';
 
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
@@ -12,6 +13,7 @@ import { FormularioKardexComponent } from '../formulario-kardex-insumos/formular
 
 import { AlmacenInsService } from '../../../../services/almacenins.service';
 import { AlmacenIns } from '../../../../models/AlmacenIns';
+import { InventarioIns } from '../../../../models/InventarioIns';
 
 @Component({
   selector: 'app-listar-kardex-insumos',
@@ -43,13 +45,15 @@ export class ListarKardexInsumosComponent implements OnInit {
     peso: 0,
     usuario: '',
   }
+  inventarioIns: InventarioIns = {}
 
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,
-    private almacenInsService: AlmacenInsService
+    private almacenInsService: AlmacenInsService,
+    private InventarioInsService: InventarioInsService
   ) {
     this.almacenInsService.getAlmacenIns().subscribe(x => {
       this.datos = this.datos;
@@ -77,7 +81,8 @@ export class ListarKardexInsumosComponent implements OnInit {
     });
   }
 
-
+id =0
+idS = ''
   openDialog(): void {
     let dialogRef = this.dialog.open(FormularioKardexComponent, {
       width: '400px',
@@ -87,9 +92,43 @@ export class ListarKardexInsumosComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Dialogo cerrado');
       this.almacenIns = result;
+      if(this.almacenIns.id_insumo == 10001 ){
+        this.id = 60001
+        this.idS = this.id.toString()
+      }
+      if(this.almacenIns.id_insumo == 10002 ){
+        this.id = 60002
+        this.idS = this.id.toString()
+      }
+      if(this.almacenIns.id_insumo == 10003 ){
+        this.id = 60003
+        this.idS = this.id.toString()
+      }
+      if(this.almacenIns.id_insumo == 10004 ){
+        this.id = 60004
+        this.idS = this.id.toString()
+      }
+      if(this.almacenIns.id_insumo == 10005 ){
+        this.id = 60005
+        this.idS = this.id.toString()
+      }
+      if(this.almacenIns.id_insumo == 10006 ){
+        this.id = 60006
+        this.idS = this.id.toString()
+      }
+      if(this.almacenIns.id_insumo == 10007 ){
+        this.id = 60007
+        this.idS = this.id.toString()
+      }
+
+
+
+      this.inventarioIns= {tipo_insumo: this.almacenIns.id_insumo, fecha_venc: this.almacenIns.fecha_vencimiento ,cantidad_actual:this.almacenIns.cantidad }
       console.log(this.almacenIns);
       if(result){
-      this.saveAlmacenIns();}
+      this.saveAlmacenIns();
+      this.updateInv(this.idS, this.inventarioIns)
+    }
     });
   }
   eliminarAlmacenins(id: string): void {
@@ -112,6 +151,16 @@ export class ListarKardexInsumosComponent implements OnInit {
 
 
     console.log(this.almacenIns)
+  }
+
+  updateInv (id:string, update:InventarioIns ) {
+    this.InventarioInsService.updateInventarioIns(id,update).subscribe(
+      res=> {
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+
   }
 
 
