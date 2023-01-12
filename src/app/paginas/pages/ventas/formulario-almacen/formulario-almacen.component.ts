@@ -17,11 +17,11 @@ export class FormularioAlmacenComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     public dialogRef: MatDialogRef<FormularioAlmacenComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: AlmacenFin,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private AlmacenFinService: AlmacenFinService
   ) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   onCancel(): void {

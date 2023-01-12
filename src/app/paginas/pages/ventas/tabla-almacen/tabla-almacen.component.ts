@@ -86,7 +86,7 @@ idS = ''
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Dialogo cerrado');
       this.almacenFin = result
-      if(this.almacenFin.id_producto == 20001 ){
+     /* if(this.almacenFin.id_producto == 20001 ){
         this.id = 50001
         this.idS = this.id.toString()
       }
@@ -119,13 +119,12 @@ idS = ''
 
       this.inventarioProd= {tipo_prod: this.almacenFin.id_producto,fecha_vencimiento: this.almacenFin.fecha_vencimiento ,cantidad_actual:this.almacenFin.cantidad  }
       console.log(this.almacenFin);
+      */
       if(result){
       this.saveAlmacenFin();
-      this.updateInv(this.idS, this.inventarioProd)
+      //this.updateInv(this.idS, this.inventarioProd)
 
       console.log(this.almacenFin);
-      if (result)
-        this.saveAlmacenFin();
     }
     });
   }
