@@ -4,4 +4,5 @@ export interface AlmacenFin {
     cantidad?: number;
     id_producto?: number;
     encargado?: string;
+    fecha_vencimiento?: string
 }

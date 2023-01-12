@@ -122,7 +122,7 @@ idS = ''
       }
 
 
-
+      this.almacenIns.cantidad= this.almacenIns.cantidad
       this.inventarioIns= {tipo_insumo: this.almacenIns.id_insumo, fecha_venc: this.almacenIns.fecha_vencimiento ,cantidad_actual:this.almacenIns.cantidad }
       console.log(this.almacenIns);
       if(result){

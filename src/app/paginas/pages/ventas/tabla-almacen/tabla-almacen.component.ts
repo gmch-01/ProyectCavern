@@ -8,7 +8,9 @@ import { FormularioAlmacenComponent } from '../formulario-almacen/formulario-alm
 
 import { AlmacenFinService } from '../../../../services/almacenfin.service';
 import { AlmacenFin } from '../../../../models/AlmacenFin';
-import { VentasComponent } from '../ventas.component'
+import { VentasComponent } from '../ventas.component';
+import { InventarioProd } from '../../../../models/InventarioProd';
+import { InventarioProdService } from '../../../../services/inventarioprod.service';
 /**
  * @title Table with sorting
  */
@@ -30,7 +32,7 @@ export class TablaAlmacenComponent implements OnInit {
     'eliminar'
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
-
+  inventarioProd: InventarioProd = {}
   datos: any;
   dataSource: any;
 
@@ -54,7 +56,8 @@ export class TablaAlmacenComponent implements OnInit {
   constructor(
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,
-    private almacenFinService: AlmacenFinService
+    private almacenFinService: AlmacenFinService,
+    private InventarioProdService: InventarioProdService
   ) {
     this.almacenFinService.getAlmacenfin().subscribe(x => {
       this.datos = this.datos;
@@ -69,7 +72,8 @@ export class TablaAlmacenComponent implements OnInit {
     this.datos = JSON.parse(localStorage.getItem("listaAlmacenFin")!)
     console.log("llego ", this.datos);
   }
-
+id =0
+idS = ''
 
   openDialog(): void {
     let dialogRef = this.dialog.open(FormularioAlmacenComponent, {
@@ -77,12 +81,52 @@ export class TablaAlmacenComponent implements OnInit {
       data: {},
     });
 
+
+
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Dialogo cerrado');
       this.almacenFin = result
+      if(this.almacenFin.id_producto == 20001 ){
+        this.id = 50001
+        this.idS = this.id.toString()
+      }
+      if(this.almacenFin.id_producto == 20002 ){
+        this.id = 50002
+        this.idS = this.id.toString()
+      }
+      if(this.almacenFin.id_producto == 20003 ){
+        this.id = 50003
+        this.idS = this.id.toString()
+      }
+      if(this.almacenFin.id_producto == 20004 ){
+        this.id = 50004
+        this.idS = this.id.toString()
+      }
+      if(this.almacenFin.id_producto == 10005 ){
+        this.id = 50005
+        this.idS = this.id.toString()
+      }
+      if(this.almacenFin.id_producto == 10006 ){
+        this.id = 50006
+        this.idS = this.id.toString()
+      }
+      if(this.almacenFin.id_producto == 10007 ){
+        this.id = 50007
+        this.idS = this.id.toString()
+      }
+
+      this.almacenFin.cantidad= this.almacenFin.cantidad
+
+      this.inventarioProd= {tipo_prod: this.almacenFin.id_producto,fecha_vencimiento: this.almacenFin.fecha_vencimiento ,cantidad_actual:this.almacenFin.cantidad  }
+      console.log(this.almacenFin);
+      if(result){
+      this.saveAlmacenFin();
+      this.updateInv(this.idS, this.inventarioProd)
+
       console.log(this.almacenFin);
       if (result)
         this.saveAlmacenFin();
+    }
     });
   }
   saveAlmacenFin() {
@@ -104,6 +148,16 @@ export class TablaAlmacenComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+    updateInv (id:string, update:InventarioProd ) {
+    this.InventarioProdService.updateInventarioProd(id,update).subscribe(
+      res=> {
+        console.log(res)
+      },
+      err => console.log(err)
+    )
+
   }
 
 }
