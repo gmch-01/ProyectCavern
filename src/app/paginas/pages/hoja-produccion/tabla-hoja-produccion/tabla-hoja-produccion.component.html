@@ -49,6 +49,14 @@
       <th mat-header-cell *matHeaderCellDef>Fecha Hoja</th>
       <td mat-cell *matCellDef="let hojaprod">{{ hojaprod.fecha_hoja}}</td>
     </ng-container>
+    <ng-container matColumnDef="peso_recibido">
+      <th mat-header-cell *matHeaderCellDef>Peso Recibido</th>
+      <td mat-cell *matCellDef="let hojaprod">{{ hojaprod.peso_recibido}}</td>
+    </ng-container>
+    <ng-container matColumnDef="embolsado">
+      <th mat-header-cell *matHeaderCellDef>Embolsado</th>
+      <td mat-cell *matCellDef="let hojaprod">{{ hojaprod.embolsado}}</td>
+    </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="encargado">

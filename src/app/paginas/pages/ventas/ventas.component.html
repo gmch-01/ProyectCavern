@@ -2,4 +2,70 @@
     <h1 class="mat-h1">Almacen Productos Finalizados</h1>
 
 <app-tabla-almacen></app-tabla-almacen>
+<br>
+    <br>
+    <br>
+    <br>
+
+    <h1 class="mat-h1">Producccion Activa</h1>
+
+<ul>
+
+    <li *ngFor="let element of produccion; index as i ">
+
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+            ID hoja:  {{this.produccion[i].id_hoja_produccion}}
+            </mat-panel-title>
+            <mat-panel-description>
+            Receta: {{this.produccion[i].receta}}
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- Comienza la Expancion-->
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Recibido de Produccion
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <h1>{{this.produccion[i].receta}}</h1>
+
+            <h1>Productos enviados de Produccion :{{this.produccion[i].embolsado}}</h1>
+
+            <a> Productos Registrados ?</a>
+
+            <!-- ACA SE EMPIEZA CON EL RELLENO-->
+            <section class="example-section">
+                <mat-checkbox class="example-margin">Enviado</mat-checkbox>
+              </section> 
+            <button mat-raised-button class="myButton"
+              (click)=" nextStep()">
+              Aceptar
+              <mat-icon mat-list-icon>check</mat-icon>
+            </button>
+            <!--HASTA ACA-->
+          
+          </mat-expansion-panel>
+
+          <h1>
+            <button mat-raised-button class="myButton"
+              (click)="actualizarProducto(100, this.produccion[i].id_hoja_produccion, this.produccion[i], this.produccion[i].receta);"
+              hideToggle>
+              Completar
+              <mat-icon mat-list-icon>check</mat-icon>
+            </button>
+          </h1>
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </li>
+
+    <!-- AQUI EMPIEZNA LOS COMPLETADOS -->
+
+  </ul>
 </div>

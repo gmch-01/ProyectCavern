@@ -8,6 +8,7 @@ import { Usuario } from 'src/app/models/Usuario';
 import { HojaProduccion } from '../../../../models/HojaProduccion';
 import { HojaProduccionService } from 'src/app/services/hojaproduccion.service';
 import { FormularioeditComponent } from '../formularioedit/formularioedit.component';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-tabla-hoja-produccion',
@@ -15,13 +16,15 @@ import { FormularioeditComponent } from '../formularioedit/formularioedit.compon
   styleUrls: ['./tabla-hoja-produccion.component.css']
 })
 export class TablaHojaProduccionComponent implements OnInit {
-
+  
   columnas: string[] = [
     'id_hoja_produccion',
     'id_receta',
     'cantidad',
     'fecha_hoja',
     'encargado',
+    'peso_recibido',
+    'embolsado',
     'accion',
     'eliminar'
   ];
@@ -72,6 +75,7 @@ export class TablaHojaProduccionComponent implements OnInit {
       console.log(this.hojaprodform);
       if (result) {
         this.saveHojaProduccion();
+        Swal.fire('Registro Guardado')
       }
     });
   }

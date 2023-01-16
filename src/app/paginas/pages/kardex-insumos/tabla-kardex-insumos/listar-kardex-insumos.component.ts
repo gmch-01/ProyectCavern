@@ -14,6 +14,7 @@ import { FormularioKardexComponent } from '../formulario-kardex-insumos/formular
 import { AlmacenInsService } from '../../../../services/almacenins.service';
 import { AlmacenIns } from '../../../../models/AlmacenIns';
 import { InventarioIns } from '../../../../models/InventarioIns';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-listar-kardex-insumos',
@@ -93,6 +94,7 @@ idS = ''
       console.log(this.almacenIns);
       if(result){
       this.saveAlmacenIns();
+      Swal.fire('Registro Guardado')
      //this.updateInv(this.idS, this.inventarioIns)
     }
     });

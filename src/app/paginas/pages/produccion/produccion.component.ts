@@ -42,8 +42,6 @@ export class ProduccionComponent implements OnInit {
   }
 
   actualizarProducto(progreso: number, id: number, produccion: HojaProduccion, idreceta: string) {
-
-
     var idrecetaN
     var idrecetaX
     if (idreceta == "Pan molde") {

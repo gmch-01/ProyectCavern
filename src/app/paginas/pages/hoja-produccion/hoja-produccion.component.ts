@@ -2,14 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { HojaProduccionService} from 'src/app/services/hojaproduccion.service'
 import { ControlUnoService} from 'src/app/services/controluno.service'
 
+
 @Component({
   selector: 'app-hoja-produccion',
   templateUrl: './hoja-produccion.component.html',
   styleUrls: ['./hoja-produccion.component.css']
 })
+
+
 export class HojaProduccionComponent implements OnInit {
   hojaprod: any
   control: any;
+
   constructor(private HojaProduccionService: HojaProduccionService,
     private ControlUnoService: ControlUnoService) { }
   
