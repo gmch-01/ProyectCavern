@@ -26,21 +26,24 @@
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>
+        
+        
+                        <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Grafico de Producido por mes
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">
+                            <app-barras></app-barras>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
 
-        <mat-grid-tile colspan="2" rowspan="3">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Grafico de Producido por mes
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <app-barras></app-barras>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="5">
+        
+        
+        <mat-grid-tile colspan="4" rowspan="3">
             <mat-card class="dashboard-card">
                 <mat-card-header>
                     <mat-card-title>
@@ -60,12 +63,10 @@
 
                     <br>
                 </mat-card-content>
-
             </li>
 
             </mat-card>
         </mat-grid-tile>
-
         <!-- 
         <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
             <mat-card class="dashboard-card">

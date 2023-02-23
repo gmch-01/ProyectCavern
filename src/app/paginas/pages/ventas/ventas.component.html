@@ -29,13 +29,13 @@
           <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Recibido de Produccion
+                Recibido de Producción
               </mat-panel-title>
             </mat-expansion-panel-header>
             <h1>{{this.produccion[i].receta}}</h1>
-
+            
             <h1>Productos enviados de Produccion :{{this.produccion[i].embolsado}}</h1>
-
+            
             <a> Productos Registrados ?</a>
 
             <!-- ACA SE EMPIEZA CON EL RELLENO-->
@@ -51,7 +51,7 @@
           
           </mat-expansion-panel>
 
-          <h1>
+          <h1> 
             <button mat-raised-button class="myButton"
               (click)="actualizarProducto(100, this.produccion[i].id_hoja_produccion, this.produccion[i], this.produccion[i].receta);"
               hideToggle>

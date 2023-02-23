@@ -9,7 +9,7 @@ import { InventarioProdService } from 'src/app/services/inventarioprod.service';
 export class TablaProductosComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'producto', 'cantidad'];
+    'producto', 'cantidad', 'unidad'];
   datos: any 
   constructor(private inventarioProdService: InventarioProdService) { 
     this.inventarioProdService.getInventarioProd().subscribe(x => {

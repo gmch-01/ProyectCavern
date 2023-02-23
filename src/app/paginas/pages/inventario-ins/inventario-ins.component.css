@@ -28,3 +28,37 @@
     margin: auto;
     padding: auto;
 }
+
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+
+.body {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+.bodyx {
+
+    width: 100%;
+    padding: 0px;
+}
+
+.anchox {
+    width: 100%;
+    padding-top: 15px;
+}
+
+.bodyi {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    padding: auto;
+}

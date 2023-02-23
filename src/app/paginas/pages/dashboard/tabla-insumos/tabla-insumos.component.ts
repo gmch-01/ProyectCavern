@@ -9,7 +9,7 @@ import { InventarioInsService } from 'src/app/services/inventarioins.service';
 export class TablaInsumosComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'insumo', 'cantidad'];
+    'insumo', 'cantidad', 'unidad'];
   datos: any 
 
   constructor(private inventarioInsService: InventarioInsService) {
