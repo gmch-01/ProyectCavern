@@ -5,6 +5,7 @@ import { InventarioInsService } from '../../../services/inventarioins.service';
 import { InventarioProdService } from '../../../services/inventarioprod.service';
 import { InventarioIns } from 'src/app/models/InventarioIns';
 import { HojaProduccionService } from '../../../services/hojaproduccion.service';
+import { PosiblesService } from 'src/app/services/posibles.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,11 +16,13 @@ export class DashboardComponent implements OnInit {
 
   inventarioIns: any;
   inventarioProd: any;
-  hojaprod: any
+  hojaprod: any;
+  posibles: any;
 
-  constructor(private InventarioInsService: InventarioInsService, 
-              private InventarioProdService: InventarioProdService,
-              private HojaProduccionService: HojaProduccionService  ) { }
+  constructor(private InventarioInsService: InventarioInsService,
+    private InventarioProdService: InventarioProdService,
+    private HojaProduccionService: HojaProduccionService,
+    private PosiblesService: PosiblesService) { }
 
 
 
@@ -27,10 +30,11 @@ export class DashboardComponent implements OnInit {
     this.getInventarioIns();
     this.getInventarioProd();
     this.getHojaProd();
+    this.getPosible();
 
   }
 
-  getInventarioIns (){
+  getInventarioIns() {
     this.InventarioInsService.getInventarioIns().subscribe(
       res => {
         this.inventarioIns = res;
@@ -47,7 +51,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  getInventarioProd (){
+  getInventarioProd() {
     this.InventarioProdService.getInventarioProd().subscribe(
       res => {
         this.inventarioProd = res;
@@ -62,7 +66,7 @@ export class DashboardComponent implements OnInit {
     this.inventarioProd = Object.values(this.inventarioProd);
   }
 
-  getHojaProd (){
+  getHojaProd() {
     this.HojaProduccionService.getHojaProduccion().subscribe(
       res => {
         this.hojaprod = res;
@@ -75,6 +79,22 @@ export class DashboardComponent implements OnInit {
     this.hojaprod = JSON.parse(localStorage.getItem("hojaProd")!)
     console.log("llego LOS DATOS Hoja", this.hojaprod);
     this.hojaprod = Object.values(this.hojaprod);
+  }
+
+  getPosible() {
+    this.PosiblesService.getPosibles().subscribe(
+      res => {
+        this.posibles = res;
+        localStorage.setItem("listaPosibles", JSON.stringify(this.posibles));
+        console.log(this.posibles);
+      },
+
+      err => console.error(err)
+    )
+
+    this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
+    console.log("llego LOS DATOS POSIBLES", this.posibles);
+    this.posibles = Object.values(this.posibles);
   }
 
 }
