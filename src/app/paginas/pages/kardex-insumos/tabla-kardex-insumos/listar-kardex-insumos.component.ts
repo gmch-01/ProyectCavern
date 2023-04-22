@@ -14,6 +14,7 @@ import { FormularioKardexComponent } from '../formulario-kardex-insumos/formular
 import { AlmacenInsService } from '../../../../services/almacenins.service';
 import { AlmacenIns } from '../../../../models/AlmacenIns';
 import { InventarioIns } from '../../../../models/InventarioIns';
+import { InsumosService } from 'src/app/services/insumos.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -23,7 +24,6 @@ import Swal from 'sweetalert2'
 })
 export class ListarKardexInsumosComponent implements OnInit {
   columnas: string[] = [
-    'id_det_insumo',
     'fecha_entrada',
     'proveedor',
     'cantidad',
@@ -35,10 +35,12 @@ export class ListarKardexInsumosComponent implements OnInit {
   ];
 
   datos: any;
+  datosI: any;
+  datosX: any;  
   dataSource: any;
 
   almacenIns: AlmacenIns = {
-    id_det_insumo: 0,
+
     fecha_entrada: '',
     proveedor: '',
     cantidad: 0,
@@ -54,19 +56,35 @@ export class ListarKardexInsumosComponent implements OnInit {
     private _liveAnnouncer: LiveAnnouncer,
     public dialog: MatDialog,
     private almacenInsService: AlmacenInsService,
-    private InventarioInsService: InventarioInsService
+    private InventarioInsService: InventarioInsService, 
+    private InsumosService : InsumosService
   ) {
     this.almacenInsService.getAlmacenIns().subscribe(x => {
       this.datos = this.datos;
       console.log(this.datos)
+    })
+    this.InsumosService.getInsumo().subscribe(x => {
+      this.datosI = this.datosI;
+      console.log(this.datosI)
     })
   }
 
 
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaAlmacenIns")!)
+
     console.log("llego ", this.datos);
+
+    this.datosI = JSON.parse(localStorage.getItem("listaInsumo")!)
+
+    console.log("llegaron los insumos ", this.datosI);
+    
   }
+
+
+
+
+
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
@@ -91,7 +109,9 @@ idS = ''
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(this.almacenIns);
+      console.log(result, "ESTO ES LO QUE LLEGA");
+      this.almacenIns= result; 
+      
       if(result){
       this.saveAlmacenIns();
       Swal.fire('Registro Guardado')

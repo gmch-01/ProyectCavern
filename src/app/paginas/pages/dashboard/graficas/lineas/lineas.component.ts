@@ -20,7 +20,7 @@ export class LineasComponent implements OnInit {
     datasets: [
       {
         data: [ 65, 59, 80, 81, 56, 55, 40 ],
-        label: 'Turno Mañana',
+        label: 'Pan Molde',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -31,7 +31,7 @@ export class LineasComponent implements OnInit {
       },
       {
         data: [ 28, 48, 40, 19, 86, 27, 90 ],
-        label: 'Turno Tarde',
+        label: 'Sarnita',
         backgroundColor: 'rgba(77,83,96,0.2)',
         borderColor: 'rgba(77,83,96,1)',
         pointBackgroundColor: 'rgba(77,83,96,1)',
@@ -41,8 +41,8 @@ export class LineasComponent implements OnInit {
         fill: 'origin',
       },
       {
-        data: [ 180, 480, 770, 90, 1000, 270, 400 ],
-        label: 'Turno Noche',
+        data: [ 20, 50, 15, 90, 60, 27, 40 ],
+        label: 'Hamburguesa',
         yAxisID: 'y-axis-1',
         backgroundColor: 'rgba(255,0,0,0.3)',
         borderColor: 'red',

@@ -3,6 +3,7 @@ import { AlmacenInsService } from '../../../services/almacenins.service';
 import { InventarioInsService } from '../../../services/inventarioins.service';
 import { HojaProduccion } from '../../../models/HojaProduccion';
 import { HojaProduccionService } from '../../../services/hojaproduccion.service';
+import { InsumosService } from 'src/app/services/insumos.service';
 @Component({
   selector: 'app-kardex-insumos',
   templateUrl: './kardex-insumos.component.html',
@@ -12,17 +13,21 @@ export class KardexInsumosComponent implements OnInit {
 
   almacenins: any;
   InventarioIns: any;
+  Insumos: any
   public produccion: any 
   constructor(private AlmacenInsService: AlmacenInsService,
     private HojaProduccionService: HojaProduccionService,
-    private InventarioInsService: InventarioInsService) { }
+    private InventarioInsService: InventarioInsService, 
+    private InsumosService: InsumosService) { }
 
   ngOnInit(): void {
     console.log("entro");
     this.getAlmacen();
     this.getProductos();
-
+    this.getInsumos();
   }
+
+
 
   getAlmacen() {
     this.AlmacenInsService.getAlmacenIns().subscribe(
@@ -35,7 +40,6 @@ export class KardexInsumosComponent implements OnInit {
       err => console.error(err)
     )
   }
-
   getInventarioIns(){
     this.InventarioInsService.getInventarioIns().subscribe(
       res => {
@@ -48,7 +52,20 @@ export class KardexInsumosComponent implements OnInit {
     )
 
   }
+  getInsumos(){
+    this.InsumosService.getInsumo().subscribe(
+      res => {
+        this.Insumos = res;
+        localStorage.setItem("listaInsumo", JSON.stringify(this.Insumos));
+        console.log(this.Insumos);
+      },
 
+      err => console.error(err)
+    )
+
+  }
+
+  
   step = 0;
   setStep(index: number) {
     this.step = index;
@@ -77,6 +94,9 @@ export class KardexInsumosComponent implements OnInit {
     console.log("llego LOS DATOS", this.produccion);
     this.produccion = Object.values(this.produccion);
   }
+
+
+  
   actualizarProducto(progreso: number, id: number, produccion: HojaProduccion, idreceta: string) {
     var idrecetaN
     var idrecetaX

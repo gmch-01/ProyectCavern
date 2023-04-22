@@ -23,12 +23,7 @@
         #tabla1>
 
         <!-- Position Column -->
-        <ng-container matColumnDef="id_det_insumo">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
-                ID Registro
-            </th>
-            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.id_det_insumo}} </td>
-        </ng-container>
+
 
         <!-- Name Column -->
         <ng-container matColumnDef="fecha_entrada">
@@ -59,7 +54,7 @@
             <th mat-header-cell *matHeaderCellDef>
                 Insumo
             </th>
-            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.id_insumo}} </td>
+            <td mat-cell *matCellDef="let almacenIns"> {{almacenIns.nombre}} </td>
         </ng-container>
 
         <ng-container matColumnDef="peso">
