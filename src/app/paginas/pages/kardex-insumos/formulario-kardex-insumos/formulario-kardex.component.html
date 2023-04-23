@@ -4,10 +4,6 @@
     <p>Ingrese los datos</p>
 
     <mat-form-field class="input" appearance="fill">
-        <mat-label>ID Registro</mat-label>
-        <input matInput [(ngModel)]="data.id_det_insumo" autocomplete="off">
-    </mat-form-field>
-    <mat-form-field class="input" appearance="fill">
         <mat-label>Fecha Entrada</mat-label>
         <input matInput [(ngModel)]="data.fecha_entrada" autocomplete="off">
     </mat-form-field>
@@ -22,9 +18,16 @@
         <input matInput [(ngModel)]="data.cantidad" autocomplete="off">
     </mat-form-field>
 
-    <mat-form-field class="input" appearance="fill">
-        <mat-label>Insumo</mat-label>
-        <input matInput [(ngModel)]="data.id_insumo" autocomplete="off">
+    <mat-form-field appearance="fill">
+        <mat-label>Producto</mat-label>
+        <mat-select [(value)]="data.id_insumo">
+
+
+            <mat-option value="10001">Harina</mat-option>
+            <mat-option value="10002">Levadura</mat-option>
+            <mat-option value="10003">Azucar</mat-option>
+
+        </mat-select>
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
@@ -44,5 +47,5 @@
 <div mat-dialog-actions>
     <button mat-button (click)="onCancel()">Cerrar</button>
     <span class="spacer"></span>
-    <button mat-button [mat-dialog-close]="data" class="mybutton">Guardar</button>
+    <button mat-button *ngIf="(this.data)" [mat-dialog-close]="data" class="mybutton">Guardar</button>
 </div>

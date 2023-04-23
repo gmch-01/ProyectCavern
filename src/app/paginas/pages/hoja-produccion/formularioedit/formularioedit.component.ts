@@ -23,6 +23,12 @@ export class FormularioeditComponent implements OnInit {
       if (this.data.id_receta == 50001){
         this.recetaS = "Pan molde"
       }
+      if (this.data.id_receta == 50002){
+        this.recetaS = "Sarnita"
+      }
+      if (this.data.id_receta == 50003){
+        this.recetaS = "Hamburguesa "
+      }
 
       
     this.datacompleto = { id_hoja_produccion: this.data.id_hoja_produccion, id_receta: this.selected, cantidad: this.data.cantidad, fecha_hoja: this.data.fecha_hoja, encargado: this.data.encargado }
