@@ -11,10 +11,17 @@ export class TablaInvComponent implements OnInit {
   displayedColumns: string[] = [
     'insumo', 'cantidad'];
   datos: any 
-  constructor(private InventarioInsService: InventarioInsService) { 
+  datosEsp: any
+
+  constructor(private InventarioInsService: InventarioInsService, private InventarioInsSErviceEsp: InventarioInsService) { 
     this.InventarioInsService.getInventarioIns().subscribe(x => {
       this.datos = this.datos;
       console.log(this.datos)
+    
+  })
+    this.InventarioInsSErviceEsp.getInventarioInsesp().subscribe(x => {
+      this.datosEsp = this.datosEsp;
+      console.log(this.datosEsp)
     
   })
 }
@@ -22,6 +29,10 @@ export class TablaInvComponent implements OnInit {
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaInvInsumo")!)
     console.log("refrecar ", this.datos);
+    
+    this.datosEsp = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
+    console.log("QYERU ESPECIAL", this.datosEsp);
+
   }
 
 }

@@ -38,7 +38,7 @@ export class ListarKardexInsumosComponent implements OnInit {
   datosI: any;
   datosX: any;  
   dataSource: any;
-
+  guardarIns!: InventarioIns
   almacenIns: AlmacenIns = {
 
     fecha_entrada: '',
@@ -109,13 +109,14 @@ idS = ''
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result, "ESTO ES LO QUE LLEGA");
       this.almacenIns= result; 
       
       if(result){
       this.saveAlmacenIns();
       Swal.fire('Registro Guardado')
-     //this.updateInv(this.idS, this.inventarioIns)
+      this.guardarIns = {tipo_insumo: this.almacenIns.id_insumo, fecha_venc: this.almacenIns.fecha_vencimiento, cantidad_actual: this.almacenIns.cantidad }
+      this.saveInvIns()
+      //this.updateInv(this.idS, this.inventarioIns)
     }
     });
   }
@@ -130,6 +131,19 @@ idS = ''
 
   saveAlmacenIns() {
     this.almacenInsService.saveAlmacenIns(this.almacenIns).
+      subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+      )
+
+
+    console.log(this.almacenIns)
+  }
+
+  saveInvIns() {
+    this.InventarioInsService.saveInventarioIns(this.guardarIns).
       subscribe(
         res => {
           console.log(res);
