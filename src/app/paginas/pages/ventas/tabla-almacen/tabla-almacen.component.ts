@@ -23,12 +23,12 @@ import { InventarioProdService } from '../../../../services/inventarioprod.servi
 export class TablaAlmacenComponent implements OnInit {
 
   columnas: string[] = [
-    'id_det_productos',
     'fecha_registro',
     'cantidad',
     'producto',
     'encargado',
-    'accion',
+    'fecha_vencimiento',
+    'accion', 
     'eliminar'
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -86,45 +86,9 @@ idS = ''
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Dialogo cerrado');
       this.almacenFin = result
-     /* if(this.almacenFin.id_producto == 20001 ){
-        this.id = 50001
-        this.idS = this.id.toString()
-      }
-      if(this.almacenFin.id_producto == 20002 ){
-        this.id = 50002
-        this.idS = this.id.toString()
-      }
-      if(this.almacenFin.id_producto == 20003 ){
-        this.id = 50003
-        this.idS = this.id.toString()
-      }
-      if(this.almacenFin.id_producto == 20004 ){
-        this.id = 50004
-        this.idS = this.id.toString()
-      }
-      if(this.almacenFin.id_producto == 10005 ){
-        this.id = 50005
-        this.idS = this.id.toString()
-      }
-      if(this.almacenFin.id_producto == 10006 ){
-        this.id = 50006
-        this.idS = this.id.toString()
-      }
-      if(this.almacenFin.id_producto == 10007 ){
-        this.id = 50007
-        this.idS = this.id.toString()
-      }
-
-      this.almacenFin.cantidad= this.almacenFin.cantidad
-
-      this.inventarioProd= {tipo_prod: this.almacenFin.id_producto,fecha_vencimiento: this.almacenFin.fecha_vencimiento ,cantidad_actual:this.almacenFin.cantidad  }
-      console.log(this.almacenFin);
-      */
       if(result){
       this.saveAlmacenFin();
-      //this.updateInv(this.idS, this.inventarioProd)
-
-      console.log(this.almacenFin);
+        console.log(this.almacenFin);
     }
     });
   }

@@ -8,11 +8,13 @@ import { InventarioInsService } from '../../../services/inventarioins.service';
 })
 export class InventarioInsComponent implements OnInit {
   inventarioIns: any;
+  inventarioInsEsp: any;
   constructor(  
     private InventarioInsService: InventarioInsService,) { }
 
   ngOnInit(): void {
-    
+    this.getInventarioIns()
+    this.getInventarioInsesp()
   }
 
   getInventarioIns(){
@@ -20,7 +22,17 @@ export class InventarioInsComponent implements OnInit {
       res => {
         this.inventarioIns = res;
         localStorage.setItem("listaInvInsumo", JSON.stringify(this.inventarioIns));
-        console.log(this.inventarioIns);
+      },
+
+      err => console.error(err)
+    )
+
+  }
+  getInventarioInsesp(){
+    this.InventarioInsService.getInventarioInsesp().subscribe(
+      res => {
+        this.inventarioInsEsp = res;
+        localStorage.setItem("listaInvInsumoEsp", JSON.stringify(this.inventarioInsEsp));
       },
 
       err => console.error(err)
