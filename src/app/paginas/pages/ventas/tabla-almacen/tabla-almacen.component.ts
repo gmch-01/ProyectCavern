@@ -28,16 +28,16 @@ export class TablaAlmacenComponent implements OnInit {
     'producto',
     'encargado',
     'fecha_vencimiento',
-    'accion', 
+    'accion',
     'eliminar'
   ];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
   inventarioProd: InventarioProd = {}
   datos: any;
   dataSource: any;
+  datacompleto!: InventarioProd
 
   almacenFin: AlmacenFin = {
-    id_det_producto: 0,
     fecha_registro: '',
     cantidad: 0,
     id_producto: 0,
@@ -72,8 +72,8 @@ export class TablaAlmacenComponent implements OnInit {
     this.datos = JSON.parse(localStorage.getItem("listaAlmacenFin")!)
     console.log("llego ", this.datos);
   }
-id =0
-idS = ''
+  id = 0
+  idS = ''
 
   openDialog(): void {
     let dialogRef = this.dialog.open(FormularioAlmacenComponent, {
@@ -81,17 +81,31 @@ idS = ''
       data: {},
     });
 
-
-
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Dialogo cerrado');
       this.almacenFin = result
-      if(result){
-      this.saveAlmacenFin();
-        console.log(this.almacenFin);
-    }
+      if (result) {
+        this.saveAlmacenFin();
+        this.datacompleto = { tipo_prod: this.almacenFin.id_producto, fecha_vencimiento: this.almacenFin.fecha_vencimiento, cantidad_actual: this.almacenFin.cantidad }
+        this.saveInvProd();
+      }
     });
   }
+
+
+  saveInvProd() {
+    this.InventarioProdService.saveInventarioProd(this.datacompleto).
+      subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+      )
+
+
+    console.log(this.almacenFin)
+  }
+
   saveAlmacenFin() {
     this.almacenFinService.saveAlmacenfin(this.almacenFin).
       subscribe(
@@ -104,6 +118,11 @@ idS = ''
 
     console.log(this.almacenFin)
   }
+
+
+
+
+
   eliminarDialog(id: string): void {
     this.almacenFinService.deleteAlmacenfin(id).subscribe(
       res => {
@@ -113,9 +132,9 @@ idS = ''
     )
   }
 
-    updateInv (id:string, update:InventarioProd ) {
-    this.InventarioProdService.updateInventarioProd(id,update).subscribe(
-      res=> {
+  updateInv(id: string, update: InventarioProd) {
+    this.InventarioProdService.updateInventarioProd(id, update).subscribe(
+      res => {
         console.log(res)
       },
       err => console.log(err)
