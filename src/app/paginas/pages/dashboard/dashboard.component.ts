@@ -35,17 +35,17 @@ export class DashboardComponent implements OnInit {
   }
 
   getInventarioIns() {
-    this.InventarioInsService.getInventarioIns().subscribe(
+    this.InventarioInsService.getInventarioInsesp().subscribe(
       res => {
         this.inventarioIns = res;
-        localStorage.setItem("listaInvInsumo", JSON.stringify(this.inventarioIns));
-        console.log(this.inventarioIns);
+        localStorage.setItem("listaInvInsumoEsp", JSON.stringify(this.inventarioIns));
+        console.log(this.inventarioIns, "LISTA ESPECIAL");
       },
 
       err => console.error(err)
     )
 
-    this.inventarioIns = JSON.parse(localStorage.getItem("listaInvInsumo")!)
+    this.inventarioIns = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
     console.log("llego LOS DATOS Insumos", this.inventarioIns);
     this.inventarioIns = Object.values(this.inventarioIns);
   }

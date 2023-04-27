@@ -18,6 +18,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { RecetasComponent } from './pages/recetas/recetas.component';
 import { InventarioInsComponent } from './pages/inventario-ins/inventario-ins.component';
 import { InventarioProdComponent } from './pages/inventario-prod/inventario-prod.component';
+import { MatdashboComponent } from './../matdashbo/matdashbo.component';
 const routes: Routes = [
   {
     path: '', component: HomeComponent,
@@ -32,7 +33,7 @@ const routes: Routes = [
       { path: 'insumos', component: InsumosComponent },
       { path: 'kardex-insumos', component: KardexInsumosComponent },
       { path: 'editar/:id', component: AgregarComponent },
-      { path: 'buscar', component: BuscarComponent },
+      { path: 'mat', component: MatdashboComponent },
       { path: 'recetas', component: RecetasComponent },
       /*  { path: ':id', component: TablaComponent }, */
       { path: 'usuarios', component: UsuariosComponent },
