@@ -12,14 +12,27 @@
         <input matInput [(ngModel)]="data.cantidad" autocomplete="off">
     </mat-form-field>
 
-    <mat-form-field class="input" appearance="fill">
+    <mat-form-field appearance="fill">
         <mat-label>Producto</mat-label>
-        <input matInput [(ngModel)]="data.id_producto" autocomplete="off">
+        <mat-select [(value)]="data.id_producto">
+
+
+            <mat-option value="20001">Pan Molde</mat-option>
+            <mat-option value="20002">Sarnita</mat-option>
+            <mat-option value="20003">Hamburguesa</mat-option>
+            <mat-option value="20004">Molde Pizza</mat-option>
+            <mat-option value="20005">Panchito</mat-option>
+        </mat-select>
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
         <mat-label>Encargado</mat-label>
         <input matInput [(ngModel)]="data.encargado" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Fecha de Vencimiento</mat-label>
+        <input matInput [(ngModel)]="data.fecha_vencimiento" autocomplete="off">
     </mat-form-field>
 </div>
 

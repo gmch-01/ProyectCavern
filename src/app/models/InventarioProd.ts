@@ -1,6 +1,5 @@
 export interface InventarioProd {
-    id_inv_producto?: number ;
-    tipo_prod?: number; 
-    fecha_vencimiento?: String;
+    tipo_prod?: number;
+    fecha_vencimiento?: string;
     cantidad_actual?: number;
 }
