@@ -10,18 +10,32 @@ export class TablaProductosComponent implements OnInit {
 
   displayedColumns: string[] = [
     'producto', 'cantidad', 'unidad'];
-  datos: any 
-  constructor(private inventarioProdService: InventarioProdService) { 
-    this.inventarioProdService.getInventarioProd().subscribe(x => {
+  datos: any
+  constructor(private inventarioProdService: InventarioProdService) {
+    this.inventarioProdService.getInventarioProdesp().subscribe(x => {
       this.datos = this.datos;
       console.log(this.datos)
-    
-   })
+
+    })
   }
 
   ngOnInit(): void {
-    this.datos = JSON.parse(localStorage.getItem("listaInvProducto")!)
+    this.datos = JSON.parse(localStorage.getItem("listaInvProductoEsp")!)
     console.log("refrecar ", this.datos);
+  }
+
+
+  getColor(value: number) {
+    if (value > 90) {
+      return 'green';
+    } else if (value > 25) {
+      return 'yellow';
+    } else if (value <= 20) {
+      return 'red';
+    }
+    else {
+      return 'none'
+    }
   }
 
 }

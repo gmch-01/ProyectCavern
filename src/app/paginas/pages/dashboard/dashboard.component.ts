@@ -52,16 +52,15 @@ export class DashboardComponent implements OnInit {
 
 
   getInventarioProd() {
-    this.InventarioProdService.getInventarioProd().subscribe(
+    this.InventarioProdService.getInventarioProdesp().subscribe(
       res => {
         this.inventarioProd = res;
-        localStorage.setItem("listaInvProducto", JSON.stringify(this.inventarioProd));
-        console.log(this.inventarioProd);
+        localStorage.setItem("listaInvProductoEsp", JSON.stringify(this.inventarioProd));
       },
 
       err => console.error(err)
     )
-    this.inventarioProd = JSON.parse(localStorage.getItem("listaInvInsumo")!)
+    this.inventarioProd = JSON.parse(localStorage.getItem("listaInvProductoEsp")!)
     console.log("llego LOS DATOS Productos", this.inventarioProd);
     this.inventarioProd = Object.values(this.inventarioProd);
   }

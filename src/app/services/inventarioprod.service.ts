@@ -13,6 +13,9 @@ export class InventarioProdService {
     getInventarioProd() {
         return this.http.get(`${this.API_URI}/inventarioprod`)
     }
+    getInventarioProdesp() {
+        return this.http.get(`${this.API_URI}/inventarioprod/esp`)
+    }
 
     getInventarioProdid(id: string) {
         return this.http.get<InventarioProd>(`${this.API_URI}/inventarioprod/${id}`);
