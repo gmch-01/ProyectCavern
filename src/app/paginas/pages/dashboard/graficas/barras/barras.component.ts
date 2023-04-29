@@ -4,12 +4,21 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { BaseChartDirective } from 'ng2-charts';
 
 
+import { NgChartsModule } from 'ng2-charts';
+import { ChartDataset, ChartOptions } from 'chart.js';
+
+
+
 @Component({
   selector: 'app-barras',
   templateUrl: './barras.component.html',
   styleUrls: ['./barras.component.css']
 })
+
+
 export class BarrasComponent implements OnInit {
+
+
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
@@ -17,6 +26,9 @@ export class BarrasComponent implements OnInit {
     responsive: true,
 
   };
+
+
+  
   public barChartType: ChartType = 'bar';
 
 
@@ -61,5 +73,7 @@ export class BarrasComponent implements OnInit {
 
     this.chart?.update();
   }
+
+
 
 }

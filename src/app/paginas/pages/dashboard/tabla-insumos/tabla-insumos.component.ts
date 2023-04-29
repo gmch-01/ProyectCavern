@@ -16,8 +16,7 @@ export class TablaInsumosComponent implements OnInit {
     this.inventarioInsService.getInventarioInsesp().subscribe(x => {
       this.datos = this.datos;
       console.log(this.datos)
-    
-   })
+    })
   }
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)

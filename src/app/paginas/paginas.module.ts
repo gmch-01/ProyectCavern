@@ -53,6 +53,8 @@ import { TablaProdComponent } from './pages/inventario-prod/tabla-prod/tabla-pro
 
 
 
+
+
 @NgModule({
   declarations: [
     AgregarComponent,
@@ -98,7 +100,7 @@ import { TablaProdComponent } from './pages/inventario-prod/tabla-prod/tabla-pro
     InventarioInsComponent,
     TablaInvComponent,
     InventarioProdComponent,
-    TablaProdComponent
+    TablaProdComponent,
   ],
   imports: [
     CommonModule,
