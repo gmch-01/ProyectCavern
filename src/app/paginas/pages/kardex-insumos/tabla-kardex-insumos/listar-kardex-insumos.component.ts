@@ -59,14 +59,14 @@ export class ListarKardexInsumosComponent implements OnInit {
     private InventarioInsService: InventarioInsService, 
     private InsumosService : InsumosService
   ) {
-    this.almacenInsService.getAlmacenIns().subscribe(x => {
-      this.datos = this.datos;
-      console.log(this.datos)
-    })
-    this.InsumosService.getInsumo().subscribe(x => {
-      this.datosI = this.datosI;
-      console.log(this.datosI)
-    })
+    // this.almacenInsService.getAlmacenIns().subscribe(x => {
+    //   this.datos = this.datos;
+    //   console.log(this.datos, "ESTE ES EL DE PRUEBA")
+    // })
+    // this.InsumosService.getInsumo().subscribe(x => {
+    //   this.datosI = this.datosI;
+    //   console.log(this.datosI)
+    // })
   }
 
 

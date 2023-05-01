@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
-import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { BaseChartDirective } from 'ng2-charts';
 
+import { InventarioInsService } from 'src/app/services/inventarioins.service';
+import { LineasComponent } from '../lineas/lineas.component';
 
-import { NgChartsModule } from 'ng2-charts';
-import { ChartDataset, ChartOptions } from 'chart.js';
+
+import DataLabelsPlugin from 'chartjs-plugin-datalabels';
+
 
 
 
@@ -18,61 +20,65 @@ import { ChartDataset, ChartOptions } from 'chart.js';
 
 export class BarrasComponent implements OnInit {
 
+  datos: any 
 
+  constructor(private inventarioInsService: InventarioInsService) {
+  }
+  datitos: any[] = []
+  datitosN: any[] = []
+  datitosF: any[] = []
+
+  
+  ngOnInit(): void {
+    this.datos = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
+    this.datos = Object.values(this.datos);
+    console.log(this.datos, "LOS DATOS DISQUE DEL ARRAY")
+    this.getDatos();
+  }
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public barChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
-
-  };
-
-
-  
+    responsive: true, };
+  public barChartPlugins = [
+    DataLabelsPlugin ];
   public barChartType: ChartType = 'bar';
 
-
   public barChartData: ChartData<'bar'> = {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+    labels: this.datitos,
     datasets: [
-      { data: [65, 59, 80, 81, 56], label: 'Pan Molde Producido' },
-      { data: [28, 16, 59, 75, 19], label: 'Sarnitas Producidas' },
+      { data: this.datitosN , label: 'cantidad producida UNIDADES ' },
     ]
   };
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
-
   public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
     console.log(event, active);
   }
-  public randomize(): void {
-    // Only Change 3 values
-    this.barChartData.datasets[0].data = [
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),];
 
-      this.barChartData.datasets[1].data = [
-        Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100),
-        Math.round(Math.random() * 100),];
 
-    this.chart?.update();
+  getDatos () {
+    for(let i = 0 ; i< this.datos.length; i++) {
+      this.datitos[i] = this.datos[i].nombre
+    }
+    for(let i = 0 ; i< this.datos.length; i++) {
+      this.datitosN[i] = this.datos[i].existencia
+    }
+
+    console.log("INTENTO DE EXTRACCION DE DATOS",this.datitosN)
   }
+
+  proximosVencer() {
+
+    for(let i = 0 ; i< this.datos.length; i++) {
+      this.datitosF[i] = this.datos[i].fecha_vencimiento
+    }
+
+
+  
+  }
+
 
 
 
