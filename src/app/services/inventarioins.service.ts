@@ -16,6 +16,9 @@ export class InventarioInsService {
     getInventarioInsesp() {
         return this.http.get(`${this.API_URI}/inventarioins/esp`)
     }
+    getInventarioInsChart() {
+        return this.http.get(`${this.API_URI}/inventarioins/chart`)
+    }
 
     getInventarioInsid(id: string) {
         return this.http.get<InventarioIns>(`${this.API_URI}/inventarioins/${id}`);

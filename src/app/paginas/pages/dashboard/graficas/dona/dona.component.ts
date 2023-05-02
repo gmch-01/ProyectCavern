@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartData, ChartEvent, ChartType } from 'chart.js';
+import { ChartData, ChartEvent, ChartType, ChartConfiguration } from 'chart.js';
+
+
 
 @Component({
   selector: 'app-dona',
@@ -9,13 +11,29 @@ import { ChartData, ChartEvent, ChartType } from 'chart.js';
 
 export class DonaComponent implements OnInit {
 
-    // Doughnut
-    public doughnutChartLabels: string[] = [ 'Producto 1', 'Producto 2', 'Producto 3' ];
+  datos: any 
+  datitos: any[] = []
+  datitosN: any[] = []
+  datitosF: any[] = []
+  existe: any
+  falta:any
+
+    public doughnutChartLabels: string[] = [ 'existe', 'falta' ];
     public doughnutChartData: ChartData<'doughnut'> = {
-      labels: this.doughnutChartLabels,
+      labels: this.doughnutChartLabels ,
       datasets: [
-        { data: [ 350, 450, 100 ] }
+        { data: this.datitosN,
+          borderWidth: 1}
       ]
+    };
+
+    public pieChartOptions: ChartConfiguration['options'] = {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+        }}
     };
     public doughnutChartType: ChartType = 'doughnut';
   
@@ -30,6 +48,22 @@ export class DonaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.datos = JSON.parse(localStorage.getItem("listaInvInsumoChart")!)
+    this.datos = Object.values(this.datos);
+    console.log(this.datos, "LOS DATOS DEL GRAFICO")
+    this.getDatos();
+  }
+
+  getDatos () {
+    // for(let i = 0 ; i< this.datos.length; i++) {
+    //   this.datitos[i] = this.datos[i].nombre
+    // }
+    // for(let i = 0 ; i< this.datos.length; i++) {
+    //   this.datitosN[i] = this.datos[i].existencia
+    // }
+    this.datitosN[0]= this.datos[0].existencia
+    this.datitosN[1]= this.datos[0].falta
   }
 
 }
+

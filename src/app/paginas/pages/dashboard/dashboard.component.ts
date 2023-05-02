@@ -15,6 +15,7 @@ import { PosiblesService } from 'src/app/services/posibles.service';
 export class DashboardComponent implements OnInit {
 
   inventarioIns: any;
+  inventarioInsChart: any;
   inventarioProd: any;
   hojaprod: any;
   posibles: any;
@@ -31,6 +32,7 @@ export class DashboardComponent implements OnInit {
     this.getInventarioProd();
     this.getHojaProd();
     this.getPosible();
+    this.getInventarioInsChart()
 
   }
 
@@ -48,6 +50,18 @@ export class DashboardComponent implements OnInit {
     this.inventarioIns = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
     console.log("llego LOS DATOS Insumos", this.inventarioIns);
     this.inventarioIns = Object.values(this.inventarioIns);
+  }
+
+  getInventarioInsChart() {
+    this.InventarioInsService.getInventarioInsChart().subscribe(
+      res => {
+        this.inventarioInsChart = res;
+        localStorage.setItem("listaInvInsumoChart", JSON.stringify(this.inventarioInsChart));
+        console.log(this.inventarioInsChart, "LISTA ESPECIAL GRAFICO");
+      },
+
+      err => console.error(err)
+    )
   }
 
 

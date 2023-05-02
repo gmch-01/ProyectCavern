@@ -1,5 +1,14 @@
-.ajuste {
+/* .ajuste {
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+.ajuste {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    padding: auto;
 }
+
+

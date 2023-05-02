@@ -75,7 +75,6 @@ export class BarrasComponent implements OnInit {
       this.datitosF[i] = this.datos[i].fecha_vencimiento
     }
 
-
   
   }
 

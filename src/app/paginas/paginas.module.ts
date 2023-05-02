@@ -52,6 +52,7 @@ import { InventarioProdComponent } from './pages/inventario-prod/inventario-prod
 import { TablaProdComponent } from './pages/inventario-prod/tabla-prod/tabla-prod.component';
 import { DespachadosComponent } from './pages/dashboard/graficas/despachados/despachados.component';
 import { DespachadosPorcComponent } from './pages/dashboard/graficas/despachados-porc/despachados-porc.component';
+import { InvInsComponent } from './pages/dashboard/graficas/inv-ins/inv-ins.component';
 
 
 
@@ -105,6 +106,7 @@ import { DespachadosPorcComponent } from './pages/dashboard/graficas/despachados
     TablaProdComponent,
     DespachadosComponent,
     DespachadosPorcComponent,
+    InvInsComponent,
   ],
   imports: [
     CommonModule,
