@@ -16,6 +16,10 @@ export class AlmacenInsService {
         return this.http.get(`${this.API_URI}/almacenins`)
     }
 
+    getAlmacenInsEsp() {
+        return this.http.get(`${this.API_URI}/almacenins/venc`)
+    }
+
     getAlmacenInsid(id: string) {
         return this.http.get<AlmacenIns>(`${this.API_URI}/almacenins/${id}`);
     }

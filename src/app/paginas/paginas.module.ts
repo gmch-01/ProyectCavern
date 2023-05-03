@@ -53,6 +53,7 @@ import { TablaProdComponent } from './pages/inventario-prod/tabla-prod/tabla-pro
 import { DespachadosComponent } from './pages/dashboard/graficas/despachados/despachados.component';
 import { DespachadosPorcComponent } from './pages/dashboard/graficas/despachados-porc/despachados-porc.component';
 import { InvInsComponent } from './pages/dashboard/graficas/inv-ins/inv-ins.component';
+import { VencimientoComponent } from './pages/dashboard/graficas/vencimiento/vencimiento.component';
 
 
 
@@ -107,6 +108,7 @@ import { InvInsComponent } from './pages/dashboard/graficas/inv-ins/inv-ins.comp
     DespachadosComponent,
     DespachadosPorcComponent,
     InvInsComponent,
+    VencimientoComponent,
   ],
   imports: [
     CommonModule,

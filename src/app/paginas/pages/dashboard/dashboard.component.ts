@@ -5,7 +5,9 @@ import { InventarioInsService } from '../../../services/inventarioins.service';
 import { InventarioProdService } from '../../../services/inventarioprod.service';
 import { InventarioIns } from 'src/app/models/InventarioIns';
 import { HojaProduccionService } from '../../../services/hojaproduccion.service';
+import { AlmacenInsService } from '../../../services/almacenins.service';
 import { PosiblesService } from 'src/app/services/posibles.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +18,7 @@ export class DashboardComponent implements OnInit {
 
   inventarioIns: any;
   inventarioInsChart: any;
+  VencIns: any;
   inventarioProd: any;
   hojaprod: any;
   posibles: any;
@@ -23,7 +26,8 @@ export class DashboardComponent implements OnInit {
   constructor(private InventarioInsService: InventarioInsService,
     private InventarioProdService: InventarioProdService,
     private HojaProduccionService: HojaProduccionService,
-    private PosiblesService: PosiblesService) { }
+    private PosiblesService: PosiblesService,
+    private AlmacenInsService: AlmacenInsService) { }
 
 
 
@@ -32,7 +36,8 @@ export class DashboardComponent implements OnInit {
     this.getInventarioProd();
     this.getHojaProd();
     this.getPosible();
-    this.getInventarioInsChart()
+    this.getInventarioInsChart();
+    this.getAlmacenVenc();
 
   }
 
@@ -57,13 +62,24 @@ export class DashboardComponent implements OnInit {
       res => {
         this.inventarioInsChart = res;
         localStorage.setItem("listaInvInsumoChart", JSON.stringify(this.inventarioInsChart));
-        console.log(this.inventarioInsChart, "LISTA ESPECIAL GRAFICO");
+        console.log(this.inventarioInsChart);
       },
 
       err => console.error(err)
     )
   }
 
+  getAlmacenVenc() {
+    this.AlmacenInsService.getAlmacenInsEsp().subscribe(
+      res => {
+        this.VencIns = res;
+        localStorage.setItem("VencIns", JSON.stringify(this.VencIns));
+        console.log(this.VencIns, "LISTA ESPECIAL GRAFICO vencimiento");
+      },
+
+      err => console.error(err)
+    )
+  }
 
   getInventarioProd() {
     this.InventarioProdService.getInventarioProdesp().subscribe(
