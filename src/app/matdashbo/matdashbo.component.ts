@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-matdashbo',
@@ -29,5 +30,5 @@ export class MatdashboComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) { }
 }

@@ -1,55 +1,170 @@
 <div class="grid-container">
     <h1 class="mat-h1">Tablero de Control</h1>
 
-    <mat-grid-list cols="4" rowHeight="250px">
-        <mat-grid-tile colspan="2" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Inventario de Insumos
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">.
-                    <app-tabla-insumos></app-tabla-insumos>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
+    <mat-tab-group>
+        <mat-tab label="control de insumos">
 
-        <mat-grid-tile colspan="2" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Inventario de Productos
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">.
-                    <app-tabla-productos></app-tabla-productos>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Recetas Posibles
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <li *ngFor="let element of posibles; index as i ">
-                        <mat-card-content class="dashboard-card-content">
-                            <h1>Producto: {{posibles[i].producto}}</h1>
-                            <!-- <h2>Insumo Necesario: {{posibles[i].insumo}} </h2> -->
-                            <h2>Cantidad de recetas para hacer: {{posibles[i].posibles}}</h2>
-                            <hr>
-                            <br>
+            <mat-grid-list cols="4" rowHeight="250px">
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Inventario de Insumos
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">.
+                            <app-tabla-insumos></app-tabla-insumos>
                         </mat-card-content>
-                    </li>
+                    </mat-card>
+                </mat-grid-tile>
 
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
 
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Inventario de Insumos
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">
+                            <app-barras></app-barras>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="1" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Grafico de Cantidad de Insumos Totales
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="chart-container">
+                                <app-dona></app-dona>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="1" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Número de recetas despachadas hoy
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="chart-container">
+                                <app-despachados></app-despachados>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Insumos Cerca a Fecha de Vencimiento
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="chart-container">
+                                <app-vencimiento></app-vencimiento>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+
+            </mat-grid-list>
+        </mat-tab>
+
+
+
+
+        <!-- PESTAÑA 2 (ELABORACION) -->
+        <mat-tab label="Control de Elaboración">
+            <mat-grid-list cols="4" rowHeight="250px">
+
+                <mat-grid-tile colspan="4" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Producción Activa
+                            </mat-card-title>
+                        </mat-card-header>
+
+                        <mat-card-content class="dashboard-card-content">
+                            <li *ngFor="let element of hojaprod; index as i ">
+                                <h1>ID hoja de produccion: {{hojaprod[i].id_hoja_produccion}}</h1>
+                                <h2> Receta: {{hojaprod[i].receta}} </h2>
+                                <h2>Cantidad: {{hojaprod[i].cantidad}}</h2>
+                                <h2 *ngIf=" ">Progreso: </h2>
+                                <mat-progress-bar mode="determinate"
+                                    [value]="this.hojaprod[i].progreso"></mat-progress-bar>
+                                <br>
+                                <hr>
+
+                                <br>
+                            </li>
+                        </mat-card-content>
+
+                    </mat-card>
+                </mat-grid-tile>
+
+
+
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Recetas Posibles
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">
+                            <li *ngFor="let element of posibles; index as i ">
+                                <mat-card-content class="dashboard-card-content">
+                                    <h1>Producto: {{posibles[i].producto}}</h1>
+                                    <h2>Cantidad de recetas para hacer: {{posibles[i].posibles}}</h2>
+                                    <hr>
+                                    <br>
+                                </mat-card-content>
+                            </li>
+
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+
+
+        </mat-tab>
+
+        <!-- PESTAÑA 3 (PRODUCTOS) -->
+        <mat-tab label="Control de Productos">
+            <mat-grid-list cols="4" rowHeight="250px">
+
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Inventario de Productos
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">.
+                            <app-tabla-productos></app-tabla-productos>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+            </mat-grid-list>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<!-- 
         <mat-grid-tile colspan="2" rowspan="2">
             <mat-card class="dashboard-card">
                 <mat-card-header>
@@ -65,30 +180,7 @@
 
 
 
-        <mat-grid-tile colspan="4" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Producción Activa
-                    </mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content class="dashboard-card-content">
-                    <li *ngFor="let element of hojaprod; index as i ">
-                        <h1>ID hoja de produccion: {{hojaprod[i].id_hoja_produccion}}</h1>
-                        <h2> Receta: {{hojaprod[i].receta}} </h2>
-                        <h2>Cantidad: {{hojaprod[i].cantidad}}</h2>
-                        <h2 *ngIf=" ">Progreso: </h2>
-                        <mat-progress-bar mode="determinate" [value]="this.hojaprod[i].progreso"></mat-progress-bar>
-                        <br>
-                        <hr>
-
-                        <br>
-                    </li>
-                </mat-card-content>
-
-            </mat-card>
-        </mat-grid-tile>
+        
 
 
         <mat-grid-tile colspan="3" rowspan="3">
@@ -108,68 +200,4 @@
                     </li>
                 </mat-card-content>
             </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Grafico de Producido por mes
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content class="dashboard-card-content">
-                    <app-barras></app-barras>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Grafico de Insumos Totales
-                    </mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content>
-                    <div class="chart-container">
-                        <app-dona></app-dona>
-                    </div>
-                </mat-card-content>
-
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile colspan="2" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        Insumos Cerca a Fecha de Vencimiento
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <div class="chart-container">
-                        <app-vencimiento></app-vencimiento>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-        
-        <mat-grid-tile colspan="2" rowspan="2">
-            <mat-card class="dashboard-card">
-                <mat-card-header>
-                    <mat-card-title>
-                        recetas despachadas hoy 
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <div class="chart-container">
-                        holi
-                    </div>
-                </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-
-
-    </mat-grid-list>
-</div>
+        </mat-grid-tile> -->

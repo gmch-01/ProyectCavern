@@ -21,8 +21,9 @@ export class DashboardComponent implements OnInit {
   VencIns: any;
   inventarioProd: any;
   hojaprod: any;
-  posibles: any;
+  despachados: any;
 
+  posibles: any;
   constructor(private InventarioInsService: InventarioInsService,
     private InventarioProdService: InventarioProdService,
     private HojaProduccionService: HojaProduccionService,
@@ -38,7 +39,7 @@ export class DashboardComponent implements OnInit {
     this.getPosible();
     this.getInventarioInsChart();
     this.getAlmacenVenc();
-
+    this.getDespachados();
   }
 
   getInventarioIns() {
@@ -117,6 +118,24 @@ export class DashboardComponent implements OnInit {
     this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
     this.posibles = Object.values(this.posibles);
   }
+
+  getDespachados() {
+    this.HojaProduccionService.getHojaProduccionEsp().subscribe(
+      res => {
+        this.despachados = res;
+        localStorage.setItem("listaDespachados", JSON.stringify(this.despachados));
+      },
+
+      err => console.error(err)
+    )
+
+    this.despachados = JSON.parse(localStorage.getItem("listaDespachados")!)
+    this.despachados = Object.values(this.despachados);
+  }
+
+
+
+
 
 }
 

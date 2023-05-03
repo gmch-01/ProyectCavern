@@ -3,9 +3,6 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
 import { InventarioInsService } from 'src/app/services/inventarioins.service';
-import { LineasComponent } from '../lineas/lineas.component';
-
-
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 
@@ -20,7 +17,7 @@ import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 export class BarrasComponent implements OnInit {
 
-  datos: any 
+  datos: any
 
   constructor(private inventarioInsService: InventarioInsService) {
   }
@@ -28,7 +25,7 @@ export class BarrasComponent implements OnInit {
   datitosN: any[] = []
   datitosF: any[] = []
 
-  
+
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
     this.datos = Object.values(this.datos);
@@ -38,15 +35,16 @@ export class BarrasComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public barChartOptions: ChartConfiguration['options'] = {
-    responsive: true, };
+    responsive: true,
+  };
   public barChartPlugins = [
-    DataLabelsPlugin ];
+    DataLabelsPlugin];
   public barChartType: ChartType = 'bar';
 
   public barChartData: ChartData<'bar'> = {
     labels: this.datitos,
     datasets: [
-      { data: this.datitosN , label: 'cantidad producida UNIDADES ' },
+      { data: this.datitosN, label: 'cantidad producida UNIDADES ' },
     ]
   };
   public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
@@ -57,11 +55,11 @@ export class BarrasComponent implements OnInit {
   }
 
 
-  getDatos () {
-    for(let i = 0 ; i< this.datos.length; i++) {
+  getDatos() {
+    for (let i = 0; i < this.datos.length; i++) {
       this.datitos[i] = this.datos[i].nombre
     }
-    for(let i = 0 ; i< this.datos.length; i++) {
+    for (let i = 0; i < this.datos.length; i++) {
       this.datitosN[i] = this.datos[i].existencia
     }
 
@@ -69,11 +67,11 @@ export class BarrasComponent implements OnInit {
 
   proximosVencer() {
 
-    for(let i = 0 ; i< this.datos.length; i++) {
+    for (let i = 0; i < this.datos.length; i++) {
       this.datitosF[i] = this.datos[i].fecha_vencimiento
     }
 
-  
+
   }
 
 

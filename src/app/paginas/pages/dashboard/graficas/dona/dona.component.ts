@@ -11,40 +11,43 @@ import { ChartData, ChartEvent, ChartType, ChartConfiguration } from 'chart.js';
 
 export class DonaComponent implements OnInit {
 
-  datos: any 
+  datos: any
   datitos: any[] = []
   datitosN: any[] = []
   datitosF: any[] = []
   existe: any
-  falta:any
+  falta: any
 
-    public doughnutChartLabels: string[] = [ 'existe', 'falta' ];
-    public doughnutChartData: ChartData<'doughnut'> = {
-      labels: this.doughnutChartLabels ,
-      datasets: [
-        { data: this.datitosN,
-          borderWidth: 1}
-      ]
-    };
+  public doughnutChartLabels: string[] = ['Falta de Insumos', 'Existencia de Insumos'];
+  public doughnutChartData: ChartData<'doughnut'> = {
+    labels: this.doughnutChartLabels,
+    datasets: [
+      {
+        data: this.datitosN,
+        borderWidth: 1
+      }
+    ]
+  };
 
-    public pieChartOptions: ChartConfiguration['options'] = {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: true,
-          position: 'top',
-        }}
-    };
-    public doughnutChartType: ChartType = 'doughnut';
-  
-    // events
-    public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
-      console.log(event, active);
+  public pieChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      }
     }
-  
-    public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
-      console.log(event, active);
-    }
+  };
+  public doughnutChartType: ChartType = 'doughnut';
+
+  // events
+  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
   constructor() { }
 
   ngOnInit(): void {
@@ -53,10 +56,10 @@ export class DonaComponent implements OnInit {
     this.getDatos();
   }
 
-  getDatos () {
+  getDatos() {
 
-    this.datitosN[0]= this.datos[0].existencia
-    this.datitosN[1]= this.datos[0].falta
+    this.datitosN[1] = this.datos[0].existencia
+    this.datitosN[0] = this.datos[0].falta
   }
 
 }

@@ -25,6 +25,7 @@ const routes: Routes = [
     children: [
       { path: 'almacen', component: AlmacenComponent },
       { path: 'produccion', component: ProduccionComponent },
+      { path: 'buscar', component: BuscarComponent },
       { path: 'hoja-produccion', component: HojaProduccionComponent },
       { path: 'ventas', component: VentasComponent },
       { path: 'dashboard', component: DashboardComponent },
@@ -38,8 +39,8 @@ const routes: Routes = [
       /*  { path: ':id', component: TablaComponent }, */
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'productos', component: ProductosComponent },
-      {path: 'inventarioins', component: InventarioInsComponent},
-      {path: 'inventarioprod', component: InventarioProdComponent},
+      { path: 'inventarioins', component: InventarioInsComponent },
+      { path: 'inventarioprod', component: InventarioProdComponent },
       { path: '**', redirectTo: 'listado' }
     ]
   }

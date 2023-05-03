@@ -54,6 +54,8 @@ import { DespachadosComponent } from './pages/dashboard/graficas/despachados/des
 import { DespachadosPorcComponent } from './pages/dashboard/graficas/despachados-porc/despachados-porc.component';
 import { InvInsComponent } from './pages/dashboard/graficas/inv-ins/inv-ins.component';
 import { VencimientoComponent } from './pages/dashboard/graficas/vencimiento/vencimiento.component';
+import { MatdashboComponent } from '../matdashbo/matdashbo.component';
+import { ProdactComponent } from './pages/dashboard/graficas/prodact/prodact.component';
 
 
 
@@ -109,6 +111,7 @@ import { VencimientoComponent } from './pages/dashboard/graficas/vencimiento/ven
     DespachadosPorcComponent,
     InvInsComponent,
     VencimientoComponent,
+    ProdactComponent
   ],
   imports: [
     CommonModule,

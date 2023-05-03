@@ -25,11 +25,11 @@ export class TablaProductosComponent implements OnInit {
 
   getColor(value: number) {
     if (value > 90) {
-      return 'green';
+      return 'rgba(75, 192, 192, 0.5)';
     } else if (value > 25) {
-      return 'yellow';
+      return 'rgba(255, 205, 86, 0.5)';
     } else if (value <= 20) {
-      return 'red';
+      return 'rgba(255, 99, 132, 0.5)';
     }
     else {
       return 'none'
