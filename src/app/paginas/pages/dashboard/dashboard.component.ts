@@ -46,14 +46,13 @@ export class DashboardComponent implements OnInit {
       res => {
         this.inventarioIns = res;
         localStorage.setItem("listaInvInsumoEsp", JSON.stringify(this.inventarioIns));
-        console.log(this.inventarioIns, "LISTA ESPECIAL");
+
       },
 
       err => console.error(err)
     )
 
     this.inventarioIns = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
-    console.log("llego LOS DATOS Insumos", this.inventarioIns);
     this.inventarioIns = Object.values(this.inventarioIns);
   }
 
@@ -62,7 +61,6 @@ export class DashboardComponent implements OnInit {
       res => {
         this.inventarioInsChart = res;
         localStorage.setItem("listaInvInsumoChart", JSON.stringify(this.inventarioInsChart));
-        console.log(this.inventarioInsChart);
       },
 
       err => console.error(err)
@@ -74,7 +72,6 @@ export class DashboardComponent implements OnInit {
       res => {
         this.VencIns = res;
         localStorage.setItem("VencIns", JSON.stringify(this.VencIns));
-        console.log(this.VencIns, "LISTA ESPECIAL GRAFICO vencimiento");
       },
 
       err => console.error(err)
@@ -91,7 +88,6 @@ export class DashboardComponent implements OnInit {
       err => console.error(err)
     )
     this.inventarioProd = JSON.parse(localStorage.getItem("listaInvProductoEsp")!)
-    console.log("llego LOS DATOS Productos", this.inventarioProd);
     this.inventarioProd = Object.values(this.inventarioProd);
   }
 
@@ -100,13 +96,11 @@ export class DashboardComponent implements OnInit {
       res => {
         this.hojaprod = res;
         localStorage.setItem("hojaProd", JSON.stringify(this.hojaprod))
-        console.log(this.hojaprod, "los datos de la hoja");
       },
 
       err => console.error(err)
     )
     this.hojaprod = JSON.parse(localStorage.getItem("hojaProd")!)
-    console.log("llego LOS DATOS Hoja", this.hojaprod);
     this.hojaprod = Object.values(this.hojaprod);
   }
 
@@ -115,14 +109,12 @@ export class DashboardComponent implements OnInit {
       res => {
         this.posibles = res;
         localStorage.setItem("listaPosibles", JSON.stringify(this.posibles));
-        console.log(this.posibles);
       },
 
       err => console.error(err)
     )
 
     this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
-    console.log("llego LOS DATOS POSIBLES", this.posibles);
     this.posibles = Object.values(this.posibles);
   }
 

@@ -50,17 +50,11 @@ export class DonaComponent implements OnInit {
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaInvInsumoChart")!)
     this.datos = Object.values(this.datos);
-    console.log(this.datos, "LOS DATOS DEL GRAFICO")
     this.getDatos();
   }
 
   getDatos () {
-    // for(let i = 0 ; i< this.datos.length; i++) {
-    //   this.datitos[i] = this.datos[i].nombre
-    // }
-    // for(let i = 0 ; i< this.datos.length; i++) {
-    //   this.datitosN[i] = this.datos[i].existencia
-    // }
+
     this.datitosN[0]= this.datos[0].existencia
     this.datitosN[1]= this.datos[0].falta
   }

@@ -32,7 +32,6 @@ export class BarrasComponent implements OnInit {
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
     this.datos = Object.values(this.datos);
-    console.log(this.datos, "LOS DATOS DISQUE DEL ARRAY")
     this.getDatos();
   }
 
@@ -66,7 +65,6 @@ export class BarrasComponent implements OnInit {
       this.datitosN[i] = this.datos[i].existencia
     }
 
-    console.log("INTENTO DE EXTRACCION DE DATOS",this.datitosN)
   }
 
   proximosVencer() {

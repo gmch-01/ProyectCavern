@@ -28,7 +28,7 @@ export class HojaProduccionComponent implements OnInit {
       res => {
         this.hojaprod = res;
         localStorage.setItem("listaHojaProd", JSON.stringify(this.hojaprod));
-        console.log(this.hojaprod);
+        console.log(this.hojaprod, "NUEVO GUARDADO ? ");
       },
 
       err => console.error(err)

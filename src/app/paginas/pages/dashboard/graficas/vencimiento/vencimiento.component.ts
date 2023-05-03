@@ -31,6 +31,7 @@ export class VencimientoComponent implements OnInit {
 
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
+    indexAxis: 'y', 
     plugins: {
       legend: {
         display: true,
@@ -41,7 +42,7 @@ export class VencimientoComponent implements OnInit {
       }
     },
 
-    backgroundColor: (chart) => {
+    backgroundColor: (chart: any) => {
       const value: any = chart.dataset.data[chart.dataIndex];
       if (value < 10) {
         return 'rgba(255, 99, 132, 0.5)';
@@ -63,7 +64,7 @@ export class VencimientoComponent implements OnInit {
     datasets: [
       {
         data: this.datitosN,
-        label: ''
+        label: 'Dias para Vencimiento'
       },
     ]
   };
@@ -87,8 +88,6 @@ export class VencimientoComponent implements OnInit {
         this.datitosN[i] = this.datos[i].dias_restantes
       }
     }
-
-    console.log("INTENTO DE EXTRACCION DE DATOS", this.datitosN)
   }
 
   color(): string {

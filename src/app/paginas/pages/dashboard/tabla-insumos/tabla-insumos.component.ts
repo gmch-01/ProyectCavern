@@ -15,12 +15,10 @@ export class TablaInsumosComponent implements OnInit {
   constructor(private inventarioInsService: InventarioInsService) {
     this.inventarioInsService.getInventarioInsesp().subscribe(x => {
       this.datos = this.datos;
-      console.log(this.datos, "inventario especial")
     })
   }
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaInvInsumoEsp")!)
-    console.log("refrecar ", this.datos);
   }
 
   getColor(value: number) {

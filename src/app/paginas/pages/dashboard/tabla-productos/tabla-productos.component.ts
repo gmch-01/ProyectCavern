@@ -14,14 +14,12 @@ export class TablaProductosComponent implements OnInit {
   constructor(private inventarioProdService: InventarioProdService) {
     this.inventarioProdService.getInventarioProdesp().subscribe(x => {
       this.datos = this.datos;
-      console.log(this.datos)
 
     })
   }
 
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaInvProductoEsp")!)
-    console.log("refrecar ", this.datos);
   }
 
 
