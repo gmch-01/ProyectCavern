@@ -114,7 +114,7 @@ export class KardexInsumosComponent implements OnInit {
     }
 
     const updateProd: HojaProduccion =
-      { id_hoja_produccion: id, id_receta: idrecetaX, cantidad: produccion.cantidad, fecha_hoja: produccion.fecha_hoja, encargado: produccion.encargado, progreso: progreso, peso_recibido: produccion.peso_recibido, embolsado: produccion.embolsado }
+      { id_receta: idrecetaX, cantidad: produccion.cantidad, fecha_hoja: produccion.fecha_hoja, encargado: produccion.encargado, progreso: progreso, peso_recibido: produccion.peso_recibido, embolsado: produccion.embolsado }
     const ids = id.toString()
     console.log(updateProd, "NUEVOS DATOS")
  

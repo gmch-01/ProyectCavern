@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HojaProduccionService} from 'src/app/services/hojaproduccion.service'
 import { ControlUnoService} from 'src/app/services/controluno.service'
+import { PosiblesService } from 'src/app/services/posibles.service';
 
 
 @Component({
@@ -13,9 +14,11 @@ import { ControlUnoService} from 'src/app/services/controluno.service'
 export class HojaProduccionComponent implements OnInit {
   hojaprod: any
   control: any;
+  posibles: any;
 
   constructor(private HojaProduccionService: HojaProduccionService,
-    private ControlUnoService: ControlUnoService) { }
+    private ControlUnoService: ControlUnoService,
+    private PosiblesService: PosiblesService) { }
   
   ngOnInit(): void {
     console.log("entro");
@@ -46,5 +49,19 @@ export class HojaProduccionComponent implements OnInit {
 
   err => console.error(err)
   )
+}
+
+getPosible() {
+  this.PosiblesService.getPosibles().subscribe(
+    res => {
+      this.posibles = res;
+      localStorage.setItem("listaPosibles", JSON.stringify(this.posibles));
+    },
+
+    err => console.error(err)
+  )
+
+  this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
+  this.posibles = Object.values(this.posibles);
 }
 }

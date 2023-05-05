@@ -56,6 +56,10 @@ import { InvInsComponent } from './pages/dashboard/graficas/inv-ins/inv-ins.comp
 import { VencimientoComponent } from './pages/dashboard/graficas/vencimiento/vencimiento.component';
 import { MatdashboComponent } from '../matdashbo/matdashbo.component';
 import { ProdactComponent } from './pages/dashboard/graficas/prodact/prodact.component';
+import { ProdFerComponent } from './pages/dashboard/graficas/prod-fer/prod-fer.component';
+import { ProdHorComponent } from './pages/dashboard/graficas/prod-hor/prod-hor.component';
+import { PosiblesComponent } from './pages/dashboard/graficas/posibles/posibles.component';
+import { ProdRecComponent } from './pages/dashboard/graficas/prod-rec/prod-rec.component';
 
 
 
@@ -111,7 +115,11 @@ import { ProdactComponent } from './pages/dashboard/graficas/prodact/prodact.com
     DespachadosPorcComponent,
     InvInsComponent,
     VencimientoComponent,
-    ProdactComponent
+    ProdactComponent,
+    ProdFerComponent,
+    ProdHorComponent,
+    PosiblesComponent,
+    ProdRecComponent
   ],
   imports: [
     CommonModule,

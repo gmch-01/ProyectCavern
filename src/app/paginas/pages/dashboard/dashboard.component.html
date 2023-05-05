@@ -2,7 +2,7 @@
     <h1 class="mat-h1">Tablero de Control</h1>
 
     <mat-tab-group>
-        <mat-tab label="control de insumos">
+        <mat-tab label="Control de Insumos">
 
             <mat-grid-list cols="4" rowHeight="250px">
                 <mat-grid-tile colspan="2" rowspan="2">
@@ -47,20 +47,7 @@
                     </mat-card>
                 </mat-grid-tile>
 
-                <mat-grid-tile colspan="1" rowspan="2">
-                    <mat-card class="dashboard-card">
-                        <mat-card-header>
-                            <mat-card-title>
-                                Número de recetas despachadas hoy
-                            </mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content>
-                            <div class="chart-container">
-                                <app-despachados></app-despachados>
-                            </div>
-                        </mat-card-content>
-                    </mat-card>
-                </mat-grid-tile>
+
 
                 <mat-grid-tile colspan="2" rowspan="2">
                     <mat-card class="dashboard-card">
@@ -88,6 +75,87 @@
         <mat-tab label="Control de Elaboración">
             <mat-grid-list cols="4" rowHeight="250px">
 
+                <mat-grid-tile colspan="1" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Recetas de Hoy
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">.
+                            <app-prodact></app-prodact>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="1" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Recetas de Recibidas
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">.
+                            <app-prod-rec></app-prod-rec>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Número de recetas despachadas hoy
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div class="chart-container">
+                                <app-despachados></app-despachados>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Recetas de Posibles
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">.
+                            <app-posibles></app-posibles>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                
+
+                
+                <!-- <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Recetas Posibles
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">
+                            <li *ngFor="let element of posibles; index as i ">
+                                <mat-card-content class="dashboard-card-content">
+                                    <h1>Producto: {{posibles[i].producto}}</h1>
+                                    <h2>Cantidad de recetas para hacer: {{posibles[i].recetas_posibles}}</h2>
+                                    <h2>Insumo Limitante: {{posibles[i].insumo_limitante}}</h2>
+                                    <hr>
+                                    <br>
+                                </mat-card-content>
+                            </li>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile> -->
+
+
+
+
+
                 <mat-grid-tile colspan="4" rowspan="2">
                     <mat-card class="dashboard-card">
                         <mat-card-header>
@@ -102,7 +170,7 @@
                                 <h2> Receta: {{hojaprod[i].receta}} </h2>
                                 <h2>Cantidad: {{hojaprod[i].cantidad}}</h2>
                                 <h2 *ngIf=" ">Progreso: </h2>
-                                <mat-progress-bar mode="determinate"
+                                <mat-progress-bar class = "mat-progress-bar-custom " mode="determinate"
                                     [value]="this.hojaprod[i].progreso"></mat-progress-bar>
                                 <br>
                                 <hr>
@@ -110,32 +178,16 @@
                                 <br>
                             </li>
                         </mat-card-content>
-
                     </mat-card>
                 </mat-grid-tile>
 
 
 
-                <mat-grid-tile colspan="2" rowspan="2">
-                    <mat-card class="dashboard-card">
-                        <mat-card-header>
-                            <mat-card-title>
-                                Recetas Posibles
-                            </mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="dashboard-card-content">
-                            <li *ngFor="let element of posibles; index as i ">
-                                <mat-card-content class="dashboard-card-content">
-                                    <h1>Producto: {{posibles[i].producto}}</h1>
-                                    <h2>Cantidad de recetas para hacer: {{posibles[i].posibles}}</h2>
-                                    <hr>
-                                    <br>
-                                </mat-card-content>
-                            </li>
 
-                        </mat-card-content>
-                    </mat-card>
-                </mat-grid-tile>
+                
+
+
+
 
             </mat-grid-list>
 

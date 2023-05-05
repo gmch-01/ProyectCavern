@@ -39,15 +39,8 @@ export class ListarKardexInsumosComponent implements OnInit {
   datosX: any;  
   dataSource: any;
   guardarIns!: InventarioIns
-  almacenIns: AlmacenIns = {
-
-    fecha_entrada: '',
-    proveedor: '',
-    cantidad: 0,
-    id_insumo: 0,
-    peso: 0,
-    usuario: '',
-  }
+  almacenIns: any
+  almacenInsF: AlmacenIns= {}
   inventarioIns: InventarioIns = {}
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -69,22 +62,15 @@ export class ListarKardexInsumosComponent implements OnInit {
     // })
   }
 
+  datosFiltrados: any;
+  filtro= '';
 
   ngOnInit(): void {
     this.datos = JSON.parse(localStorage.getItem("listaAlmacenIns")!)
-
+    this.datos =Object.values(this.datos)
     console.log("llego ", this.datos);
-
-    this.datosI = JSON.parse(localStorage.getItem("listaInsumo")!)
-
-    console.log("llegaron los insumos ", this.datosI);
-    
+    this.datosFiltrados= this.datos
   }
-
-
-
-
-
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
@@ -110,13 +96,15 @@ idS = ''
 
     dialogRef.afterClosed().subscribe((result) => {
       this.almacenIns= result; 
-      
+      this.almacenInsF = {fecha_entrada: this.almacenIns.fecha_entrada, proveedor: this.almacenIns.proveedor, cantidad: this.almacenIns.cantidad, id_insumo: this.almacenIns.id_insumo, fecha_vencimiento: this.almacenIns.fecha_vencimiento, usuario: this.almacenIns.usuario}
+      console.log(this.almacenIns, "ESTO ES EL NUEVO LOTE ? ")
       if(result){
       this.saveAlmacenIns();
       Swal.fire('Registro Guardado')
-      this.guardarIns = {tipo_insumo: this.almacenIns.id_insumo, fecha_venc: this.almacenIns.fecha_vencimiento, cantidad_actual: this.almacenIns.cantidad }
+      this.guardarIns = {tipo_insumo: this.almacenIns.id_insumo, fecha_venc: this.almacenIns.fecha_vencimiento, cantidad_actual: this.almacenIns.cantidad, lote: this.almacenIns.lote }
       this.saveInvIns()
       //this.updateInv(this.idS, this.inventarioIns)
+      
     }
     });
   }
@@ -130,16 +118,13 @@ idS = ''
   }
 
   saveAlmacenIns() {
-    this.almacenInsService.saveAlmacenIns(this.almacenIns).
+    this.almacenInsService.saveAlmacenIns(this.almacenInsF).
       subscribe(
         res => {
           console.log(res);
         },
         err => console.log(err)
       )
-
-
-    console.log(this.almacenIns)
   }
 
   saveInvIns() {
@@ -163,6 +148,28 @@ idS = ''
       err => console.log(err)
     )
 
+  }
+
+  filtrarTabla(): void {
+    const filtro = this.filtro.trim().toLowerCase();
+    if (filtro !== '') {
+      this.datosFiltrados = this.datos.filter((d:any) => {
+        for (const prop in d) {
+          if (d.hasOwnProperty(prop) && !isNaN(d[prop])) {
+            if (d[prop].toString().toLowerCase().includes(filtro)) {
+              return true;
+            }
+          } else if (d.hasOwnProperty(prop)) {
+            if (d[prop].toString().toLowerCase().includes(filtro)) {
+              return true;
+            }
+          }
+        }
+        return false;
+      });
+    } else {
+      this.datosFiltrados = this.datos;
+    }
   }
 
 

@@ -31,7 +31,7 @@ export class FormularioeditComponent implements OnInit {
       }
 
       
-    this.datacompleto = { id_hoja_produccion: this.data.id_hoja_produccion, id_receta: this.selected, cantidad: this.data.cantidad, fecha_hoja: this.data.fecha_hoja, encargado: this.data.encargado }
+    this.datacompleto = {  id_receta: this.selected, cantidad: this.data.cantidad, fecha_hoja: this.data.fecha_hoja, encargado: this.data.encargado }
   }
   ngOnInit(): void {    
     this.control = JSON.parse(localStorage.getItem("Control")!)

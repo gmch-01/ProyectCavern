@@ -18,10 +18,12 @@ export class DashboardComponent implements OnInit {
 
   inventarioIns: any;
   inventarioInsChart: any;
+  inventarioInsLotes: any;
   VencIns: any;
   inventarioProd: any;
   hojaprod: any;
   despachados: any;
+  despachadoshoy: any;
 
   posibles: any;
   constructor(private InventarioInsService: InventarioInsService,
@@ -38,8 +40,11 @@ export class DashboardComponent implements OnInit {
     this.getHojaProd();
     this.getPosible();
     this.getInventarioInsChart();
+    this.getInventarioInsLotes();
     this.getAlmacenVenc();
     this.getDespachados();
+    this.getDespachadosHoy();
+    this.getDespachadosHoyRec();
   }
 
   getInventarioIns() {
@@ -67,7 +72,17 @@ export class DashboardComponent implements OnInit {
       err => console.error(err)
     )
   }
+  
+  getInventarioInsLotes() {
+    this.InventarioInsService.getInventarioInsLote().subscribe(
+      res => {
+        this.inventarioInsLotes = res;
+        localStorage.setItem("LotesIns", JSON.stringify(this.inventarioInsLotes));
+      },
 
+      err => console.error(err)
+    )
+  }
   getAlmacenVenc() {
     this.AlmacenInsService.getAlmacenInsEsp().subscribe(
       res => {
@@ -132,7 +147,33 @@ export class DashboardComponent implements OnInit {
     this.despachados = JSON.parse(localStorage.getItem("listaDespachados")!)
     this.despachados = Object.values(this.despachados);
   }
+  
+  getDespachadosHoy() {
+    this.HojaProduccionService.getHojaProduccionHoy().subscribe(
+      res => {
+        this.despachadoshoy = res;
+        localStorage.setItem("listaHoy", JSON.stringify(this.despachadoshoy));
+      },
 
+      err => console.error(err)
+    )
+
+    this.despachadoshoy = JSON.parse(localStorage.getItem("listaHoy")!)
+    this.despachadoshoy = Object.values(this.despachadoshoy);
+  }
+  getDespachadosHoyRec() {
+    this.HojaProduccionService.getHojaProduccionRec().subscribe(
+      res => {
+        this.despachadoshoy = res;
+        localStorage.setItem("listaHoyRec", JSON.stringify(this.despachadoshoy));
+      },
+
+      err => console.error(err)
+    )
+
+    this.despachadoshoy = JSON.parse(localStorage.getItem("listaHoyRec")!)
+    this.despachadoshoy = Object.values(this.despachadoshoy);
+  }
 
 
 

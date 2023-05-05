@@ -2,7 +2,7 @@
     <div class="bodyx">
         <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
             <mat-label>Buscar</mat-label>
-            <input type="text" matInput autocomplete="off" style="color:white ;">
+            <input type="text" matInput autocomplete="off" [(ngModel)]="filtro" (input)="filtrarTabla()" busqueda (keyup)="filtrarTabla()">
         </mat-form-field>
     </div>
     <button mat-raised-button class="myButton" (click)="openDialog()">
@@ -19,7 +19,7 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="25" [pageSize]="10" showFirstLastButtons>
     </mat-paginator>
     <br>
-    <table mat-table [dataSource]="datos" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8"
+    <table mat-table [dataSource]="datosFiltrados" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8"
         #tabla1>
 
         <!-- Position Column -->

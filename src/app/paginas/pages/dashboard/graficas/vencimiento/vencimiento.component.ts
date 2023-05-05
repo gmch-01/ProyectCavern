@@ -22,7 +22,7 @@ export class VencimientoComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.datos = JSON.parse(localStorage.getItem("VencIns")!)
+    this.datos = JSON.parse(localStorage.getItem("LotesIns")!)
     this.datos = Object.values(this.datos);
     this.getDatos();
   }
@@ -46,7 +46,7 @@ export class VencimientoComponent implements OnInit {
       const value: any = chart.dataset.data[chart.dataIndex];
       if (value < 10) {
         return 'rgba(255, 99, 132, 0.5)';
-      } else if (value >= 11 && value < 60) {
+      } else if (value >= 11 && value < 30) {
         return 'rgba(255, 205, 86, 0.5)';
       } else {
         return 'rgba(75, 192, 192, 0.5)';
@@ -77,7 +77,7 @@ export class VencimientoComponent implements OnInit {
   getDatos() {
     for (let i = 0; i < this.datos.length; i++) {
 
-      this.datitos[i] = this.datos[i].nombre
+      this.datitos[i] = this.datos[i].nombre + '-'+ this.datos[i].lote
     }
     for (let i = 0; i < this.datos.length; i++) {
       if (this.datos[i].dias_restantes < 0) {

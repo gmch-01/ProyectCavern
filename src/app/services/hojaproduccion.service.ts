@@ -13,10 +13,15 @@ export class HojaProduccionService {
 
     getHojaProduccion() {
         return this.http.get(`${this.API_URI}/hojaprod`)
-    }
-    
+    } 
     getHojaProduccionEsp() {
         return this.http.get(`${this.API_URI}/hojaprod/esp`)
+    }
+    getHojaProduccionHoy() {
+        return this.http.get(`${this.API_URI}/hojaprod/hoy`)
+    }
+    getHojaProduccionRec() {
+        return this.http.get(`${this.API_URI}/hojaprod/hoyrec`)
     }
     getHojaProduccionid(id: string) {
         return this.http.get<HojaProduccion>(`${this.API_URI}/hojaprod/${id}`);

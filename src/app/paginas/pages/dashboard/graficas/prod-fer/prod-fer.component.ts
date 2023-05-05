@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-prodact',
-  templateUrl: './prodact.component.html',
-  styleUrls: ['./prodact.component.css']
+  selector: 'app-prod-fer',
+  templateUrl: './prod-fer.component.html',
+  styleUrls: ['./prod-fer.component.css']
 })
-export class ProdactComponent implements OnInit {
+export class ProdFerComponent implements OnInit {
+
   datos: any
+  datosFil: any
   displayedColumns: string[] = [
     'ID', 'Receta', 'Cantidad'];
   constructor() { }
@@ -28,4 +30,6 @@ export class ProdactComponent implements OnInit {
       return 'none'
     }
   }
+
+
 }

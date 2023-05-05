@@ -19,9 +19,15 @@ export class InventarioInsService {
     getInventarioInsChart() {
         return this.http.get(`${this.API_URI}/inventarioins/chart`)
     }
+    getInventarioInsLote() {
+        return this.http.get(`${this.API_URI}/inventarioins/lotes`)
+    }
 
     getInventarioInsid(id: string) {
         return this.http.get<InventarioIns>(`${this.API_URI}/inventarioins/${id}`);
+    }
+    getInventarioInsidChart(valor: string) {
+        return this.http.get<InventarioIns>(`${this.API_URI}/inventarioins/graf/${valor}`);
     }
 
     deleteInventarioIns(id: String) {

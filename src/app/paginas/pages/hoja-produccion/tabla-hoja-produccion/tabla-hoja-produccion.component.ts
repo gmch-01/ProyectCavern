@@ -32,9 +32,10 @@ export class TablaHojaProduccionComponent implements OnInit {
 
   datos: any;
   dataSource: any;
+  datosFiltrados: any;
+  filtro= '';
 
   hojaprodform: HojaProduccion = {
-    id_hoja_produccion: 0,
     id_receta: 0,
     encargado: ''
   }
@@ -52,7 +53,9 @@ export class TablaHojaProduccionComponent implements OnInit {
   }
   ngOnInit() {
     this.datos = JSON.parse(localStorage.getItem("listaHojaProd")!)
+    this.datos =Object.values(this.datos)
     console.log("llego ", this.datos);
+    this.datosFiltrados= this.datos
   }
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
@@ -129,5 +132,26 @@ export class TablaHojaProduccionComponent implements OnInit {
       err => console.log(err)
     )
   }
-
+  
+  filtrarTabla(): void {
+    const filtro = this.filtro.trim().toLowerCase();
+    if (filtro !== '') {
+      this.datosFiltrados = this.datos.filter((d:any) => {
+        for (const prop in d) {
+          if (d.hasOwnProperty(prop) && !isNaN(d[prop])) {
+            if (d[prop].toString().toLowerCase().includes(filtro)) {
+              return true;
+            }
+          } else if (d.hasOwnProperty(prop)) {
+            if (d[prop].toString().toLowerCase().includes(filtro)) {
+              return true;
+            }
+          }
+        }
+        return false;
+      });
+    } else {
+      this.datosFiltrados = this.datos;
+    }
+  }
 }

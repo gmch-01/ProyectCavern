@@ -1,12 +1,31 @@
 <div style=" box-sizing: content-box;
 width: 100%;
 padding: 5px;">
+
+
+<!-- <mat-form-field appearance="fill">
+    <mat-label>Producto</mat-label>
+    <mat-select [(value)]="this.insumo">
+
+
+        <mat-option value="harina">Harina</mat-option>
+        <mat-option value="levadura">Levadura</mat-option>
+        <mat-option value="azucar">Azucar</mat-option>
+        <mat-option value="manteca">Manteca</mat-option>
+        <mat-option value="gluten">Gluten</mat-option>
+        <mat-option value="antimoho">Antimoho</mat-option>
+        <mat-option value="mejorador_masa">Mejorador_Masa</mat-option>
+
+    </mat-select>
+</mat-form-field>
+<button mat-button class="mybutton">Guardar</button> -->
+
     <canvas baseChart [data]="barChartData" 
     [options]="barChartOptions" 
     [plugins]="barChartPlugins"
     [type]="barChartType"
         (chartHover)="chartHovered($event)"
-         (chartClick)="chartClicked($event)">
+        (chartClick)="chartClicked($event)">
     </canvas>
 
 

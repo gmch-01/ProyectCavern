@@ -13,11 +13,6 @@
         <input matInput [(ngModel)]="data.proveedor" autocomplete="off">
     </mat-form-field>
 
-    <mat-form-field class="input" appearance="fill">
-        <mat-label>Cantidad</mat-label>
-        <input matInput [(ngModel)]="data.cantidad" autocomplete="off">
-    </mat-form-field>
-
     <mat-form-field appearance="fill">
         <mat-label>Producto</mat-label>
         <mat-select [(value)]="data.id_insumo">
@@ -31,9 +26,20 @@
     </mat-form-field>
 
     <mat-form-field class="input" appearance="fill">
+        <mat-label>Cantidad</mat-label>
+        <input matInput [(ngModel)]="data.cantidad" autocomplete="off">
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
         <mat-label>Fecha Vencimiento</mat-label>
         <input matInput [(ngModel)]="data.fecha_vencimiento" autocomplete="off">
     </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Lote</mat-label>
+        <input matInput [(ngModel)]="data.lote" autocomplete="off">
+    </mat-form-field>
+
 
     <mat-form-field class="input" appearance="fill">
         <mat-label>Usuario</mat-label>
