@@ -1,0 +1,15 @@
+<div style=" box-sizing: content-box;
+width: 100%;
+padding: 5px;">
+
+
+    <canvas baseChart [data]="barChartData" 
+    [options]="barChartOptions" 
+    [plugins]="barChartPlugins"
+    [type]="barChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)">
+    </canvas>
+
+
+</div>

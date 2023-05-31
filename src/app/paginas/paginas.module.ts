@@ -60,6 +60,8 @@ import { ProdFerComponent } from './pages/dashboard/graficas/prod-fer/prod-fer.c
 import { ProdHorComponent } from './pages/dashboard/graficas/prod-hor/prod-hor.component';
 import { PosiblesComponent } from './pages/dashboard/graficas/posibles/posibles.component';
 import { ProdRecComponent } from './pages/dashboard/graficas/prod-rec/prod-rec.component';
+import { ProdBolsComponent } from './pages/dashboard/graficas/prod-bols/prod-bols.component';
+import { ProductBarrComponent } from './pages/dashboard/graficas/product-barr/product-barr.component';
 
 
 
@@ -119,7 +121,9 @@ import { ProdRecComponent } from './pages/dashboard/graficas/prod-rec/prod-rec.c
     ProdFerComponent,
     ProdHorComponent,
     PosiblesComponent,
-    ProdRecComponent
+    ProdRecComponent,
+    ProdBolsComponent,
+    ProductBarrComponent
   ],
   imports: [
     CommonModule,

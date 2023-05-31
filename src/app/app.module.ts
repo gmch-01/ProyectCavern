@@ -21,11 +21,13 @@ import { HttpClientModule } from '@angular/common/http'
 
 
 import { UsuariosService } from './services/usuarios.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     ErrorPageComponent,
     MatdashboComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class ProduccionComponent implements OnInit {
 
   panelOpenState = false;
  public produccion: any 
+ public produccionHoy: any 
   peso = 0;
   embolsado = 0;
 
@@ -23,22 +24,38 @@ export class ProduccionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getProductosHoy();
     this.getProductos();
 
   }
-  getProductos() {
-    this.HojaProduccionService.getHojaProduccion().subscribe(
+  getProductosHoy() {
+    this.HojaProduccionService.getHojaProduccionHoy().subscribe(
       res => {
         this.produccion = res;
-        localStorage.setItem("listaProduccion", JSON.stringify(this.produccion));
+        localStorage.setItem("listaHoy", JSON.stringify(this.produccion));
         console.log(this.produccion, " DATOS DE PROD");
       },
 
       err => console.error(err)
     )
-    this.produccion = JSON.parse(localStorage.getItem("listaProduccion")!)
+    this.produccion = JSON.parse(localStorage.getItem("listaHoy")!)
     console.log("llego LOS DATOS", this.produccion);
     this.produccion = Object.values(this.produccion);
+  }
+
+  getProductos() {
+    this.HojaProduccionService.getHojaProduccion().subscribe(
+      res => {
+        this.produccionHoy = res;
+        localStorage.setItem("listaProduccion", JSON.stringify(this.produccionHoy));
+        console.log(this.produccionHoy, " DATOS DE PROD");
+      },
+
+      err => console.error(err)
+    )
+    this.produccion = JSON.parse(localStorage.getItem("listaProduccion")!)
+    console.log("llego LOS DATOS", this.produccionHoy);
+    this.produccion = Object.values(this.produccionHoy);
   }
 
   actualizarProducto(progreso: number, id: number, produccion: HojaProduccion, idreceta: string) {

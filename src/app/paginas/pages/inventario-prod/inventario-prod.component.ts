@@ -18,7 +18,7 @@ getInventarioProd (){
   this.InventarioProdService.getInventarioProd().subscribe(
     res => {
       this.InventarioProd = res;
-      localStorage.setItem("listaInvProducto", JSON.stringify(this.InventarioProd));
+      localStorage.setItem("listaInvProductoEsp", JSON.stringify(this.InventarioProd));
       console.log(this.InventarioProd);
     },
 

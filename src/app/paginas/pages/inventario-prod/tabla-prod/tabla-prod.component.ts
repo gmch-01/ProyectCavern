@@ -19,7 +19,7 @@ export class TablaProdComponent implements OnInit {
    })}
 
   ngOnInit(): void {
-    this.datos = JSON.parse(localStorage.getItem("listaInvProducto")!)
+    this.datos = JSON.parse(localStorage.getItem("listaInvProductoEsp")!)
     console.log("refrecar ", this.datos);
   }
 

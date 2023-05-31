@@ -73,9 +73,9 @@
 
         <!-- PESTAÑA 2 (ELABORACION) -->
         <mat-tab label="Control de Elaboración">
-            <mat-grid-list cols="4" rowHeight="250px">
+            <mat-grid-list cols="6" rowHeight="250px">
 
-                <mat-grid-tile colspan="1" rowspan="2">
+                <mat-grid-tile colspan="2" rowspan="2">
                     <mat-card class="dashboard-card">
                         <mat-card-header>
                             <mat-card-title>
@@ -88,7 +88,7 @@
                     </mat-card>
                 </mat-grid-tile>
 
-                <mat-grid-tile colspan="1" rowspan="2">
+                <mat-grid-tile colspan="2" rowspan="2">
                     <mat-card class="dashboard-card">
                         <mat-card-header>
                             <mat-card-title>
@@ -97,6 +97,19 @@
                         </mat-card-header>
                         <mat-card-content class="dashboard-card-content">.
                             <app-prod-rec></app-prod-rec>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Recetas Embolsadas
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">.
+                            <app-prod-bols></app-prod-bols>
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
@@ -129,34 +142,7 @@
                     </mat-card>
                 </mat-grid-tile>
                 
-
-                
-                <!-- <mat-grid-tile colspan="2" rowspan="2">
-                    <mat-card class="dashboard-card">
-                        <mat-card-header>
-                            <mat-card-title>
-                                Recetas Posibles
-                            </mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="dashboard-card-content">
-                            <li *ngFor="let element of posibles; index as i ">
-                                <mat-card-content class="dashboard-card-content">
-                                    <h1>Producto: {{posibles[i].producto}}</h1>
-                                    <h2>Cantidad de recetas para hacer: {{posibles[i].recetas_posibles}}</h2>
-                                    <h2>Insumo Limitante: {{posibles[i].insumo_limitante}}</h2>
-                                    <hr>
-                                    <br>
-                                </mat-card-content>
-                            </li>
-                        </mat-card-content>
-                    </mat-card>
-                </mat-grid-tile> -->
-
-
-
-
-
-                <mat-grid-tile colspan="4" rowspan="2">
+                <mat-grid-tile colspan="4" rowspan="3">
                     <mat-card class="dashboard-card">
                         <mat-card-header>
                             <mat-card-title>
@@ -169,7 +155,8 @@
                                 <h1>ID hoja de produccion: {{hojaprod[i].id_hoja_produccion}}</h1>
                                 <h2> Receta: {{hojaprod[i].receta}} </h2>
                                 <h2>Cantidad: {{hojaprod[i].cantidad}}</h2>
-                                <h2 *ngIf=" ">Progreso: </h2>
+                                <!-- <h2>Progreso: {{hojaprod[i].progreso}} %</h2> -->
+
                                 <mat-progress-bar class = "mat-progress-bar-custom " mode="determinate"
                                     [value]="this.hojaprod[i].progreso"></mat-progress-bar>
                                 <br>
@@ -181,22 +168,13 @@
                     </mat-card>
                 </mat-grid-tile>
 
-
-
-
-                
-
-
-
-
             </mat-grid-list>
-
-
         </mat-tab>
 
         <!-- PESTAÑA 3 (PRODUCTOS) -->
         <mat-tab label="Control de Productos">
             <mat-grid-list cols="4" rowHeight="250px">
+
 
                 <mat-grid-tile colspan="2" rowspan="2">
                     <mat-card class="dashboard-card">
@@ -210,6 +188,22 @@
                         </mat-card-content>
                     </mat-card>
                 </mat-grid-tile>
+
+                <mat-grid-tile colspan="2" rowspan="2">
+                    <mat-card class="dashboard-card">
+                        <mat-card-header>
+                            <mat-card-title>
+                                Inventario de Productos
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="dashboard-card-content">
+                            <app-product-barr></app-product-barr>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+
+
+
 
             </mat-grid-list>
         </mat-tab>

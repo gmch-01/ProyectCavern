@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-prod-rec',
-  templateUrl: './prod-rec.component.html',
-  styleUrls: ['./prod-rec.component.css']
+  selector: 'app-prod-bols',
+  templateUrl: './prod-bols.component.html',
+  styleUrls: ['./prod-bols.component.css']
 })
-export class ProdRecComponent implements OnInit {
+export class ProdBolsComponent implements OnInit {
 
 
   datos: any
@@ -43,5 +43,6 @@ export class ProdRecComponent implements OnInit {
     }
   
     console.log(this.datosFil, "DATOS DE SOLO PROGRESO  20") 
-   }
+  }
+
 }

@@ -121,7 +121,6 @@ export class TablaHojaProduccionComponent implements OnInit {
         },
         err => console.log(err)
       )
-    console.log(this.hojaprodform)
   }
 
   eliminarDialog(id: string): void {

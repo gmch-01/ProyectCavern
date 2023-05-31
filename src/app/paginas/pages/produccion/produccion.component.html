@@ -1,7 +1,7 @@
 <div class="bodyp">
   <h1 class="mat-h1">PRODUCCIÓN</h1>
 
-<h2> Listado de Produccion</h2>
+<h2> Listado de Produccion de Hoy </h2>
 
   <ul>
 
@@ -65,9 +65,9 @@
             </button>
           </mat-expansion-panel>
 
-          <h1>
+          <h1>ss
             <button mat-raised-button class="myButton"
-              (click)="actualizarProducto(70, this.produccion[i].id_hoja_produccion, this.produccion[i], this.produccion[i].receta);"
+              (click)="actualizarProducto(50, this.produccion[i].id_hoja_produccion, this.produccion[i], this.produccion[i].receta);"
               hideToggle>
               Completar
               <mat-icon mat-list-icon>check</mat-icon>
@@ -82,5 +82,87 @@
     <!-- AQUI EMPIEZNA LOS COMPLETADOS -->
 
   </ul>
+
+  <h2>Lista de Produccion General  </h2>
+  <ul>
+
+    <li *ngFor="let element of produccionHoy; index as i ">
+
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+            ID hoja:  {{this.produccionHoy[i].id_hoja_produccion}}
+            </mat-panel-title>
+            <mat-panel-description>
+            Receta: {{this.produccionHoy[i].receta}}
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <!-- Comienza la Expancion-->
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Recibido de Almacen de Insumos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <h1>{{this.produccionHoy[i].receta}}</h1>
+
+            <a> Peso Recibido:</a>
+
+            <!-- ACA SE EMPIEZA CON EL RELLENO-->
+            <mat-form-field class="input" appearance="fill">
+              <mat-label>Peso en Kilos</mat-label>
+              <input matInput [(ngModel)]="this.produccionHoy[i].peso_recibido" autocomplete="off">
+
+            </mat-form-field>
+            <button mat-raised-button class="myButton"
+              (click)=" nextStep()">
+              Aceptar
+              <mat-icon mat-list-icon>check</mat-icon>
+            </button>
+            <!--HASTA ACA-->
+          </mat-expansion-panel>
+          <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Producto Embolsado
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <h1>{{this.produccionHoy[i].receta}}</h1>
+
+            <a> Cantidad Producto Embolsado:</a>
+
+            <mat-form-field class="input" appearance="fill">
+              <mat-label>Total Embolsado</mat-label>
+              <input matInput [(ngModel)]="this.produccionHoy[i].embolsado" autocomplete="off">
+            </mat-form-field>
+
+            <button mat-raised-button class="myButton"
+              (click)="nextStep()">
+              Aceptar
+              <mat-icon mat-list-icon>check</mat-icon>
+            </button>
+          </mat-expansion-panel>
+
+          <h1>ss
+            <button mat-raised-button class="myButton"
+              (click)="actualizarProducto(50, this.produccionHoy[i].id_hoja_produccion, this.produccionHoy[i], this.produccionHoy[i].receta);"
+              hideToggle>
+              Completar
+              <mat-icon mat-list-icon>check</mat-icon>
+            </button>
+          </h1>
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </li>
+
+    <!-- AQUI EMPIEZNA LOS COMPLETADOS -->
+
+  </ul>
+
 
 </div>
