@@ -30,12 +30,12 @@ export class DonaComponent implements OnInit {
   };
 
   public pieChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
+
     plugins: {
       legend: {
         display: true,
         position: 'top',
-      }
+      }, 
     }
   };
   public doughnutChartType: ChartType = 'doughnut';

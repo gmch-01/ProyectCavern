@@ -64,4 +64,8 @@ getPosible() {
   this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
   this.posibles = Object.values(this.posibles);
 }
+
+imprimirDatos() {
+  window.print();
+}
 }

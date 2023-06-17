@@ -11,7 +11,7 @@ export class ProdBolsComponent implements OnInit {
   datos: any
   datosFil: any
   displayedColumns: string[] = [
-    'ID', 'Receta',  'peso', 'peso_receta'];
+    'ID', 'Receta',  'peso', 'peso_receta', 'porcentaje'];
   constructor() { }
 
   ngOnInit(): void {
@@ -22,11 +22,11 @@ export class ProdBolsComponent implements OnInit {
 
   getColor(value: number) {
     if (value > 90) {
-      return 'rgba(255, 99, 132, 0.5)';
-    } else if (value > 25) {
-      return 'rgba(255, 205, 86, 0.5)';
-    } else if (value <= 20) {
-      return 'rgba(255, 99, 132, 0.5)';
+      return 'green'; //rojo 
+    } else if (value > 80) {
+      return 'yellow'; //amarillo
+    } else if (value <= 70) {
+      return 'red'; //verde
     }
     else {
       return 'none'

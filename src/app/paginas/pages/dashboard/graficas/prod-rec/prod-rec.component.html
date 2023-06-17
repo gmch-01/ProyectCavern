@@ -19,7 +19,7 @@
     
     <ng-container matColumnDef="peso">
       <th mat-header-cell *matHeaderCellDef> Peso Recibido </th>
-      <td mat-cell *matCellDef="let desphoy" [ngStyle]="{'background-color': getColor(desphoy.existencia)}"> {{desphoy.peso_recibido}} kl</td>
+      <td mat-cell *matCellDef="let desphoy" > {{desphoy.peso_recibido}} kl</td>
     </ng-container>
 
 
@@ -27,7 +27,11 @@
       <th mat-header-cell *matHeaderCellDef> Peso Esperado </th>
       <td mat-cell *matCellDef="let desphoy"> {{desphoy.peso_receta}} kl</td>
     </ng-container>
-
+    
+    <ng-container matColumnDef="porcentaje">
+      <th mat-header-cell *matHeaderCellDef> Eficiencia </th>
+      <td mat-cell *matCellDef="let desphoy" [ngStyle]="{'background-color': getColor(desphoy.porcentaje_peso_recibido)}"> {{desphoy.porcentaje_peso_recibido}}%</td>
+    </ng-container>
 
 
     <!-- <ng-container matColumnDef="unidad">

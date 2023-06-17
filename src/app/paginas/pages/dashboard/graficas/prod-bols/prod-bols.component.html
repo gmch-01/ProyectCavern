@@ -14,7 +14,7 @@
     
     <!-- <ng-container matColumnDef="Cantidad">
       <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-      <td mat-cell *matCellDef="let desphoy" [ngStyle]="{'background-color': getColor(desphoy.existencia)}"> {{desphoy.cantidad}} </td>
+      <td mat-cell *matCellDef="let desphoy" > {{desphoy.cantidad}} </td>
     </ng-container> -->
     
     <ng-container matColumnDef="peso">
@@ -26,6 +26,11 @@
     <ng-container matColumnDef="peso_receta">
       <th mat-header-cell *matHeaderCellDef> Peso Esperado </th>
       <td mat-cell *matCellDef="let desphoy"> {{desphoy.cantidad_bolsa}} Bolsas</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="porcentaje">
+      <th mat-header-cell *matHeaderCellDef> Eficiencia </th>
+      <td mat-cell *matCellDef="let desphoy" [ngStyle]="{'background-color': getColor(desphoy.porcentaje_embolsado)}"> {{desphoy.porcentaje_embolsado}} %</td>
     </ng-container>
 
 

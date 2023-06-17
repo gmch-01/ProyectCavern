@@ -175,6 +175,11 @@ export class DashboardComponent implements OnInit {
     this.despachadoshoy = Object.values(this.despachadoshoy);
   }
 
+  
+imprimirDatos() {
+  window.print();
+}
+
 
 
 
