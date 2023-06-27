@@ -14,6 +14,27 @@
 
 
 
+<ul>
+    <li *ngFor="let element of recetaesp; index as i">
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ element.producto }}
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul>
+                    <li *ngFor="let dato of filtrarInsumos(element.producto)">
+                        {{ dato.insumo }} (Cantidad: {{ dato.cantidad }}, Unidad: {{ dato.unidad }})
+                    </li>
+                </ul>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </li>
+</ul>
+
+
+
 <div class="mat-elevation-z8">
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="25" [pageSize]="10" showFirstLastButtons>
     </mat-paginator>
@@ -80,26 +101,25 @@
         <tr mat-row *matRowDef="let row; columns: columnas"></tr>
     </table>
 
-<!--
-    
-  <ul>
-    <li *ngFor="let element of productos; index as i ">
+    <br>
 
-      <mat-accordion>
-        <mat-expansion-panel hideToggle>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              {{this.productos[i].nombre}}
-            </mat-panel-title>
-        </mat-expansion-panel-header>
-        <li *ngIf = "this.productos[i].nombre == this.datos.productos">
-            {{this.datos.insumos}}
+    <!-- <ul>
+        <li *ngFor="let element of recetaesp; index as i ">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{this.recetaesp[i].producto}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+            <li *ngIf="this.productos[i].producto == this.recetaesp[i].producto">
+            {{this.productos.insumo}}
+            </li>
+                </mat-expansion-panel>
+            </mat-accordion>
         </li>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </li>
+    </ul> -->
 
-     AQUI EMPIEZNA LOS COMPLETADOS 
 
-  </ul>-->
+
 </div>

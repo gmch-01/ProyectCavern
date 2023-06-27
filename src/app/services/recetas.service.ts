@@ -13,6 +13,9 @@ export class RecetasService {
     getReceta() {
         return this.http.get(`${this.API_URI}/recetas`)
     }
+    getRecetaEsp() {
+        return this.http.get(`${this.API_URI}/recetas/esp`)
+    }
 
     getRecetaid(id: string) {
         return this.http.get<Receta>(`${this.API_URI}/recetas/${id}`);

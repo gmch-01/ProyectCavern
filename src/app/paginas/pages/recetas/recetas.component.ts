@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../../../services/recetas.service'
-import {ProductosService} from  '../../../services/productos.service'
+import { ProductosService } from '../../../services/productos.service'
 
 
 @Component({
@@ -11,6 +11,7 @@ import {ProductosService} from  '../../../services/productos.service'
 export class RecetasComponent implements OnInit {
 
   recetas: any;
+  recetasEsp: any;
   producto: any;
   constructor(private recetasService: RecetasService,
     private productosService: ProductosService) { }
@@ -18,6 +19,7 @@ export class RecetasComponent implements OnInit {
   ngOnInit(): void {
     this.getRecetas()
     this.getProductos()
+    this.getRecetasEsp()
   }
 
   getRecetas() {
@@ -26,6 +28,18 @@ export class RecetasComponent implements OnInit {
         this.recetas = res;
         localStorage.setItem("listaReceta", JSON.stringify(this.recetas));
         console.log(this.recetas);
+      },
+
+      err => console.error(err)
+    )
+  }
+
+  getRecetasEsp() {
+    this.recetasService.getRecetaEsp().subscribe(
+      res => {
+        this.recetasEsp = res;
+        localStorage.setItem("listaRecetaEsp", JSON.stringify(this.recetasEsp));
+        console.log(this.recetasEsp);
       },
 
       err => console.error(err)
@@ -46,7 +60,7 @@ export class RecetasComponent implements OnInit {
   }
 
   getInsumos() {
-    
+
   }
 
 }

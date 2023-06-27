@@ -12,11 +12,11 @@
 
 
     <mat-form-field class="input" appearance="fill">
-        <mat-label >Cantidad</mat-label>
-        
+        <mat-label>Cantidad</mat-label>
+
         <input matInput [(ngModel)]="datacompleto.cantidad" autocomplete="off">
     </mat-form-field>
-    
+
     <mat-form-field class="input" appearance="fill">
         <mat-label>Fecha Hoja</mat-label>
         <input matInput [(ngModel)]="datacompleto.fecha_hoja" autocomplete="off">
@@ -33,7 +33,7 @@
     <button mat-button (click)="onCancel()">Cerrar</button>
     <span class="spacer"></span>
     <ng-template>
-        
+
     </ng-template>
     <button mat-button *ngIf="(this.datacompleto )" [mat-dialog-close]="datacompleto" class="mybutton">Guardar</button>
 </div>

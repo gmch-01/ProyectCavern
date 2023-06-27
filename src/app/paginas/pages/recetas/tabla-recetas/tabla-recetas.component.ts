@@ -27,6 +27,7 @@ export class TablaRecetasComponent implements OnInit {
   ];
 
   datos: any;
+  recetaesp: any;
   productos: any;
 
   dataSource: any;
@@ -52,9 +53,8 @@ export class TablaRecetasComponent implements OnInit {
   ngOnInit() {
     this.datos = JSON.parse(localStorage.getItem("listaReceta")!)
     console.log("llego ", this.datos);
-    this.productos = JSON.parse(localStorage.getItem("listaProductoR")!)
-    console.log("llego ", this.datos);
-
+    this.recetaesp = JSON.parse(localStorage.getItem("listaRecetaEsp")!)
+    console.log("llego ESPECIAL", this.recetaesp);
   }
 
   announceSortChange(sortState: Sort) {
@@ -75,8 +75,9 @@ export class TablaRecetasComponent implements OnInit {
       console.log('The dialog was closed');
       this.recetaform = result;
       console.log(this.recetaform);
-      if(result){
-      this.saveReceta();}
+      if (result) {
+        this.saveReceta();
+      }
     });
   }
   saveReceta() {
@@ -100,6 +101,9 @@ export class TablaRecetasComponent implements OnInit {
   }
 
   listar(producto: string) {
+  }
+  filtrarInsumos(producto: string) {
+    return this.datos.filter((dato: any) => dato.producto === producto);
   }
 
 
