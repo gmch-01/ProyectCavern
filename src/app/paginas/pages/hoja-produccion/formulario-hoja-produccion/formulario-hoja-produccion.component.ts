@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HojaProduccion } from '../../../../models/HojaProduccion';
 import { Receta } from '../../../../models/Receta';
 import Swal from 'sweetalert2'
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 @Component({
   selector: 'app-formulario-hoja-produccion',
   templateUrl: './formulario-hoja-produccion.component.html',
@@ -13,7 +14,7 @@ export class FormularioHojaProduccionComponent implements OnInit {
   selected = this.data.id_receta
   datacompleto: HojaProduccion
   control: any
- 
+
 
   constructor(
     private _fb: FormBuilder,
@@ -23,9 +24,9 @@ export class FormularioHojaProduccionComponent implements OnInit {
     console.log(data)
     this.datacompleto = { id_receta: this.selected, cantidad: this.data.cantidad, fecha_hoja: this.data.fecha_hoja, encargado: this.data.encargado }
   }
-  ngOnInit(): void {    
+  ngOnInit(): void {
     this.control = JSON.parse(localStorage.getItem("Control")!)
-  console.log("llego EL CONTROL", this.control);
+    console.log("llego EL CONTROL", this.control);
 
   }
   posibles: any;
@@ -36,7 +37,7 @@ export class FormularioHojaProduccionComponent implements OnInit {
   agregar() {
     console.log('si se puede');
   }
-  consulta(){
+  consulta() {
     this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
     this.posibles = Object.values(this.posibles);
     Swal.fire(
@@ -45,5 +46,7 @@ export class FormularioHojaProduccionComponent implements OnInit {
       'question'
     )
   }
+
+
 
 }

@@ -44,7 +44,7 @@ export class ListarComponent {
     public dialog: MatDialog,) {
     this.insumoService.getInsumo().subscribe(x => {
       this.datos = this.datos;
-      console.log(this.datos)
+      console.log(this.datos, " esto es de la tabla")
     })
 
   }

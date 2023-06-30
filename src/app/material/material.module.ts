@@ -29,6 +29,8 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 
 import { FormularioComponent } from '../paginas/pages/titulo/formulario/formulario.component';
@@ -69,7 +71,8 @@ import { FormularioComponent } from '../paginas/pages/titulo/formulario/formular
     CdkAccordionModule,
     MatSelectModule,
     MatProgressBarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
   ]
 })
 export class MaterialModule { }

@@ -1,10 +1,11 @@
 <!-- <app-titulo></app-titulo> -->
-
+<button mat-raised-button (click)="imprimirDatos()">Imprimir</button>
 <div class="body">
   <div class="bodyx">
     <mat-form-field class="anchox" appearance="fill" hideRequiredMarker>
       <mat-label>Buscar</mat-label>
-      <input type="text" matInput autocomplete="off" [(ngModel)]="filtro" (input)="filtrarTabla()" busqueda (keyup)="filtrarTabla()">
+      <input type="text" matInput autocomplete="off" [(ngModel)]="filtro" (input)="filtrarTabla()" busqueda
+        (keyup)="filtrarTabla()">
     </mat-form-field>
   </div>
   <button mat-raised-button class="myButtonAdd" (click)="openDialog()">
@@ -21,8 +22,8 @@
   </mat-paginator>
   <br />
 
-  <table mat-table [dataSource]="datosFiltrados" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8"
-    #tabla1>
+  <table mat-table [dataSource]="datosFiltrados" matSort (matSortChange)="announceSortChange($event)" id="Tablaprod">
+    class="mat-elevation-z8" #tabla1>
     <!-- Position Column -->
     <ng-container matColumnDef="id_hoja_produccion">
       <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
@@ -67,7 +68,8 @@
     <ng-container matColumnDef="accion">
       <th mat-header-cell *matHeaderCellDef>Acción</th>
       <td mat-cell *matCellDef="let hojaprod">
-        <button mat-raised-button class="myButton" (click)="openEdit(hojaprod.id_hoja_produccion, hojaprod, hojaprod.receta)">
+        <button mat-raised-button class="myButton"
+          (click)="openEdit(hojaprod.id_hoja_produccion, hojaprod, hojaprod.receta)">
           Editar
           <mat-icon mat-list-icon>edit</mat-icon>
         </button>
@@ -79,7 +81,7 @@
       <td mat-cell *matCellDef="let hojaprod">
         <button mat-raised-button class="myButton" (click)="eliminarDialog(hojaprod.id_hoja_produccion)">
           Eliminar
-          <mat-icon mat-list-icon>edit</mat-icon>
+          <mat-icon mat-list-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>

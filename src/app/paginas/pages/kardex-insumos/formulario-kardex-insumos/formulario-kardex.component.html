@@ -4,7 +4,7 @@
     <p>Ingrese los datos</p>
 
     <mat-form-field class="input" appearance="fill">
-        <mat-label>Fecha Entrada</mat-label>
+        <mat-label>Fecha Entrada (yyyy/mm/dd)</mat-label>
         <input matInput [(ngModel)]="data.fecha_entrada" autocomplete="off">
     </mat-form-field>
 
@@ -14,13 +14,17 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Producto</mat-label>
+        <mat-label>Insumo</mat-label>
         <mat-select [(value)]="data.id_insumo">
 
 
             <mat-option value="10001">Harina</mat-option>
             <mat-option value="10002">Levadura</mat-option>
             <mat-option value="10003">Azucar</mat-option>
+            <mat-option value="10004">Manteca</mat-option>
+            <mat-option value="10005">Gluten</mat-option>
+            <mat-option value="10006">Antimoho</mat-option>
+
 
         </mat-select>
     </mat-form-field>

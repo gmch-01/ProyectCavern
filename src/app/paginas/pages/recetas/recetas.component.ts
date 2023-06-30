@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../../../services/recetas.service'
 import { ProductosService } from '../../../services/productos.service'
-
+import { InsumosService } from 'src/app/services/insumos.service';
 
 @Component({
   selector: 'app-recetas',
@@ -13,8 +13,10 @@ export class RecetasComponent implements OnInit {
   recetas: any;
   recetasEsp: any;
   producto: any;
+  insumo: any;
   constructor(private recetasService: RecetasService,
-    private productosService: ProductosService) { }
+    private productosService: ProductosService,
+    private InsumoService: InsumosService) { }
 
   ngOnInit(): void {
     this.getRecetas()
@@ -51,7 +53,7 @@ export class RecetasComponent implements OnInit {
       res => {
         this.producto = res;
         localStorage.setItem("listaProductoR", JSON.stringify(this.producto));
-        console.log(this.producto);
+        console.log(this.producto, "ESTOS PRODUCTOS ? 2");
       },
 
       err => console.error(err)
@@ -60,7 +62,14 @@ export class RecetasComponent implements OnInit {
   }
 
   getInsumos() {
+    this.InsumoService.getInsumo().subscribe(
+      res => {
+        this.insumo = res;
+        localStorage.setItem("listaInsumo", JSON.stringify(this.insumo));
+        console.log(this.insumo);
+      },
 
+      err => console.error(err)
+    )
   }
-
 }

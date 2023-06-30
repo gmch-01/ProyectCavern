@@ -12,21 +12,19 @@
         <mat-label>Productos</mat-label>
         <mat-select [(value)]="datacompleto.id_producto">
 
-
-            <mat-option value="20001">Pan Molde</mat-option>
-            <mat-option value="20002">Sarnita</mat-option>
-
+            <mat-option *ngFor="let producto of productos" [value]="producto.id_producto">
+                {{ producto.nombre }}
+            </mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-        <mat-label>Insumos</mat-label>
+        <mat-label>Insumo</mat-label>
         <mat-select [(value)]="datacompleto.id_insumo">
 
-
-            <mat-option value="10001">Harina</mat-option>
-            <mat-option value="10002">Levadura</mat-option>
-
+            <mat-option *ngFor="let insumo of insumo" [value]="insumo.id_producto">
+                {{ insumo.nombre }}
+            </mat-option>
         </mat-select>
     </mat-form-field>
 

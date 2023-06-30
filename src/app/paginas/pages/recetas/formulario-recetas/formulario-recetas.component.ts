@@ -25,8 +25,12 @@ export class FormularioRecetasComponent implements OnInit {
     console.log(data)
     this.datacompleto = { id_receta: this.data.id_receta, id_producto: this.selected, id_insumo: this.data.id_insumo, cantidad: this.data.cantidad }
   }
-
+  productos: any;
+  insumo: any
   ngOnInit(): void {
+    this.productos = JSON.parse(localStorage.getItem("listaProductoR")!)
+    this.insumo = JSON.parse(localStorage.getItem("listaInsumo")!)
+    console.log("llego ESPECIAL iNSUMO", this.insumo);
   }
 
   onCancel(): void {

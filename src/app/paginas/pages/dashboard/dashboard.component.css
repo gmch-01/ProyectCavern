@@ -37,6 +37,11 @@
 }
 
 .mat-progress-bar-custom {
-    height: 30px; /* Ajusta la altura de la barra */
-   /* width: 400px; /* Ajusta el ancho de la barra */
-  }
+    height: 30px;
+    /* Ajusta la altura de la barra */
+    /* width: 400px; /* Ajusta el ancho de la barra */
+}
+
+.titulo {
+    text-align: center;
+}

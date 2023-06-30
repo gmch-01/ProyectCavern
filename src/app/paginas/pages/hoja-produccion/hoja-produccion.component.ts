@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HojaProduccionService} from 'src/app/services/hojaproduccion.service'
-import { ControlUnoService} from 'src/app/services/controluno.service'
+import { HojaProduccionService } from 'src/app/services/hojaproduccion.service'
+import { ControlUnoService } from 'src/app/services/controluno.service'
 import { PosiblesService } from 'src/app/services/posibles.service';
 
 
@@ -19,7 +19,7 @@ export class HojaProduccionComponent implements OnInit {
   constructor(private HojaProduccionService: HojaProduccionService,
     private ControlUnoService: ControlUnoService,
     private PosiblesService: PosiblesService) { }
-  
+
   ngOnInit(): void {
     console.log("entro");
     this.getHojaProd();
@@ -36,7 +36,7 @@ export class HojaProduccionComponent implements OnInit {
 
       err => console.error(err)
     )
-    
+
   }
 
   getControl() {
@@ -47,25 +47,23 @@ export class HojaProduccionComponent implements OnInit {
         console.log(this.control);
       },
 
-  err => console.error(err)
-  )
-}
+      err => console.error(err)
+    )
+  }
 
-getPosible() {
-  this.PosiblesService.getPosibles().subscribe(
-    res => {
-      this.posibles = res;
-      localStorage.setItem("listaPosibles", JSON.stringify(this.posibles));
-    },
+  getPosible() {
+    this.PosiblesService.getPosibles().subscribe(
+      res => {
+        this.posibles = res;
+        localStorage.setItem("listaPosibles", JSON.stringify(this.posibles));
+      },
 
-    err => console.error(err)
-  )
+      err => console.error(err)
+    )
 
-  this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
-  this.posibles = Object.values(this.posibles);
-}
+    this.posibles = JSON.parse(localStorage.getItem("listaPosibles")!)
+    this.posibles = Object.values(this.posibles);
+  }
 
-imprimirDatos() {
-  window.print();
-}
+
 }

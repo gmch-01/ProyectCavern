@@ -1,7 +1,7 @@
 <div class="bodyp">
   <h1 class="mat-h1">PRODUCCIÓN</h1>
 
-<h2> Listado de Produccion de Hoy </h2>
+  <h2> Listado de Produccion de Hoy </h2>
 
   <ul>
 
@@ -12,10 +12,10 @@
         <mat-expansion-panel hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-            ID hoja:  {{this.produccion[i].id_hoja_produccion}}
+              ID hoja: {{this.produccion[i].id_hoja_produccion}}
             </mat-panel-title>
             <mat-panel-description>
-            Receta: {{this.produccion[i].receta}}
+              Receta: {{this.produccion[i].receta}}
 
             </mat-panel-description>
           </mat-expansion-panel-header>
@@ -36,8 +36,7 @@
               <input matInput [(ngModel)]="this.produccion[i].peso_recibido" autocomplete="off">
 
             </mat-form-field>
-            <button mat-raised-button class="myButton"
-              (click)=" nextStep()">
+            <button mat-raised-button class="myButton" (click)=" nextStep()">
               Aceptar
               <mat-icon mat-list-icon>check</mat-icon>
             </button>
@@ -58,14 +57,13 @@
               <input matInput [(ngModel)]="this.produccion[i].embolsado" autocomplete="off">
             </mat-form-field>
 
-            <button mat-raised-button class="myButton"
-              (click)="nextStep()">
+            <button mat-raised-button class="myButton" (click)="nextStep()">
               Aceptar
               <mat-icon mat-list-icon>check</mat-icon>
             </button>
           </mat-expansion-panel>
 
-          <h1>ss
+          <h1>
             <button mat-raised-button class="myButton"
               (click)="actualizarProducto(50, this.produccion[i].id_hoja_produccion, this.produccion[i], this.produccion[i].receta);"
               hideToggle>
@@ -83,7 +81,7 @@
 
   </ul>
 
-  <h2>Lista de Produccion General  </h2>
+  <h2>Lista de Produccion General </h2>
   <ul>
 
     <li *ngFor="let element of produccionHoy; index as i ">
@@ -93,10 +91,10 @@
         <mat-expansion-panel hideToggle>
           <mat-expansion-panel-header>
             <mat-panel-title>
-            ID hoja:  {{this.produccionHoy[i].id_hoja_produccion}}
+              ID hoja: {{this.produccionHoy[i].id_hoja_produccion}}
             </mat-panel-title>
             <mat-panel-description>
-            Receta: {{this.produccionHoy[i].receta}}
+              Receta: {{this.produccionHoy[i].receta}}
 
             </mat-panel-description>
           </mat-expansion-panel-header>
@@ -117,8 +115,7 @@
               <input matInput [(ngModel)]="this.produccionHoy[i].peso_recibido" autocomplete="off">
 
             </mat-form-field>
-            <button mat-raised-button class="myButton"
-              (click)=" nextStep()">
+            <button mat-raised-button class="myButton" (click)=" nextStep()">
               Aceptar
               <mat-icon mat-list-icon>check</mat-icon>
             </button>
@@ -139,8 +136,7 @@
               <input matInput [(ngModel)]="this.produccionHoy[i].embolsado" autocomplete="off">
             </mat-form-field>
 
-            <button mat-raised-button class="myButton"
-              (click)="nextStep()">
+            <button mat-raised-button class="myButton" (click)="nextStep()">
               Aceptar
               <mat-icon mat-list-icon>check</mat-icon>
             </button>

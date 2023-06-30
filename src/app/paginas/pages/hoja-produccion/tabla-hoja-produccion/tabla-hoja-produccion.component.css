@@ -47,3 +47,24 @@ th.mat-sort-header-sorted {
     width: 100%;
     padding-top: 15px;
 }
+
+@media print {
+
+    /* Estilos para el encabezado */
+    .encabezado {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Estilos para la tabla */
+    .tabla {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .tabla th,
+    .tabla td {
+        border: 1px solid black;
+        padding: 8px;
+    }
+}
